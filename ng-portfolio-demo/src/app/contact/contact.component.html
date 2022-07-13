@@ -1,0 +1,60 @@
+<div class="contactContainer">
+  <app-header [contactActive]="true"></app-header>
+  <main>
+    <div class="desc-wrap">
+      <h2>GET IN TOUCH</h2>
+      <p>Here's some ways you can contact me.</p>
+      <ul>
+        <li ><a href="mailto:yukayamamoto0820@gmail.com">Email</a></li>
+        <li ><a href="https://www.linkedin.com/in/yuka-yamamoto-7a422421b/" target="_blank">LinkedIn</a></li>
+        <li ><a href="tel:" target="_blank">Phone</a></li>
+      </ul>
+    </div>
+    <div class="form-wrap">
+    <form>
+      <div class="mb-3">
+        <label for="name">What's Your Name?</label>
+        <input
+          [(ngModel)]="name"
+          name="name"
+          type="text"
+          class="form-control"
+          id="name"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">What's Your Email?</label>
+        <input
+          [(ngModel)]="email"
+          name="email"
+          type="email"
+          class="form-control"
+          id="email"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea
+          [(ngModel)]="message"
+          name="message"
+          class="form-control"
+          id="message"
+          cols="3"
+          rows="5"
+        ></textarea>
+      </div>
+      <re-captcha
+      (resolved)="resolved($event)"
+        siteKey="6Le2PucgAAAAAFurFKiZQbacYvL3n8N8AiGKXyaR"
+      ></re-captcha>
+      <button type="submit" class="btn" (click)="submit()" [disabled]="formInValid">
+        Send Message
+      </button>
+      <div class="mt-3" [hidden]="formMessageHidden">
+        Thank you for contacting me, {{name}}. I will get in touch with you soon!
+      </div>
+    </form>
+  </div>
+  </main>
+<footer> <small>&copy;Yuka Yamamoto. 2022.</small></footer>
+</div>

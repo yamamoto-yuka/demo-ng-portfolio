@@ -1,0 +1,64 @@
+<div class="projectsContainer">
+  <app-header [projectsActive]="true"></app-header>
+
+  <main #main>
+    <div class="categories">
+      <div [class.active]="isSmCategoryActive" class="categories-inner">
+        <div class="categories-items">
+          <p>categories</p>
+          <ul class="category-list">
+            <li (click)="allList()" [class.active]="activeAll">ALL PROJECTS</li>
+            <li (click)="developmentList()" [class.active]="activeDevelopment">
+              DEVELOPMENT
+            </li>
+            <li (click)="caseStudyList()" [class.active]="activeCaseStudy">
+              CASE STUDY
+            </li>
+            <li (click)="othersList()" [class.active]="activeOther">OTHERS</li>
+          </ul>
+        </div>
+      </div>
+
+      <div *ngIf="smBtnShow; else smBtnClose">
+        <button (click)="categoryBtn()" class="categories-btn">
+          categories
+        </button>
+      </div>
+      <ng-template #smBtnClose>
+        <button (click)="categoryBtn()" class="categories-btn">close</button>
+      </ng-template>
+    </div>
+
+    <section
+      *ngFor="let project of projects"
+      [class.active]="project.display"
+      [routerLink]="project.path"
+    >
+      <div #headline class="headline-wrap">
+        <h2>{{ project.title }}</h2>
+
+        <div class="description-wrap">
+          <div class="desctiption">
+            <p>ROLES</p>
+            <ul *ngFor="let roles of project.roles">
+              <li>{{ roles.role }}</li>
+            </ul>
+          </div>
+
+          <div class="desctiption">
+            <p>SKILL</p>
+            <ul *ngFor="let skills of project.skills">
+              <li>{{ skills.skill }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div #imgWrap class="img-wrap">
+        <img [src]="project.img" alt="" />
+      </div>
+    </section>
+  </main>
+
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,15 @@
+li{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.img-wrap{
+  height: 100px;
+  width: 100%;
+  img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}

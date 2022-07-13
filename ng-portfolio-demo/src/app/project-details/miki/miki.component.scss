@@ -1,0 +1,16 @@
+@import "../../../styles.scss";
+
+.details-container {
+  @include FlexColumn();
+  height: 100vh;
+  background-color: $bg;
+}
+
+app-header,
+app-footer {
+  flex-grow: 0;
+}
+
+project-detail {
+  flex-grow: 1;
+}

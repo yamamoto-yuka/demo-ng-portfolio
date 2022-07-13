@@ -1,0 +1,35 @@
+@import "../../styles.scss";
+
+footer {
+  height: 30vh;
+  @include centerCenter($j:flex-end);
+  flex-direction: column;
+  background-color: $bg;
+  ul {
+    width: fit-content;
+    display: flex;
+    border-top: 1px solid $black;
+    border-bottom: 1px solid $black;
+    li {
+      font-size: 1rem;
+      font-weight: bold;
+      a {
+        color: $black;
+        transition: all .5s ease-in-out;
+      }
+      a:hover,
+      a:active {
+        font-weight: bold;
+        color: white;
+      }
+    }
+    li:nth-child(2) {
+      margin: 0 1rem;
+    }
+  }
+}
+
+small {
+  margin:2rem 0 1rem 0;
+  @include centerCenter();
+}

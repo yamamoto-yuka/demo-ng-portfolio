@@ -1,0 +1,250 @@
+@import "../../styles.scss";
+
+.projectsContainer {
+  @include FlexColumn();
+  padding: 1rem 1.5rem;
+  background: $bg;
+}
+
+// Header
+app-header {
+  flex-grow: 0;
+}
+
+// Categories
+.categories {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+
+.categories-inner {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+  z-index: 2;
+}
+
+.categories-items {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  p{
+    color: white;
+  }
+  li {
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: "Sora", sans-serif;
+    transition: all .5s ease-in-out;
+  }
+  li:hover, li:active{
+    color: white;
+  }
+}
+
+li.active{
+  color: white;
+}
+
+.categories-inner.active {
+  display: block;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.494);
+}
+
+.categories-wrap.active {
+  display: block;
+}
+
+.categories-btn {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #d9d9d9;
+  background-color: $black;
+  border: transparent;
+  border-radius: 3px;
+  z-index: 3;
+}
+
+// Main
+main {
+  flex-grow: 1;
+  margin-top: 10vh;
+}
+
+section.active{
+  opacity: 1;
+  display: flex;
+}
+
+section {
+  height: 70vh;
+  width: 100%;
+  position: relative;
+  flex-direction: column-reverse;
+  justify-content: space-evenly;
+  overflow: hidden;
+  z-index: 1;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+  display: none;
+  cursor: pointer;
+}
+
+.img-wrap {
+  height: 40%;
+  width: 1px;
+  opacity: 0;
+}
+
+.img-wrap.active {
+  width: 100%;
+  opacity: 1;
+  transition: opacity 1s, width 2s;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.5);
+}
+
+.img-wrap.active > img {
+  transform: scale(1);
+  transition: all 1s ease-out;
+}
+
+.headline-wrap {
+  @include centerCenter($a: flex-start);
+  flex-direction: column;
+  padding-top: 2rem;
+  transition: all 0.2s;
+  opacity: 0;
+  h2 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+  .description-wrap {
+    @include centerCenter();
+    padding-top: 1rem;
+    p,li {
+      font-size: 0.8rem;
+    }
+    p{
+      font-weight: bold;
+    }
+    .desctiption:first-child {
+      margin-right: 2rem;
+    }
+  }
+}
+
+.headline-wrap.active {
+  opacity: 1;
+  transition: all 3s ease-in-out;
+}
+
+// Footer
+footer {
+  flex-grow: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .projectsContainer {
+    padding: 3.5rem 1.5rem;
+  }
+
+
+}
+
+@media screen and (min-width: 1024px) {
+  .projectsContainer {
+    padding: 3.5rem 4.5rem 1rem 4.5rem;
+  }
+
+  // Categories
+  .categories {
+    height: initial;
+    width: 100%;
+    position: initial;
+  }
+
+  .categories-inner {
+    display: flex;
+    justify-content: center;
+    position: initial;
+    height: initial;
+    width: 100%;
+    opacity: 1;
+  }
+
+  .categories-items {
+    p{
+      color: $black;
+    }
+    position: initial;
+    transform: initial;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .categories-btn {
+    display: none;
+  }
+
+
+  section {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .img-wrap {
+    width: 1px;
+    height: 40vh;
+    overflow: hidden;
+  }
+
+  .img-wrap.active {
+    width: 40%;
+  }
+
+  .headline-wrap {
+    width: 30%;
+    height: 40vh;
+    @include centerCenter($j: flex-end, $a: flex-start);
+    h2,
+    p {
+
+      font-weight: bold;
+      font-family: "Sora", sans-serif;
+    }
+    .description-wrap {
+      li {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+
+}
+
+@media screen and (min-width: 1920px) {
+  .projectsContainer {
+    padding: 3.5rem 8.5rem 1rem 8.5rem;
+  }
+}

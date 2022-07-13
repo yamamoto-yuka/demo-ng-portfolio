@@ -1,0 +1,113 @@
+@import "../../styles.scss";
+
+.contactContainer {
+  @include FlexColumn();
+  background-color: $bg;
+  overflow: hidden;
+}
+
+app-header,
+footer {
+  flex-grow: 0;
+}
+
+main {
+  min-height: 80vh;
+  margin-top: 10vh;
+  padding: 3rem 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column-reverse;
+  .desc-wrap {
+    margin-top: 2rem;
+    @include centerCenter();
+    flex-direction: column;
+    text-align: center;
+    h2 {
+      font-size: 3rem;
+      font-weight: bold;
+      font-family: "Sora", sans-serif;
+    }
+    p{
+      font-size: .8rem;
+      margin-bottom: 1rem;
+    }
+    ul {
+      width: fit-content;
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid $black;
+      border-bottom: 1px solid $black;
+      li {
+        font-size: 1rem;
+        font-weight: bold;
+        a {
+          color: $black;
+          transition: all 0.5s ease-in-out;
+        }
+        a:hover,
+        a:active {
+          font-weight: bold;
+          color: white;
+        }
+      }
+      li:nth-child(2) {
+        margin: 0 1rem;
+      }
+    }
+  }
+  .form-wrap {
+    padding-top: 1rem;
+    input {
+      padding: 10px;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 10px;
+      background-color: transparent;
+      border: 1px solid $black;
+      border-radius: 10px;
+      color: $black;
+      transition: all 0.5s ease-in-out;
+    }
+    button:hover,
+    button:active {
+      background-color: $black;
+      color: white;
+    }
+  }
+}
+
+footer {
+  height: 10vh;
+   small {
+    @include centerCenter();
+  }
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    padding: 5rem 5rem;
+    .desc-wrap {
+      h2 {
+        font-size: 4rem;
+      }
+    }
+  }
+}
+@media screen and (min-width: 1024px) {
+  main {
+    padding: 3rem 10rem;
+    @include centerCenter($j: space-between, $a: flex-start);
+    flex-direction: row;
+    .desc-wrap {
+      width: 30%;
+      h2 {
+        font-size: 5rem;
+      }
+    }
+    .form-wrap {
+      width: 60%;
+    }
+  }
+}

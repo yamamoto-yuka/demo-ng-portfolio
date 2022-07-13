@@ -1,0 +1,11 @@
+<ul>
+  <li *ngFor="let myskill of myskills">
+    <p [title]="myskill.attributes.SkillName"></p>
+    <div class="img-wrap">
+    <img  [src]=" server + myskill.attributes.SkillLogo.data[0].attributes.url" alt="">
+  </div>
+  <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+    Tooltip on top
+  </button>
+  </li>
+</ul>

@@ -1,0 +1,127 @@
+@import "../../../styles.scss";
+
+.project-detailContainer {
+  margin-top: 20vh;
+  background-color: $bg;
+}
+
+.headline-wrap,
+.description-wrap,
+section,
+.page-nav ul {
+  @include centerCenter();
+}
+
+// Client Description
+.headline-wrap {
+  flex-direction: column;
+  margin-bottom: 3rem;
+
+  h1,
+  .link,
+  .description-wrap {
+    margin-bottom: 1rem;
+  }
+
+  h1,
+  .link,
+  .description p {
+    font-weight: bold;
+    font-family: "Sora", sans-serif;
+  }
+
+  .link a,
+  .description-wrap p,
+  .description-wrap li,
+  .clientDescription {
+    font-size: 0.8rem;
+  }
+
+  h1 {
+    border-top: 1px solid $black;
+    border-bottom: 1px solid $black;
+  }
+
+  .link {
+    a {
+      color: $black;
+      transition: all 0.5s ease-in-out;
+    }
+    a:hover {
+      color: white;
+    }
+  }
+
+  .description-wrap {
+    .description {
+      margin-right: 1rem;
+    }
+    .description:nth-child(2) {
+      margin-right: 0;
+    }
+  }
+
+  .clientDescription {
+    width: 50%;
+  }
+}
+
+// Image Section
+section {
+  height: 80vh;
+  width: 100%;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  .img-wrap {
+    height: 80%;
+    width: 1px;
+    opacity: 0;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.27);
+      transform: scale(1.5);
+    }
+  }
+  .img-wrap.active {
+    width: 80%;
+    opacity: 1;
+    transition: opacity 1s, width 2s;
+  }
+  .img-wrap.active > img {
+    transform: scale(1);
+    transition: all 1s ease-out;
+  }
+}
+
+// Page Navigation
+.page-nav {
+  ul {
+    justify-content: space-around;
+    li {
+      width: 10%;
+      text-align: center;
+
+      a {
+        color: $black;
+        font-family: "Sora", sans-serif;
+        transition: all 0.5s ease-in-out;
+      }
+      a:hover,
+      a:active {
+        font-weight: bold;
+        color: white;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .headline-wrap {
+    .clientDescription {
+      width: 30%;
+    }
+  }
+}

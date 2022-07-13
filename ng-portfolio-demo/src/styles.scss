@@ -1,0 +1,71 @@
+// Font
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+
+// Mixin
+@mixin centerCenter($j:center, $a:center) {
+  display: flex;
+  justify-content:$j;
+  align-items: $a;
+}
+
+@mixin  FlexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+// CTAs
+@mixin cta($color:white) {
+  color: $color;
+}
+
+@mixin catHoverActive() {
+  font-weight: 900;
+  transition: all 300ms ease-in-out;
+}
+
+@mixin catAfterBefore($border-color: white) {
+  border: 1px solid $border-color;
+  bottom: 0px;
+  content: "";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  transition: all 300ms ease-in-out;
+  width: 0%;
+}
+
+@mixin catHoverAfterBefore($border-color: white,  $width:70% ) {
+  border-color: $border-color;
+  transition: width 300ms ease-in-out;
+  width: $width;
+}
+
+@mixin catHoverBefore($width:70%) {
+  bottom: auto;
+  top: 0;
+  width: $width;
+}
+
+$black: #0d0d0d;
+$bg: #d9d9d9;
+
+// Base
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+}
+
+// .wrap {
+//   height: 100vh;
+// }
+
+a {
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+}

@@ -1,0 +1,52 @@
+<div class="project-detailContainer">
+
+  <div class="bg"></div>
+  <div class="headline-wrap">
+
+    <h1>Miki</h1>
+
+    <div class="link"><a href="">VISIT SITE</a></div>
+
+    <div class="description-wrap">
+      <div class="description">
+        <p>ROLES</p>
+        <ul>
+          <li>roles</li>
+          <li>roles</li>
+          <li>roles</li>
+        </ul>
+      </div>
+
+      <div class="description">
+        <p>SKILL</p>
+        <ul>
+          <li>skill</li>
+          <li>skill</li>
+          <li>skill</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="clientDescription">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui modi
+      molestias, quia explicabo deleniti beatae atque quaerat aut voluptas
+      placeat voluptate. 
+    </p>
+  </div>
+
+  
+
+  <section  *ngFor="let item of project">
+    <div #imgWrap class="img-wrap">
+      <img [src]="item.img" alt="" />
+    </div>
+  </section>
+
+  <div class="page-nav">
+    <ul>
+      <li><a href="">Previous</a></li>
+      <li><a href="">More Projects</a></li>
+      <li><a href="">Next</a></li>
+    </ul>
+  </div>
+</div>
