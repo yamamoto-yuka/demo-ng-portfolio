@@ -108,11 +108,11 @@ export class HomeComponent implements OnInit {
     this.timelineAnimation();
 
     let navigateToAbout = () => {
-      this.router.navigate(['about']);
+      this.router.navigate(['about-me']);
     };
 
     let navigateToProjects = () => {
-      this.router.navigate(['projects']);
+      this.router.navigate(['project']);
     };
 
     this.about.nativeElement.addEventListener('click', () => {

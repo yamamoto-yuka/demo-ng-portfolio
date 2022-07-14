@@ -1,7 +1,19 @@
 @import "../../../styles.scss";
 
-.project-detailContainer {
-  margin-top: 20vh;
+.details-container {
+  @include FlexColumn();
+  height: 100vh;
+  background-color: $bg;
+}
+
+app-header,
+app-footer {
+  flex-grow: 0;
+}
+
+main {
+  flex-grow: 1;
+  margin-top: 10vh;
   background-color: $bg;
 }
 
@@ -94,16 +106,16 @@ section {
     transform: scale(1);
     transition: all 1s ease-out;
   }
+
+  .img-wrap.inactive {
+    opacity: 0;
+    transition: opacity 1s, width 2s;
+  }
 }
 
 // Page Navigation
 .page-nav {
-  ul {
-    justify-content: space-around;
-    li {
-      width: 10%;
-      text-align: center;
-
+   @include centerCenter();
       a {
         color: $black;
         font-family: "Sora", sans-serif;
@@ -115,8 +127,6 @@ section {
         color: white;
       }
     }
-  }
-}
 
 @media screen and (min-width: 1024px) {
   .headline-wrap {

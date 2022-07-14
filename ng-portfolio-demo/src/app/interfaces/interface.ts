@@ -44,7 +44,6 @@ export interface Skills {
 
 export interface Project {
   id: number;
-  Slug: string;
   attributes: {
     Title: string;
     Slug: string;

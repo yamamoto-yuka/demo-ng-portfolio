@@ -32,7 +32,7 @@
     <section
       *ngFor="let project of projects"
       [class.active]="project.attributes.Display"
-      [routerLink]=""
+      [routerLink]="['/project/'+ project.attributes.Category +'/',project.attributes.Slug,project.id]"
     >
       <div
         class="headline-wrap"

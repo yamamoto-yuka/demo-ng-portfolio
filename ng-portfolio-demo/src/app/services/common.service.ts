@@ -26,4 +26,8 @@ private url = environment.server;
   getProjects(){
     return this.http.get<Projects>(this.url + '/api/projects-portfolios?populate=deep');
   }
+
+  getProjectByID(id:number){
+    return this.http.get<{data:Project}>(this.url +'/api/projects-portfolios/'+ id +'?populate=deep');
+  }
 }
