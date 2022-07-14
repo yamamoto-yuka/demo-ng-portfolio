@@ -2,7 +2,7 @@
 
 .projectsContainer {
   @include FlexColumn();
-  padding: 1rem 1.5rem;
+  padding: 1rem 2.5rem;
   background: $bg;
 }
 
@@ -67,15 +67,16 @@ li.active{
 
 .categories-btn {
   position: fixed;
-  bottom: 0;
-  right: 0;
-  padding: 0.5rem;
-  font-size: 1rem;
-  color: #d9d9d9;
-  background-color: $black;
-  border: transparent;
+  bottom: 5px;
+  right: 5px;
+  padding: 0.5rem 1rem;
+  font-size: .8rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.774);
+  border: 1px solid white;
   border-radius: 3px;
   z-index: 3;
+  font-family: "Sora", sans-serif;
 }
 
 // Main
@@ -91,7 +92,7 @@ section.active{
 }
 
 section {
-  height: 70vh;
+  height: 100vh;
   width: 100%;
   position: relative;
   flex-direction: column-reverse;
@@ -105,7 +106,7 @@ section {
 }
 
 .img-wrap {
-  height: 40%;
+  height: 50%;
   width: 1px;
   opacity: 0;
 }
@@ -173,9 +174,41 @@ footer {
 
 @media screen and (min-width: 768px) {
   .projectsContainer {
-    padding: 3.5rem 1.5rem;
+    padding: 3.5rem 2rem 1.5rem 2rem;
   }
 
+  section {
+    height: 70vh;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .img-wrap {
+    width: 1px;
+    height: 40vh;
+    overflow: hidden;
+  }
+
+  .img-wrap.active {
+    width: 50%;
+  }
+
+  .headline-wrap {
+    width: 20%;
+    height: 40vh;
+    @include centerCenter($j: flex-end, $a: flex-start);
+    h2,
+    p {
+
+      font-weight: bold;
+      font-family: "Sora", sans-serif;
+    }
+    .description-wrap {
+      li {
+        font-size: 0.8rem;
+      }
+    }
+  }
 
 }
 
@@ -215,38 +248,13 @@ footer {
   }
 
 
-  section {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .img-wrap {
-    width: 1px;
-    height: 40vh;
-    overflow: hidden;
-  }
-
   .img-wrap.active {
     width: 40%;
   }
 
   .headline-wrap {
     width: 30%;
-    height: 40vh;
-    @include centerCenter($j: flex-end, $a: flex-start);
-    h2,
-    p {
-
-      font-weight: bold;
-      font-family: "Sora", sans-serif;
-    }
-    .description-wrap {
-      li {
-        font-size: 0.8rem;
-      }
-    }
   }
-
 
 }
 
