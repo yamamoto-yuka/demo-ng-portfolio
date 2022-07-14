@@ -13,10 +13,11 @@ app-footer {
 
 main {
   flex-grow: 1;
-  margin-top: 10vh;
+  margin-top: 20vh;
   background-color: $bg;
 }
 
+.date ul,
 .headline-wrap,
 .description-wrap,
 section,
@@ -28,6 +29,19 @@ section,
 .headline-wrap {
   flex-direction: column;
   margin-bottom: 3rem;
+
+  .date{
+    margin-bottom: 3rem;
+    ul{
+      li{
+        margin-right: 1rem;
+        font-size: .8rem;
+      }
+      li:last-child{
+        margin-right:0;
+      }
+    }
+  }
 
   h1,
   .link,
@@ -65,6 +79,7 @@ section,
   }
 
   .description-wrap {
+    align-items: flex-start;
     .description {
       margin-right: 1rem;
     }
@@ -74,7 +89,7 @@ section,
   }
 
   .clientDescription {
-    width: 50%;
+    width: 45%;
   }
 }
 

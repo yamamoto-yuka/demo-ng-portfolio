@@ -2,7 +2,23 @@
   <app-header></app-header>
   <main>
     <div class="bg"></div>
+
+
+
     <div class="headline-wrap">
+
+      <div class="date">
+        <ul>
+          <li>
+           {{project.attributes.StartDate}}
+          </li>
+          <li><span>-</span></li>
+          <li>
+            {{project.attributes.EndDate}}
+           </li>
+        </ul>
+      </div>
+
       <h1>{{ project.attributes.ClientName }}</h1>
 
       <div class="link"><a href="">VISIT SITE</a></div>
@@ -25,7 +41,13 @@
             </li>
           </ul>
         </div>
+
+
+
+ 
       </div>
+
+      
 
       <p class="clientDescription">
         {{ project.attributes.Description }}

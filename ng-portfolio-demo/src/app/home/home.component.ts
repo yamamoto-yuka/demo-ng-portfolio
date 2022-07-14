@@ -32,11 +32,7 @@ export class HomeComponent implements OnInit {
   thubnail = '';
 
   ngOnInit(): void {
-    this.cs.getHomedata().subscribe(homeData =>{
-      console.log(homeData);
-      this.thubnail = 'http://localhost:1337' + homeData.data.attributes.bannerimage.data.attributes.formats.thubanil.url;
-
-    })
+  
 
     const clock = new THREE.Clock();
     let controls: FlyControls;
@@ -145,7 +141,7 @@ export class HomeComponent implements OnInit {
         this.container.nativeElement,
         1.7,
         { width: '0%' },
-        { width: '100%', ease: Power2.easeInOut }
+        { width: '90%', ease: Power2.easeInOut }
       )
       .fromTo(
         this.logo.nativeElement,
