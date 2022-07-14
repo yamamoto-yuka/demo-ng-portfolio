@@ -1,7 +1,7 @@
 <div class="projectsContainer">
   <app-header [projectsActive]="true"></app-header>
 
-  <main #main>
+  <main>
     <div class="categories">
       <div [class.active]="isSmCategoryActive" class="categories-inner">
         <div class="categories-items">
@@ -31,31 +31,56 @@
 
     <section
       *ngFor="let project of projects"
-      [class.active]="project.display"
-      [routerLink]="project.path"
+      [class.active]="project.attributes.Display"
+      [routerLink]=""
     >
-      <div #headline class="headline-wrap">
-        <h2>{{ project.title }}</h2>
+      <div
+        class="headline-wrap"
+        inViewport
+        [inViewportOptions]="{ threshold: [0] }"
+        (inViewportAction)="onIntersection($event)"
+      >
+        <h2>{{ project.attributes.ClientName }}</h2>
 
         <div class="description-wrap">
           <div class="desctiption">
             <p>ROLES</p>
-            <ul *ngFor="let roles of project.roles">
-              <li>{{ roles.role }}</li>
+            <ul>
+              <li
+                *ngFor="let roles of project.attributes.roles_portfolios.data"
+              >
+                {{ roles.attributes.Role }}
+              </li>
             </ul>
           </div>
 
           <div class="desctiption">
             <p>SKILL</p>
-            <ul *ngFor="let skills of project.skills">
-              <li>{{ skills.skill }}</li>
+            <ul>
+              <li *ngFor="let skills of project.attributes.skills.data">
+                {{ skills.attributes.SkillName }}
+              </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div #imgWrap class="img-wrap">
-        <img [src]="project.img" alt="" />
+      <div
+        class="img-wrap"
+        inViewport
+        [inViewportOptions]="{ threshold: [0] }"
+        (inViewportAction)="onIntersection($event)"
+      >
+        <img
+          [src]="
+            server +
+            project.attributes.Thumbnail.data[0].attributes.formats.thumbnail
+              .url
+          "
+          [alt]="
+            project.attributes.Thumbnail.data[0].attributes.alternativeText
+          "
+        />
       </div>
     </section>
   </main>

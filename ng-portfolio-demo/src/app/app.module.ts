@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
+import { InViewportModule } from 'ng-in-viewport';
 import { RecaptchaModule } from "ng-recaptcha";
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -39,7 +40,8 @@ import { SkillsComponent } from './skills/skills.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RecaptchaModule 
+    RecaptchaModule,
+    InViewportModule
   ],
   providers: [],
   bootstrap: [AppComponent]

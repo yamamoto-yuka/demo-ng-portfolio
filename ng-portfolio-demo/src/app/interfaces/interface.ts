@@ -1,58 +1,144 @@
-export interface HomePage{
-  data:{
-    id:number;
-    attributes:{
-      name:string;
-      jbt:string;
-      Description:string;
-      bannerimage:{
-          data:{
-            attributes:{
-              formats:{
-                thubanil:{
-                  width:number;
-                  height:number;
-                  url:string;
-                }
+export interface HomePage {
+  data: {
+    id: number;
+    attributes: {
+      name: string;
+      jbt: string;
+      Description: string;
+      bannerimage: {
+        data: {
+          attributes: {
+            formats: {
+              thubanil: {
+                width: number;
+                height: number;
+                url: string;
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+}
+
+export interface Skill {
+  id: number;
+  attributes: {
+    SkillName: string;
+    SkillLogo: {
+      data: [
+        {
+          attributes: {
+            url: string;
+          };
+        }
+      ];
+    };
+  };
+}
+
+export interface Skills {
+  data: Skill[];
+}
+
+export interface Project {
+  id: number;
+  Slug: string;
+  attributes: {
+    Title: string;
+    Slug: string;
+    SiteURL: string;
+    Description: string;
+    Category: string;
+    ClientName: string;
+    StartDate: string;
+    EndDate: string;
+    Display: boolean;
+    skills: {
+      data:[
+        {
+          id:number;
+          attributes:{
+            SkillName: string;
+            SkillLogo: {
+              data: [
+                {
+                  id:number;
+                  attributes:{
+                    alternativeText:string;
+                    formats:{
+                      thumbnail:{
+                        url:string;
+                        width:number;
+                        height:number;
+                      }
+                    }
+                  }
+              }
+            ]
+            }
+          }
+        }
+      ]
+    };
+    roles_portfolios: {
+      data:[
+        {
+          id:number;
+          attributes:{
+            Role:string;
+          }
+        }
+      ]
+    };
+    Thumbnail: {
+      data: [
+        {
+          id:number;
+          attributes:{
+            alternativeText:string;
+            formats:{
+              thumbnail:{
+                url:string;
+                width:number;
+                height:number;
               }
             }
           }
       }
-    }
-  }
-
-}
-
-export interface Skill{
-  id:number;
-  attributes:{
-    SkillName:string;
-    SkillLogo:{
+      ]
+    },
+    project_images: {
       data:[
         {
+          id:number;
           attributes:{
-            url:string;
+            Title:string;
+            Image:{
+              data:[
+                {
+                  id:number;
+                  attributes:{
+                    alternativeText:string;
+                    formats:{
+                      thumbnail:{
+                        url:string;
+                        width:number;
+                        height:number;
+                      }
+                    }
+                  }
+                }
+              ]
+            }
           }
         }
       ]
     }
   }
-}
+};
 
-
-export interface Skills{
-  data:Skill[]
-}
-
-export interface Project{
-  id:number;
-  Slug:string;
-  attributes:{
-    Title:string;
-    skills:Skills;
-  }
-}
-
-export interface Projects{
-  data:Project[];
+export interface Projects {
+  data: Project[];
 }

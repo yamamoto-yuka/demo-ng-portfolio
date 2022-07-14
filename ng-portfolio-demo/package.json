@@ -21,6 +21,8 @@
     "@types/gsap": "^3.0.0",
     "@types/three": "^0.141.0",
     "gsap": "^3.10.4",
+    "intersection-observer": "^0.12.2",
+    "ng-in-viewport": "^13.0.1",
     "ng-recaptcha": "^10.0.0",
     "rxjs": "~7.5.0",
     "strapi-plugin-populate-deep": "^0.1.2",

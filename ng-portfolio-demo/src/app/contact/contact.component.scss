@@ -79,9 +79,10 @@ main {
 }
 
 footer {
+  @include centerCenter();
   height: 10vh;
    small {
-    @include centerCenter();
+
   }
 }
 

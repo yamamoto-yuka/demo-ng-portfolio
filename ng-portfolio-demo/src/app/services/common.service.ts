@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { HomePage, Project } from '../interfaces/interface';
+import { HomePage, Project, Projects } from '../interfaces/interface';
 import { Skills } from '../interfaces/interface';
 
 @Injectable({
@@ -24,6 +24,6 @@ private url = environment.server;
   }
 
   getProjects(){
-    return this.http.get<Project>(this.url + '/api/projects-portfolios?populate=deep,3');
+    return this.http.get<Projects>(this.url + '/api/projects-portfolios?populate=deep');
   }
 }
