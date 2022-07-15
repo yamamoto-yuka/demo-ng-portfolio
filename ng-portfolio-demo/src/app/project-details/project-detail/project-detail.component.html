@@ -18,7 +18,14 @@
 
       <h1>{{ project.attributes.ClientName }}</h1>
 
-      <div class="link"><a href="">VISIT SITE</a></div>
+      <ul class="link">
+        <li>
+          <a href="">VISIT SITE</a>
+        </li>
+        <li>
+          <a href="">GITHUB</a>
+        </li>
+      </ul>
 
       <div class="description-wrap">
         <div class="description">
@@ -53,22 +60,17 @@
         (inViewportAction)="onIntersection($event)"
       >
         <img
-          [src]="
-            img.attributes.Image.data[0].attributes.formats.thumbnail.url
-          "
+          [src]="img.attributes.Image.data[0].attributes.formats.thumbnail.url"
           alt=""
         />
       </div>
     </section>
 
     <div class="page-nav">
-      <button
-      routerLink="/project"
-      class="more-btn"
-      role="button"
-    >
-      <span class="text">See More Projects</span><span>Thanks for your interest!</span>
-    </button>
+      <button routerLink="/project" class="more-btn" role="button">
+        <span class="text">See More Projects</span
+        ><span>Thanks for your interest!</span>
+      </button>
     </div>
   </main>
   <app-footer></app-footer>
