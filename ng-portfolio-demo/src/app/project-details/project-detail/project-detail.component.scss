@@ -89,7 +89,7 @@ section,
   }
 
   .clientDescription {
-    width: 45%;
+    width: 80%;
   }
 }
 
@@ -142,6 +142,15 @@ section {
         color: white;
       }
     }
+
+    @media screen and (min-width: 768px) {
+      .headline-wrap {
+        .clientDescription {
+          width: 50%;
+        }
+      }
+    }
+    
 
 @media screen and (min-width: 1024px) {
   .headline-wrap {

@@ -92,7 +92,7 @@ section.active{
 }
 
 section {
-  height: 100vh;
+  height: 80vh;
   width: 100%;
   position: relative;
   flex-direction: column-reverse;
@@ -149,7 +149,7 @@ img {
   .description-wrap {
     @include centerCenter();
     align-items: flex-start;
-    padding-top: 1rem;
+    padding: 1.5rem 0;
     p,li {
       font-size: 0.8rem;
     }

@@ -32,7 +32,6 @@
     <section
       *ngFor="let project of projects"
       [class.active]="project.attributes.Display"
-      [routerLink]="['/project/'+ project.attributes.Category +'/',project.attributes.Slug,project.id]"
     >
       <div
         class="headline-wrap"
@@ -63,6 +62,17 @@
             </ul>
           </div>
         </div>
+        <button
+          [routerLink]="[
+            '/project/' + project.attributes.Category + '/',
+            project.attributes.Slug,
+            project.id
+          ]"
+          class="more-btn"
+          role="button"
+        >
+          <span class="text">More Detail</span><span>Thanks for your interest!</span>
+        </button>
       </div>
 
       <div

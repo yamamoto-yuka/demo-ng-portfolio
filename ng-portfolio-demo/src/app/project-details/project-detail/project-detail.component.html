@@ -54,7 +54,6 @@
       >
         <img
           [src]="
-            server +
             img.attributes.Image.data[0].attributes.formats.thumbnail.url
           "
           alt=""
@@ -63,7 +62,13 @@
     </section>
 
     <div class="page-nav">
-      <a routerLink="../../../../project">See More Projects</a>
+      <button
+      routerLink="/project"
+      class="more-btn"
+      role="button"
+    >
+      <span class="text">See More Projects</span><span>Thanks for your interest!</span>
+    </button>
     </div>
   </main>
   <app-footer></app-footer>
