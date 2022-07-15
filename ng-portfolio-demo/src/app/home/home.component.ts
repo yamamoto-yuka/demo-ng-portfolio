@@ -141,7 +141,7 @@ export class HomeComponent implements OnInit {
         this.container.nativeElement,
         1.7,
         { width: '0%' },
-        { width: '90%', ease: Power2.easeInOut }
+        { width: '100%', ease: Power2.easeInOut }
       )
       .fromTo(
         this.logo.nativeElement,

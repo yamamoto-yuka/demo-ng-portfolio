@@ -30,18 +30,6 @@ section,
   flex-direction: column;
   margin-bottom: 3rem;
 
-  .date{
-    margin-bottom: 3rem;
-    ul{
-      li{
-        margin-right: 1rem;
-        font-size: .8rem;
-      }
-      li:last-child{
-        margin-right:0;
-      }
-    }
-  }
 
   h1,
   .link,
@@ -56,11 +44,23 @@ section,
     font-family: "Sora", sans-serif;
   }
 
+  .date li,
   .link a,
   .description-wrap p,
   .description-wrap li,
   .clientDescription {
     font-size: 0.8rem;
+    letter-spacing: 1.2px;
+  }
+
+  .date{
+    margin-bottom: 3rem;
+      li{
+        margin-right: 1rem;
+      }
+      li:last-child{
+        margin-right:0;
+    }
   }
 
   h1 {

@@ -34,63 +34,462 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   // For Image URL
   server = environment.server;
 
-  projects: Project[] = [
-    // {
-    //   title: 'Development',
-    //   category: 'development',
-    //   roles: [
-    //     { role: 'Branding' },
-    //     { role: 'Design' },
-    //     { role: 'Development' },
-    //     { role: 'Management' },
-    //   ],
-    //   skills: [
-    //     { skill: 'Angular' },
-    //     { skill: 'Strapi' },
-    //     { skill: 'Illustrator' },
-    //     { skill: 'Figma' },
-    //   ],
-    //   img: '/assets/projects/miki.jpg',
-    //   display: true,
-    //   path:'/projects/miki'
-    // },
-    // {
-    //   title: 'Casestudy',
-    //   category: 'casestudy',
-    //   roles: [
-    //     { role: 'Branding' },
-    //     { role: 'Design' },
-    //     { role: 'Development' },
-    //     { role: 'Management' },
-    //   ],
-    //   skills: [
-    //     { skill: 'Angular' },
-    //     { skill: 'Strapi' },
-    //     { skill: 'Illustrator' },
-    //     { skill: 'Figma' },
-    //   ],
-    //   img: '/assets/projects/miki.jpg',
-    //   display: true,
-    // },
-    // {
-    //   title: 'Other',
-    //   category: 'other',
-    //   roles: [
-    //     { role: 'Branding' },
-    //     { role: 'Design' },
-    //     { role: 'Development' },
-    //     { role: 'Management' },
-    //   ],
-    //   skills: [
-    //     { skill: 'Angular' },
-    //     { skill: 'Strapi' },
-    //     { skill: 'Illustrator' },
-    //     { skill: 'Figma' },
-    //   ],
-    //   img: '/assets/projects/miki.jpg',
-    //   display: true,
-    //   path:'/projects/miki'
-    // },
+  projects: any[] = [
+    {
+      id: 1,
+      attributes: {
+        Title: 'Miki',
+        Slug: 'miki',
+        SiteURL: '#',
+        Description:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        Category: 'development',
+        ClientName: 'Miki',
+        StartDate: 'Mar/2022',
+        EndDate: 'June/2022',
+        Display: true,
+        skills: {
+          data: [
+            {
+              id: 1,
+              attributes: {
+                SkillName: 'Angular'
+              },
+            },
+            {
+              id: 2,
+              attributes: {
+                SkillName: 'Strapi'
+              },
+            },
+            {
+              id: 3,
+              attributes: {
+                SkillName: 'Illustrator'
+              },
+            },
+            {
+              id: 4,
+              attributes: {
+                SkillName: 'Figma'
+              },
+            },
+          ],
+        },
+        roles_portfolios: {
+          data: [
+            {
+              id: 1,
+              attributes: {
+                Role: 'Branding',
+              }
+            },
+            {
+              id: 2,
+              attributes: {
+                Role: 'Design',
+              },
+            },
+            {
+              id: 3,
+              attributes: {
+                Role: 'Development',
+              },
+            },
+            {
+              id: 4,
+              attributes: {
+                Role: 'Management',
+              },
+            },
+          ],
+        },
+        Thumbnail: {
+          data: [
+            {
+              id: 1,
+              attributes: {
+                alternativeText: '',
+                formats: {
+                  thumbnail: {
+                    url: '../../assets/projects/miki_thumbnail.jpg',
+                  },
+                },
+              },
+            },
+          ],
+        },
+        project_images: {
+          data: [
+            {
+              id: 1,
+              attributes: {
+                Title: '',
+                Image: {
+                  data: [
+                    {
+                      id: 1,
+                      attributes: {
+                        alternativeText: '',
+                        formats: {
+                          thumbnail: {
+                            url: '',
+                            width: 100,
+                            height: 100,
+                          },
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+          ],
+        },
+      },
+    },
+    {
+      id: 2,
+      attributes: {
+        Title: 'Typography Project',
+        Slug: 'swissstyleposter',
+        SiteURL: '#',
+        Description:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        Category: 'development',
+        ClientName: 'Swiss Style Poster Website',
+        StartDate: 'Mar/2022',
+        EndDate: 'Mar/2022',
+        Display: true,
+        skills: {
+          data: [
+            {
+              id: 1,
+              attributes: {
+                SkillName: 'HTML'
+              },
+            },
+            {
+              id: 2,
+              attributes: {
+                SkillName: 'SASS'
+              },
+            }
+          ],
+        },
+        roles_portfolios: {
+          data: [
+            {
+              id: 1,
+              attributes: {
+                Role: 'Design',
+              }
+            },
+            {
+              id: 2,
+              attributes: {
+                Role: 'Typography',
+              },
+            },
+            {
+              id: 3,
+              attributes: {
+                Role: 'Development',
+              },
+            }
+          ],
+        },
+        Thumbnail: {
+          data: [
+            {
+              id: 1,
+              attributes: {
+                alternativeText: '',
+                formats: {
+                  thumbnail: {
+                    url: '../../assets/projects/swissstylewebsite_thumbnail.png',
+                  },
+                },
+              },
+            },
+          ],
+        },
+        project_images: {
+          data: [
+            {
+              id: 1,
+              attributes: {
+                Title: '',
+                Image: {
+                  data: [
+                    {
+                      id: 1,
+                      attributes: {
+                        alternativeText: '',
+                        formats: {
+                          thumbnail: {
+                            url: '',
+                            width: 100,
+                            height: 100,
+                          },
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+          ],
+        },
+      },
+    },
+    {
+      id: 3,
+      attributes: {
+        Title: 'Freelance Payment System App',
+        Slug: 'freelanceapp',
+        SiteURL: '#',
+        Description:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        Category: 'casestudy',
+        ClientName: 'Freelance Payment System App',
+        StartDate: 'Mar/2022',
+        EndDate: 'June/2022',
+        Display: true,
+        skills: {
+          data: [
+            {
+              id: 1,
+              attributes: {
+                SkillName: 'Figma'
+              },
+            }
+          ],
+        },
+        roles_portfolios: {
+          data: [
+            {
+              id: 1,
+              attributes: {
+                Role: 'User Research',
+              }
+            },
+            {
+              id: 2,
+              attributes: {
+                Role: 'UI/UX Design',
+              },
+            }
+          ],
+        },
+        Thumbnail: {
+          data: [
+            {
+              id: 1,
+              attributes: {
+                alternativeText: '',
+                formats: {
+                  thumbnail: {
+                    url: '../../assets/projects/Freelanceapp_thubmnail.jpg',
+                  },
+                },
+              },
+            },
+          ],
+        },
+        project_images: {
+          data: [
+            {
+              id: 1,
+              attributes: {
+                Title: '',
+                Image: {
+                  data: [
+                    {
+                      id: 1,
+                      attributes: {
+                        alternativeText: '',
+                        formats: {
+                          thumbnail: {
+                            url: '',
+                          },
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+          ],
+        },
+      },
+    },
+
+    {
+      id: 4,
+      attributes: {
+        Title: '',
+        Slug: 'biogeek',
+        SiteURL: '#',
+        Description:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        Category: 'casestudy',
+        ClientName: 'BioGeek',
+        StartDate: 'Mar/2022',
+        EndDate: 'June/2022',
+        Display: true,
+        skills: {
+          data: [
+            {
+              id: 1,
+              attributes: {
+                SkillName: 'Figma'
+              },
+            },
+            {
+              id: 1,
+              attributes: {
+                SkillName: 'Illustrator'
+              },
+            }
+
+          ],
+        },
+        roles_portfolios: {
+          data: [
+            {
+              id: 2,
+              attributes: {
+                Role: 'UI/UX Design',
+              },
+            }
+          ],
+        },
+        Thumbnail: {
+          data: [
+            {
+              id: 1,
+              attributes: {
+                alternativeText: '',
+                formats: {
+                  thumbnail: {
+                    url: '../../assets/projects/biogeek_thubmnail.jpg',
+                  },
+                },
+              },
+            },
+          ],
+        },
+        project_images: {
+          data: [
+            {
+              id: 1,
+              attributes: {
+                Title: '',
+                Image: {
+                  data: [
+                    {
+                      id: 1,
+                      attributes: {
+                        alternativeText: '',
+                        formats: {
+                          thumbnail: {
+                            url: '',
+                          },
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+          ],
+        },
+      },
+    },
+    {
+      id: 5,
+      attributes: {
+        Title: '',
+        Slug: 'siggraphposter',
+        SiteURL: '#',
+        Description:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        Category: 'others',
+        ClientName: 'Conference Poster',
+        StartDate: 'Apr/2022',
+        EndDate: 'Apr/2022',
+        Display: true,
+        skills: {
+          data: [
+            {
+              id: 1,
+              attributes: {
+                SkillName: 'Illustrator'
+              },
+            }
+          ],
+        },
+        roles_portfolios: {
+          data: [
+            {
+              id: 2,
+              attributes: {
+                Role: 'Design',
+              },
+            },
+            {
+              id: 2,
+              attributes: {
+                Role: 'Typography',
+              },
+            }
+          ],
+        },
+        Thumbnail: {
+          data: [
+            {
+              id: 1,
+              attributes: {
+                alternativeText: '',
+                formats: {
+                  thumbnail: {
+                    url: '../../assets/projects/siggraphposter_thumbnail.png',
+                  },
+                },
+              },
+            },
+          ],
+        },
+        project_images: {
+          data: [
+            {
+              id: 1,
+              attributes: {
+                Title: '',
+                Image: {
+                  data: [
+                    {
+                      id: 1,
+                      attributes: {
+                        alternativeText: '',
+                        formats: {
+                          thumbnail: {
+                            url: '',
+                          },
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+          ],
+        },
+      },
+    },
+
+
   ];
 
   constructor(private cs: CommonService, private renderer: Renderer2) {}
@@ -142,7 +541,6 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     this.activeAll = this.activeDevelopment = this.activeCaseStudy = false;
   }
 
-  
   ngOnInit(): void {
     this.cs.getProjects().subscribe((res) => {
       this.projects = res.data;
@@ -151,7 +549,6 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-
     // let setItemActive = (entries: any) => {
     //   console.log(entries);
     //   entries.forEach((entry: any) => {
@@ -163,7 +560,6 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     //     }
     //   });
     // };
-
     // let options = {};
     // console.log(this.images);
     // // Intersection Observer
@@ -172,7 +568,6 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     //   console.log(item.nativeElement);
     //   observer.observe(item.nativeElement);
     // });
-
     // this.headline.forEach((item, index)=>{
     //   console.log(item.nativeElement);
     //   observer.observe(item.nativeElement);
