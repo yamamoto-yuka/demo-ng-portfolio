@@ -10,6 +10,8 @@ footer {
     display: flex;
     border-top: 1px solid $black;
     border-bottom: 1px solid $black;
+    opacity: 0;
+    transition: all 3s ease-in-out;
     li {
       font-size: 1rem;
       font-weight: bold;
@@ -26,6 +28,11 @@ footer {
     li:nth-child(2) {
       margin: 0 1rem;
     }
+  }
+  ul.active{
+    border-top: 1.5px solid $black;
+    border-bottom: 1.5px solid $black;
+    opacity: 1;
   }
 }
 

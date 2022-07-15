@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { gsap } from 'gsap';
+import { gsap ,Power2} from 'gsap';
 import * as THREE from 'three';
 import { FlyControls } from 'three/examples/jsm/controls/FlyControls';
 import { Router } from '@angular/router';
@@ -27,17 +27,16 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router, private cs:CommonService) {}
 
-
   logo2 = '';
   thubnail = '';
 
   ngOnInit(): void {
-  
-
     const clock = new THREE.Clock();
     let controls: FlyControls;
 
+    // SCENE
     const scene = new THREE.Scene();
+
     // CAMERA
     const camera = new THREE.PerspectiveCamera(
       50,
@@ -46,7 +45,8 @@ export class HomeComponent implements OnInit {
       1,
       15000
     );
-
+    
+    // RENDERER
     const renderer = new THREE.WebGL1Renderer({
       canvas: this.myCanvas.nativeElement,
       antialias: true,
@@ -57,7 +57,8 @@ export class HomeComponent implements OnInit {
     );
 
     createStarField();
-
+    
+    // CREATE Particle
     function createStarField() {
       const vertices = [];
       for (let i = 0; i < 5000; i++) {
@@ -67,32 +68,37 @@ export class HomeComponent implements OnInit {
         vertices.push(x, y, z);
       }
 
+    // GEOMETORY
       const geometry = new THREE.BufferGeometry();
       geometry.setAttribute(
         'position',
         new THREE.Float32BufferAttribute(vertices, 3)
       );
 
+    // MATERIAL
       const material = new THREE.PointsMaterial({
         size: 6,
         color: 0xffffff,
       });
-
       const stars = new THREE.Points(geometry, material);
       scene.add(stars);
     }
+
+    // FlyControls
     controls = new FlyControls(camera, renderer.domElement);
     controls.movementSpeed = 1800;
     controls.rollSpeed = Math.PI / 30;
 
     animate();
 
+    //WINDOW RESIZE
     function onWindowResize() {
       renderer.setSize(window.innerWidth, window.innerHeight);
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
     }
 
+    // ANIMATION (RENDERING) CALLBACK FUNCTION
     function animate() {
       requestAnimationFrame(animate);
       const delta = clock.getDelta();
@@ -100,9 +106,15 @@ export class HomeComponent implements OnInit {
       renderer.render(scene, camera);
     }
 
+     //EXECUTE WINDOW RESIZE
     window.addEventListener('resize', onWindowResize);
+
+
+    // GSAP ANIMATION
     this.timelineAnimation();
 
+
+    // NAVIGATION
     let navigateToAbout = () => {
       this.router.navigate(['about-me']);
     };
@@ -111,6 +123,7 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['project']);
     };
 
+    // WIPE TRANSITIONS
     this.about.nativeElement.addEventListener('click', () => {
       this.wideScreen();
       onWindowResize();

@@ -76,10 +76,10 @@ export class ProjectsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cs.getProjects().subscribe((res) => {
-      this.projects = res.data;
-      console.log(this.projects);
-    });
+    // this.cs.getProjects().subscribe((res) => {
+    //   this.projects = res.data;
+    //   console.log(this.projects);
+    // });
   }
 
    

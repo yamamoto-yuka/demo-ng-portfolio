@@ -1,5 +1,10 @@
 <footer>
-  <ul>
+  <ul         
+  class="headline-wrap"
+  inViewport
+  [inViewportOptions]="{ threshold: [0] }"
+  (inViewportAction)="onIntersection($event)"
+  >
     <li ><a href="mailto:yukayamamoto0820@gmail.com">Email</a></li>
     <li ><a href="https://www.linkedin.com/in/yuka-yamamoto-7a422421b/" target="_blank">LinkedIn</a></li>
     <li ><a href="https://github.com/yamamoto-yuka?tab=repositories" target="_blank">Github</a></li>
