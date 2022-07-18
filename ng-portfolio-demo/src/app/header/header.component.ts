@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
   @Input() projectsActive: boolean = false;
   @Input() aboutActive: boolean = false;
   @Input() contactActive: boolean = false;
+  @Input() textWhite: boolean = false;
 
   @ViewChild('header', {static:true}) header:ElementRef<HTMLDivElement>;
   @ViewChild('logo', {static:true}) logo:ElementRef<HTMLDivElement>;

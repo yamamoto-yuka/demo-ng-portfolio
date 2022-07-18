@@ -19,6 +19,7 @@ import { SocialComponent } from './social/social.component';
 import { ContactComponent } from './contact/contact.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ProjectCasestudyComponent } from './project-casestudy/project-casestudy.component';
+import { Home2Component } from './home2/home2.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ProjectCasestudyComponent } from './project-casestudy/project-casestudy
     SocialComponent,
     ContactComponent,
     SkillsComponent,
-    ProjectCasestudyComponent
+    ProjectCasestudyComponent,
+    Home2Component
   ],
   imports: [
     BrowserModule,

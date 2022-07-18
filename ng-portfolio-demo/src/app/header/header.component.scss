@@ -42,7 +42,7 @@ nav {
   transform: translate(-50%, -50%);
   padding: 0;
   a {
-    color: $black;
+    color: $bg;
     width: 100%;
     display: block;
     text-align: center;
@@ -57,12 +57,12 @@ nav {
   }
   a:after,
   a:before {
-    @include catAfterBefore($border-color: $black);
+    @include catAfterBefore($border-color: $bg);
     transition: all 1s ease-in-out;
   }
   a:hover:after,
   a:hover:before {
-    @include catHoverAfterBefore($border-color: $black,$width: 100%);
+    @include catHoverAfterBefore($border-color: $bg,$width: 100%);
   }
   a:hover:before {
     @include catHoverBefore($width: 100%);
@@ -72,6 +72,18 @@ nav {
       margin-bottom: 0;
     }
   }
+
+  // a.white{
+  //   color: $bg;
+  // }
+  // a:after.white,
+  // a:before.white {
+  //   @include catAfterBefore($border-color: $bg);
+  // }
+  // a:hover:after.white,
+  // a:hover:before.white {
+  //   @include catHoverAfterBefore($border-color: $bg);
+  // }
 }
 
 .hamburger {
@@ -96,6 +108,9 @@ nav {
   }
   span:nth-child(3) {
     top: 0;
+  }
+  span.white{
+    background-color: $bg;
   }
 }
 
