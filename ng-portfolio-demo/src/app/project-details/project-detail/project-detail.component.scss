@@ -113,7 +113,6 @@ section {
       width: 100%;
       object-fit: cover;
       box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.27);
-      transform: scale(1.5);
     }
   }
   .img-wrap.active {
@@ -121,15 +120,7 @@ section {
     opacity: 1;
     transition: opacity 1s, width 2s;
   }
-  .img-wrap.active > img {
-    transform: scale(1);
-    transition: all 1s ease-out;
-  }
 
-  .img-wrap.inactive {
-    opacity: 0;
-    transition: opacity 1s, width 2s;
-  }
 }
 
 // Page Navigation

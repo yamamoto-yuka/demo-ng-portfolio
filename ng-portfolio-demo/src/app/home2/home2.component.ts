@@ -88,7 +88,7 @@ export class Home2Component implements OnInit {
 
     // FlyControls
     controls = new FlyControls(camera, renderer.domElement);
-    controls.movementSpeed = 1800;
+    // controls.movementSpeed = 1800;
     controls.rollSpeed = Math.PI / 30;
 
     animate();

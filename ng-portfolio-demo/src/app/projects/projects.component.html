@@ -83,7 +83,8 @@
       >
         <img
           [src]="
-            project.attributes.Thumbnail.data[0].attributes.formats.thumbnail
+          server +
+            project.attributes.Thumbnail.data[0].attributes.formats.medium
               .url
           "
           [alt]="

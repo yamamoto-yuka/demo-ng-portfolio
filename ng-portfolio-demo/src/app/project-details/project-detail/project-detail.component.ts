@@ -27,8 +27,7 @@ export class ProjectDetailComponent implements OnInit {
     target: Element;
     visible: boolean;
   }): void {
-    this.renderer.addClass(target, visible ? 'active' : 'inactive');
-    this.renderer.removeClass(target, visible ? 'inactive' : 'active');
+    this.renderer.addClass(target, visible ? 'active' : 'img-wrap');
   }
 
   ngOnInit(): void {
