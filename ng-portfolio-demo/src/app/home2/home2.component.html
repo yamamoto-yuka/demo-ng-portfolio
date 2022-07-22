@@ -1,41 +1,36 @@
 <div class="home-container">
-<app-header></app-header>
+  <app-header></app-header>
   <main>
+    <div #container class="hero-container">
+      <canvas #myCanvas id="myCanvas"></canvas>
 
-      <div #container class="hero-container">
-        <canvas #myCanvas id="myCanvas"></canvas>
+      <div class="headline">
+        <h1>YUKA YAMAMOTO</h1>
+        <h1 class="headline-role">Full-stack Developer</h1>
+      </div>
 
-        <div class="headline">
-          <h1>YUKA YAMAMOTO</h1>
-          <h2>Full-stack Developer</h2>
+      <div class="scroll-nav">
+        <p>SCROLL TO EXPLORE</p>
+      </div>
+
+      <div class="resume-container">
+        <div #resumeText class="resume-warp">
+          <a> <span class="resume">VIEW RESUME</span></a> <a><span class="linkedin">VIEW LinkedIn</span></a>
+          <a> <span class="resume">VIEW RESUME</span></a> <a><span class="linkedin">VIEW LinkedIn</span></a>
+          <a> <span class="resume">VIEW RESUME</span></a> <a><span class="linkedin">VIEW LinkedIn</span></a>
         </div>
+      </div>
+    </div>
 
-        <div class="scroll-nav">
-          <p>SCROLL TO EXPLORE</p>
-        </div>
-    
-
-        <div class="line-top">
-          <div class="verticalLine-wrap">
-            <div class="box-l"></div>
-            <div class="box-r"></div>
-          </div>
-        </div>
-
-        <div class="resume-container">
-          <div class="resume-warp">
-            <a #resumeText>
-              VIEW RESUME VIEW RESUME VIEW RESUME VIEW RESUME VIEW RESUME VIEW
-              RESUME
-            </a>
-          </div>
+    <section>
+      <div class="line">
+        <div class="verticalLine-wrap">
+          <div class="box-l"></div>
+          <div class="box-r"></div>
         </div>
       </div>
 
- 
-
-    <section>
-      <div class="heading-box  work-heading">
+      <div class="heading-box work-heading">
         <h3>WORK</h3>
       </div>
 
@@ -175,12 +170,15 @@
       </div>
 
       <div class="skills-container">
-        <div *ngFor="let skill of skills"  [ngStyle]="conicGradient" [attr.progressEndValue]="skill.level" class="circular-progress">
-          <div  class="value-container">{{skill.name}}</div>
+        <div
+          *ngFor="let skill of skills"
+          [ngStyle]="conicGradient"
+          [attr.progressEndValue]="skill.level"
+          class="circular-progress"
+        >
+          <div class="value-container">{{ skill.name }}</div>
         </div>
       </div>
-    
-
 
       <div class="icon-wrap"></div>
       <div class="line">
@@ -190,8 +188,6 @@
         </div>
       </div>
     </section>
-
-   
   </main>
   <app-footer></app-footer>
 </div>
