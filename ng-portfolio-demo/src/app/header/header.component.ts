@@ -17,31 +17,11 @@ export class HeaderComponent implements OnInit {
   @ViewChild('logo', {static:true}) logo:ElementRef<HTMLDivElement>;
   @ViewChild('ul', {static:true}) ul:ElementRef<HTMLDivElement>;
 
+
+
   ngOnInit(): void {
-    let tl = gsap.timeline();
-    tl.fromTo(this.header.nativeElement,
-      1.2,
-      {
-      opacity:0,
-      y:"-100%"
-    },{
-      opacity:1,
-      y: "0%",
-      ease: Power2.easeInOut
-    })
-    .fromTo(this.ul.nativeElement,
-      1.2,
-      {
-      opacity:0,
-      y:"-100%"
-    },
-    {
-      opacity:1,
-      y: "0%",
-      ease: Power2.easeInOut
-    },
-    '-=1'
-    )
+
+
 
 
     const ham = document.querySelector('.hamburger') as HTMLCanvasElement;

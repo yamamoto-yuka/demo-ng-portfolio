@@ -27,6 +27,7 @@ li {
 }
 
 .homeContainer {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -40,80 +41,71 @@ app-footer {
 
 main {
   flex-grow: 1;
-  background-color: #000000;
+  background-color: $bg;
   overflow: hidden;
-  .canvas-container,
-  .nav {
+  .hero-container {
     position: relative;
+    z-index: 1;
   }
 
   #myCanvas,
   .headline,
-  .scroll-nav {
+  .scroll-nav,
+  .line-top,
+  .resume-container {
     position: absolute;
-    text-align: center;
   }
 
-  .canvas-container {
-    height: 80vh;
+  .hero-container {
+    height: 100vh;
 
     #myCanvas {
       height: 100%;
       width: 100%;
       top: 0;
       left: 0;
+      text-align: center;
     }
 
     .headline {
-      top: 50%;
+      top: 40%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -40%);
       h1 {
-        border-top: 1px solid $bg;
-        border-bottom: 1px solid $bg;
         font-size: 3rem;
       }
     }
 
     .scroll-nav {
-      bottom: 0;
+      top: 75%;
       left: 50%;
       transform: translateX(-50%);
+      text-align: center;
       p {
         font-size: 0.8rem;
       }
     }
   }
 
-  .nav {
-    height: 30vh;
+  .line-top {
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-    .line-top,
-    .resume-container {
-      position: absolute;
-    }
+  .resume-container {
+    top: 90%;
+    transform: translateY(-50%);
 
-    .line-top {
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .resume-container {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-
-      .resume-warp {
-        white-space: nowrap;
-        overflow: hidden;
-        a {
-          margin: 0;
-          padding: 0;
-          display: inline-block;
-          font-size: 3rem;
-          -webkit-text-stroke: 1px $bg;
-        }
+    .resume-warp {
+      white-space: nowrap;
+      overflow: hidden;
+      a {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        font-size: 3rem;
+        -webkit-text-stroke: 1px $bg;
       }
     }
   }
@@ -123,7 +115,7 @@ main {
     display: flex;
   }
   .verticalLine-wrap .box-l {
-    height: 30vh;
+    height: 35vh;
     position: relative;
     flex-grow: 1;
     margin-right: 2em;
@@ -153,10 +145,15 @@ main {
       width: 100%;
       display: flex;
     }
+
+    .work-heading {
+      margin-top: 15vh;
+    }
+
     h3 {
       text-align: end;
       width: 50%;
-      font-size: 4rem;
+      font-size: 3rem;
     }
   }
 
@@ -177,7 +174,9 @@ main {
   .work-btn-wrap,
   .about-wrap,
   .about-wrap p,
-  .about-items {
+  .about-items,
+  .skills-container,
+  .circular-progress {
     @include centerCenter();
   }
 
@@ -208,8 +207,8 @@ main {
     .work-detail-wrap {
       flex-direction: column;
     }
-    
-    .work-detail{
+
+    .work-detail {
       padding-bottom: 1rem;
     }
 
@@ -302,13 +301,16 @@ main {
     }
   }
 
+  // About
   .about-wrap {
+    padding: 5rem 0;
     flex-direction: column;
     p,
     .about-items {
       height: inherit;
     }
     p {
+      padding-bottom: 2rem;
       font-size: 2rem;
     }
     .about-items {
@@ -318,162 +320,29 @@ main {
     }
   }
 
-
-// Skills
-$porcent-html: 95;
-$porcent-css: 85;
-$porcent-scss: 70;
-$porcent-js: 80;
-$porcent-ts: 55;
-$porcent-node: 30;
-$porcent-react: 12;
-$porcent-angular: 5;
-$porcent-vue: 2;
-
-@function strokeDashoffset($num) {
-	@return 440 - (440 * $num) / 100;
-}
-
-
-.container__progressbars {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	flex-wrap: wrap;
-	min-width: 270px;
-	width: 100%;
-	min-height: 100%;
-}
-
-.progressbar {
-	position: relative;
-	width: 170px;
-	height: 170px;
-	margin: 1em;
-	transform: rotate(-90deg);
-}
-
-.progressbar__svg {
-	position: relative;
-	width: 100%;
-	height: 100%;
-}
-
-.progressbar__svg-circle {
-	width: 100%;
-	height: 100%;
-	fill: none;
-	stroke-width: 10;
-	stroke-dasharray: 440;
-	stroke-dashoffset: 440;
-	stroke: hsl(0, 0%, 100%);
-	stroke-linecap: round;
-	transform: translate(5px, 5px); // stroke-width / 2
-}
-
-
-.circle {
-	&-html {
-		animation: anim_circle-html 1s ease-in-out forwards;
-	}
-	&-css {
-		animation: anim_circle-css 1s ease-in-out forwards;
-	}
-	&-scss {
-		animation: anim_circle-scss 1s ease-in-out forwards;
-	}
-	&-js {
-		animation: anim_circle-js 1s ease-in-out forwards;
-	}
-	&-ts {
-		animation: anim_circle-ts 1s ease-in-out forwards;
-	}
-	&-node {
-		animation: anim_circle-node 1s ease-in-out forwards;
-	}
-	&-react {
-		animation: anim_circle-react 1s ease-in-out forwards;
-	}
-	&-angular {
-		animation: anim_circle-angular 1s ease-in-out forwards;
-	}
-	&-vue {
-		animation: anim_circle-vue 1s ease-in-out forwards;
-	}
-}
-
-
-
-
-.progressbar__text {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	padding: 0.25em 0.5em;
-	color: hsl(0, 0%, 100%);
-	font-family: Arial, Helvetica, sans-serif;
-	border-radius: 0.25em;
-	transform: translate(-50%, -50%) rotate(90deg);
-}
-
-//  @keyframes
-
-@keyframes anim_circle-html {
-	to {
-		stroke-dashoffset: strokeDashoffset($porcent-html);
-	}
-}
-
-@keyframes anim_circle-css {
-	to {
-		stroke-dashoffset: strokeDashoffset($porcent-css);
-	}
-}
-
-@keyframes anim_circle-scss {
-	to {
-		stroke-dashoffset: strokeDashoffset($porcent-scss);
-	}
-}
-
-@keyframes anim_circle-js {
-	to {
-		stroke-dashoffset: strokeDashoffset($porcent-js);
-	}
-}
-
-@keyframes anim_circle-ts {
-	to {
-		stroke-dashoffset: strokeDashoffset($porcent-ts);
-	}
-}
-
-@keyframes anim_circle-node {
-	to {
-		stroke-dashoffset: strokeDashoffset($porcent-node);
-	}
-}
-
-@keyframes anim_circle-react {
-	to {
-		stroke-dashoffset: strokeDashoffset($porcent-react);
-	}
-}
-
-@keyframes anim_circle-angular {
-	to {
-		stroke-dashoffset: strokeDashoffset($porcent-angular);
-	}
-}
-
-@keyframes anim_circle-vue {
-	to {
-		stroke-dashoffset: strokeDashoffset($porcent-vue);
-	}
-}
-
-
-
+  // Skills
+  .skills-container {
+    flex-wrap: wrap;
+  }
+  .circular-progress {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+  }
+  .circular-progress::before {
+    content: "";
+    position: absolute;
+    height: 90%;
+    width: 90%;
+    background-color: $black;
+    border-radius: 50%;
+  }
+  .value-container {
+    position: relative;
+    font-size: 1rem;
+    color: $bg;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -507,8 +376,6 @@ $porcent-vue: 2;
     }
   }
 }
-
-
 
 @media screen and (min-width: 1024px) {
   main {

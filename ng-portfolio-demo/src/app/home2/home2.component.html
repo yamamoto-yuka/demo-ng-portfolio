@@ -1,21 +1,20 @@
 <div class="home-container">
-  <app-header [textWhite]="true"></app-header>
+<app-header></app-header>
   <main>
-    <div class="hero-container">
-      <div #container class="canvas-container">
+
+      <div #container class="hero-container">
         <canvas #myCanvas id="myCanvas"></canvas>
 
         <div class="headline">
-          <h2>Full-stack Developer</h2>
           <h1>YUKA YAMAMOTO</h1>
+          <h2>Full-stack Developer</h2>
         </div>
 
         <div class="scroll-nav">
           <p>SCROLL TO EXPLORE</p>
         </div>
-      </div>
+    
 
-      <div class="nav">
         <div class="line-top">
           <div class="verticalLine-wrap">
             <div class="box-l"></div>
@@ -32,10 +31,11 @@
           </div>
         </div>
       </div>
-    </div>
+
+ 
 
     <section>
-      <div class="heading-box">
+      <div class="heading-box  work-heading">
         <h3>WORK</h3>
       </div>
 
@@ -174,71 +174,12 @@
         <h3>SKILLS</h3>
       </div>
 
-
-        <div class="container__progressbars">
-      
-          <div class="progressbar">
-            <svg class="progressbar__svg">
-              <circle cx="80" cy="80" r="70" class="progressbar__svg-circle circle-html shadow-html"> </circle>
-            </svg>
-            <span class="progressbar__text shadow-html">HTML</span>
-          </div>
-      
-          <div class="progressbar">
-            <svg class="progressbar__svg">
-              <circle cx="80" cy="80" r="70" class="progressbar__svg-circle circle-css shadow-css"> </circle>
-            </svg>
-            <span class="progressbar__text shadow-css">CSS</span>
-          </div>
-      
-          <div class="progressbar">
-            <svg class="progressbar__svg">
-              <circle cx="80" cy="80" r="70" class="progressbar__svg-circle circle-scss shadow-scss"> </circle>
-            </svg>
-            <span class="progressbar__text shadow-scss">SCSS</span>
-          </div>
-      
-          <div class="progressbar">
-            <svg class="progressbar__svg">
-              <circle cx="80" cy="80" r="70" class="progressbar__svg-circle circle-js shadow-js"> </circle>
-            </svg>
-            <span class="progressbar__text shadow-js">JavaScript</span>
-          </div>
-      
-          <div class="progressbar">
-            <svg class="progressbar__svg">
-              <circle cx="80" cy="80" r="70" class="progressbar__svg-circle circle-ts shadow-ts"> </circle>
-            </svg>
-            <span class="progressbar__text shadow-ts">TypeScript</span>
-          </div>
-      
-          <div class="progressbar">
-            <svg class="progressbar__svg">
-              <circle cx="80" cy="80" r="70" class="progressbar__svg-circle circle-node shadow-node"> </circle>
-            </svg>
-            <span class="progressbar__text shadow-node">Node.js</span>
-          </div>
-      
-          <div class="progressbar">
-            <svg class="progressbar__svg">
-              <circle cx="80" cy="80" r="70" class="progressbar__svg-circle circle-react shadow-react"> </circle>
-            </svg>
-            <span class="progressbar__text shadow-react">React.js</span>
-          </div>
-          <div class="progressbar">
-            <svg class="progressbar__svg">
-              <circle cx="80" cy="80" r="70" class="progressbar__svg-circle circle-angular shadow-angular"> </circle>
-            </svg>
-            <span class="progressbar__text shadow-angular">Angular.js</span>
-          </div>
-          <div class="progressbar">
-            <svg class="progressbar__svg">
-              <circle cx="80" cy="80" r="70" class="progressbar__svg-circle circle-vue shadow-vue"> </circle>
-            </svg>
-            <span class="progressbar__text shadow-vue">Vue.js</span>
-          </div>
+      <div class="skills-container">
+        <div *ngFor="let skill of skills"  [ngStyle]="conicGradient" [attr.progressEndValue]="skill.level" class="circular-progress">
+          <div  class="value-container">{{skill.name}}</div>
         </div>
-
+      </div>
+    
 
 
       <div class="icon-wrap"></div>
@@ -250,23 +191,7 @@
       </div>
     </section>
 
-    <section>
-      <div class="heading-box">
-        <h3>TESTIMONIALS</h3>
-      </div>
-      <div class="tverticalLine-wrap">
-        <div class="testimonials-item"></div>
-        <div class="testimonials-item"></div>
-      </div>
-      <div class="heading-box">
-        <div class="line"></div>
-
-        <div class="verticalLine-wrap">
-          <div class="box-l"></div>
-          <div class="box-r"></div>
-        </div>
-      </div>
-    </section>
+   
   </main>
   <app-footer></app-footer>
 </div>

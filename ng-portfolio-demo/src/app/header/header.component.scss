@@ -1,68 +1,71 @@
 @import "../../styles.scss";
 
+// Header
 header {
-  width: 100%;
   height: 10vh;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  z-index: 999;
+  background-color: transparent;
+  z-index: 2;
+}
+.header-inner {
+  height: inherit;
+  position: relative;
+  height: 100%;
+  @include centerCenter();
+  justify-content: space-around;
+}
+.header-title {
+  height: 100%;
 }
 
 #logo {
-  width: 40%;
-  img{
+  width: 35%;
+  img {
     height: 100%;
     width: 100%;
     object-fit: contain;
   }
 }
-.header-inner {
-  @include centerCenter($j:space-around);
-  height: 100%;
-  position: relative;
-}
 
 nav {
-  position: absolute;
-  right: 0;
-  left: 0;
-  top: 0;
-  width: 100%;
   height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   transform: translateX(100%);
   transition: all 0.5s ease-in-out;
 }
 
 .nav-items {
+  padding: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 0;
   a {
-    color: $bg;
     width: 100%;
     display: block;
     text-align: center;
-    font-size: 1rem;
-    margin-bottom: 20px;
-    transition: all 1s ease-in-out;
-    font-family: "Sora", sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: $black;
   }
   a:hover,
-  a:active{
+  a:active {
     @include catHoverActive();
   }
   a:after,
   a:before {
-    @include catAfterBefore($border-color: $bg);
+    @include catAfterBefore($border-color: $black);
     transition: all 1s ease-in-out;
   }
   a:hover:after,
   a:hover:before {
-    @include catHoverAfterBefore($border-color: $bg,$width: 100%);
+    @include catHoverAfterBefore($border-color: $black, $width: 100%);
   }
   a:hover:before {
     @include catHoverBefore($width: 100%);
@@ -72,32 +75,20 @@ nav {
       margin-bottom: 0;
     }
   }
-
-  // a.white{
-  //   color: $bg;
-  // }
-  // a:after.white,
-  // a:before.white {
-  //   @include catAfterBefore($border-color: $bg);
-  // }
-  // a:hover:after.white,
-  // a:hover:before.white {
-  //   @include catHoverAfterBefore($border-color: $bg);
-  // }
 }
 
 .hamburger {
-  width: 48px;
   height: 100%;
+  width: 48px;
   background-color: transparent;
   border-color: transparent;
-  z-index: 1000;
+  z-index: 10;
   span {
-    width: 100%;
     height: 1px;
-    background-color: $black;
+    width: 100%;
     position: relative;
     display: block;
+    background-color: white;
     transition: all 0.5s ease-in-out;
   }
   span:nth-child(1) {
@@ -109,7 +100,7 @@ nav {
   span:nth-child(3) {
     top: 0;
   }
-  span.white{
+  span.white {
     background-color: $bg;
   }
 }
@@ -121,6 +112,7 @@ nav.active {
 
 .hamburger.active {
   span {
+    background-color: $black;
     transition: all 0.5s ease-in-out;
   }
   span:nth-child(1) {
@@ -136,45 +128,59 @@ nav.active {
   }
 }
 
-// For individual page
-.activePage{
-  font-weight: 900 !important;
-}
-.activePage::after,
-.activePage::before{
-  width: 100% !important;
-}
-
-
 @media screen and (min-width: 1024px) {
+  header {
+    position: absolute;
+  }
+
+  #logo {
+    height: 100%;
+    width: 50%;
+  }
+  .header-title {
+    margin-bottom: 0;
+  }
   nav {
-    position: static;
+    position: initial;
     transform: initial;
     height: inherit;
     display: flex;
     justify-content: flex-end;
     width: 50%;
   }
-
-  .header-title {
-    margin-bottom: 0;
-  }
-
   .nav-items {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
     margin-bottom: 0;
-    position: inherit;
-    top: 0;
-    left: 0;
-    transform: translate(0, 0);
+    position: initial;
+    top: initial;
+    left: initial;
+    transform: initial;
     a {
       margin-bottom: 0;
+      font-size: 1rem;
+      color: white;
+    }
+    a:after,
+    a:before {
+      @include catAfterBefore($border-color: $bg);
+      transition: all 1s ease-in-out;
+    }
+    a:hover:after,
+    a:hover:before {
+      @include catHoverAfterBefore($border-color: $bg, $width: 100%);
+    }
+    a:hover:before {
+      @include catHoverBefore($width: 100%);
+    }
+    .nav-item:last-child {
+      a {
+        margin-bottom: 0;
+      }
     }
   }
-
   .hamburger {
     display: none;
   }

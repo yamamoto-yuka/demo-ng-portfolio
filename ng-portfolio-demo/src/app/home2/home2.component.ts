@@ -13,6 +13,7 @@ export class Home2Component implements OnInit {
   container: ElementRef<HTMLDivElement>;
   @ViewChild('myCanvas', { static: true }) myCanvas: ElementRef<HTMLDivElement>;
   @ViewChild('resumeText', { static: true }) resumeText: ElementRef<HTMLDivElement>;
+
   // scene:any;
   // camera:any;
   // renderer:any;
@@ -20,9 +21,64 @@ export class Home2Component implements OnInit {
   // geometry:any;
   // vertices:any = [];
 
+  progressValue = 0;
+  progressEndValue:number;
+  speed =50;
+  conicGradient:any;
+  skillProgress:any;
+
+  skills:any[]=[
+    {
+      name:'HTML',
+      level:60
+    },
+    {
+      name:'CSS',
+      level:50
+    }
+    ,
+    {
+      name:'JavaScript',
+      level:30
+    }
+    ,
+    {
+      name:'Typescript',
+      level:20
+    }
+    ,
+    {
+      name:'Angular',
+      level:20
+    }
+    ,
+    {
+      name:'Node.js',
+      level:20
+    }
+  ]
+
   constructor() {}
 
+
+
+
   ngOnInit(): void {
+    // this.skillProgress =
+    // setInterval(() =>{
+    // this.progressValue++;
+    // console.log(this.progressValue);
+    // this.conicGradient = {background: `conic-gradient(
+    //   #4d5bf9 ${this.progressValue * 3.6}deg,
+    //   #cadcff ${this.progressValue * 3.6}deg
+    // )`}
+    // if(this.progressValue == this.progressEndValue){
+    //   clearInterval(this.skillProgress);
+    // }
+    // },this.speed)
+
+    
+  
     let camera: any, scene: any, renderer: any, stars: any, vertices:any,velocities:any,accelerations:any;
     const vertex = new THREE.Vector3();
 
@@ -135,4 +191,8 @@ export class Home2Component implements OnInit {
 
 
   }
+
+
 }
+
+
