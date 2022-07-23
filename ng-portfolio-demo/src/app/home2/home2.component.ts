@@ -77,7 +77,6 @@ export class Home2Component implements OnInit {
     // }
     // },this.speed)
 
-    
   
     let camera: any, scene: any, renderer: any, stars: any, vertices:any,velocities:any,accelerations:any;
     const vertex = new THREE.Vector3();
