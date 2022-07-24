@@ -20,6 +20,7 @@ import { ContactComponent } from './contact/contact.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ProjectCasestudyComponent } from './project-casestudy/project-casestudy.component';
 import { Home2Component } from './home2/home2.component';
+import { TopComponent } from './top/top.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { Home2Component } from './home2/home2.component';
     ContactComponent,
     SkillsComponent,
     ProjectCasestudyComponent,
-    Home2Component
+    Home2Component,
+    TopComponent
   ],
   imports: [
     BrowserModule,

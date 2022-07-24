@@ -1,0 +1,171 @@
+@import "../../styles.scss";
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+$black: #0d0d0d;
+$text: #d9d9d9;
+$white: #ffffff;
+$yellow: #b59b59;
+$blue: #89b8be;
+
+
+
+a,
+h1,
+h2,
+p{
+  color: $text;
+  font-family: 'Epilogue', sans-serif;
+}
+
+p{
+  font-family: Helvetica, sans-serif;
+}
+
+
+
+  main{
+    position: relative;
+  }
+
+  .hero-container {
+    min-height: 100vh;
+  }
+
+  #myCanvas,
+  .absolute-box
+  {
+    position:absolute;
+  }
+
+  .absolute-box{
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #myCanvas {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .top-nav{
+    top: 50%;
+    transform: translate(-50%, -50%);
+    ul{
+      text-align: center;
+    }
+
+    li:first-child{
+      padding-bottom: 3rem;
+    }
+
+    a{
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    a:hover,
+    a:active{
+      color: $yellow;
+      transition: all .8s ease-in-out;
+    }
+
+    a:after,
+    a:before{
+      content: '';
+      width: 0%;
+      position: relative;
+      top: auto;
+      bottom: 0;
+      display: block;
+      margin: 0 auto;
+      border: 1px solid $text;
+      transition: all .8s ease-in-out;
+    }
+
+    a:hover:after,
+    a:hover::before{
+      width: 100%;
+      border-color: $yellow;
+      transition: width .8s ease-in-out;
+    }
+
+    a:hover:before{
+      width: 100%;
+      top: 0;
+      bottom: auto;
+    }
+  }
+
+  .headline{
+    width: 90%;
+    top: 5%;
+    .title{
+      padding-bottom: 1rem;
+      h1{
+        font-size: 1.3rem;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1rem;
+        font-weight: 300;
+      }
+    }
+    .description{
+      width: 80%;
+    p{
+      font-size: .8rem;
+      font-weight: 300;
+    }}
+  }
+  
+  .logo{
+    width: 20%;
+    top: 90%;
+    img{
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .contact{
+    width: fit-content;
+    top: 80%;
+    p{
+      font-size: 1.3rem;
+      font-weight: 300;
+      border-top: 1px solid $text;
+      border-bottom: 1px solid $text;
+      transition: all .5s ease-in-out;
+    }
+    p:hover{
+      font-weight: bold;
+      border-top: 1px solid $yellow;
+      border-bottom: 1px solid $yellow;
+      color: $yellow;
+    }
+  }
+
+
+@media screen and (min-width: 768px) {
+  .top-nav{
+    li:first-child{
+      padding-bottom: 5rem;
+    }
+    a{
+      font-size: 3.5rem;
+    }
+
+  }
+
+  .logo{
+    width: 12%;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+}

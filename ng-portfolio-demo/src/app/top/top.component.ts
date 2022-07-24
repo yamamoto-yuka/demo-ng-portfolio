@@ -1,83 +1,21 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import * as THREE from 'three';
 import { FlyControls } from 'three/examples/jsm/controls/FlyControls';
-import { gsap ,Power2,TweenMax, TimelineMax } from 'gsap';
+
 
 @Component({
-  selector: 'app-home2',
-  templateUrl: './home2.component.html',
-  styleUrls: ['./home2.component.scss'],
+  selector: 'app-top',
+  templateUrl: './top.component.html',
+  styleUrls: ['./top.component.scss']
 })
-export class Home2Component implements OnInit {
-  @ViewChild('container', { static: true })
-  container: ElementRef<HTMLDivElement>;
+export class TopComponent implements OnInit {
+  @ViewChild('container', { static: true }) container: ElementRef<HTMLDivElement>;
   @ViewChild('myCanvas', { static: true }) myCanvas: ElementRef<HTMLDivElement>;
-  @ViewChild('resumeText', { static: true }) resumeText: ElementRef<HTMLDivElement>;
-
-  // scene:any;
-  // camera:any;
-  // renderer:any;
-  // stars:any;
-  // geometry:any;
-  // vertices:any = [];
-
-  progressValue = 0;
-  progressEndValue:number;
-  speed =50;
-  conicGradient:any;
-  skillProgress:any;
-
-  skills:any[]=[
-    {
-      name:'HTML',
-      level:60
-    },
-    {
-      name:'CSS',
-      level:50
-    }
-    ,
-    {
-      name:'JavaScript',
-      level:30
-    }
-    ,
-    {
-      name:'Typescript',
-      level:20
-    }
-    ,
-    {
-      name:'Angular',
-      level:20
-    }
-    ,
-    {
-      name:'Node.js',
-      level:20
-    }
-  ]
-
-  constructor() {}
 
 
-
+  constructor() { }
 
   ngOnInit(): void {
-    // this.skillProgress =
-    // setInterval(() =>{
-    // this.progressValue++;
-    // console.log(this.progressValue);
-    // this.conicGradient = {background: `conic-gradient(
-    //   #4d5bf9 ${this.progressValue * 3.6}deg,
-    //   #cadcff ${this.progressValue * 3.6}deg
-    // )`}
-    // if(this.progressValue == this.progressEndValue){
-    //   clearInterval(this.skillProgress);
-    // }
-    // },this.speed)
-
-  
     let camera: any, scene: any, renderer: any, stars: any, vertices:any,velocities:any,accelerations:any;
     const vertex = new THREE.Vector3();
 
@@ -185,10 +123,6 @@ export class Home2Component implements OnInit {
 
 
 
-
   }
 
-
 }
-
-
