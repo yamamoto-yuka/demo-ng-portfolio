@@ -1,15 +1,18 @@
 <main>
+  <h3 #topText class="top-text absolute-box">Be active.<br />Be curious.<br />Be human.</h3>
+  <div #slider class="slider absolute-box"></div>
+
   <div #container class="hero-container">
     <canvas #myCanvas id="myCanvas"></canvas>
 
     <div class="top-nav absolute-box" >
       <ul>
-        <li><a href="">PROJECTS</a></li>
-        <li><a href="">ABOUT</a></li>
+        <li #projects><a routerLink="/projects">PROJECTS</a></li>
+        <li #about ><a routerLink="/about">ABOUT</a></li>
       </ul>
     </div>
 
-    <div class="headline absolute-box">
+    <div #headline class="headline absolute-box">
       <div class="title">
         <h1>YUKA YAMAMOTO</h1>
         <h2>Front-end Developer</h2>
@@ -25,14 +28,14 @@
       </div>
     </div>
 
-    <div class="logo absolute-box">
-      <a href="">
-        <img src="../../assets/logo_white.svg" alt="">
+    <div #logo class="logo absolute-box">
+      <a routerLink="/">
+        <img src="../../assets/logo_white.svg" alt="YUKA YAMAMOTO logo image">
       </a>
     </div>
 
-    <div class="contact absolute-box">
-      <a href=""><p>GET IN TOUCH</p></a>
+    <div #contact class="contact absolute-box">
+      <a routerLink="/contact"><p>GET IN TOUCH</p></a>
     </div>
 
   </div>

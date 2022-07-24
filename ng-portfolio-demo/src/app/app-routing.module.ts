@@ -10,16 +10,15 @@ import { Home2Component } from './home2/home2.component';
 import { TopComponent } from './top/top.component';
 
 const routes: Routes = [
-  {path:'', component:HomeComponent},
-  {path:'home', component:HomeComponent},
-  {path:'project', component:ProjectsComponent},
-  {path:'about-me', component:AboutComponent},
-  {path:'project/development/:title/:id', component:ProjectDetailComponent},
-  {path:'project/casestudy/:title/:id', component:ProjectCasestudyComponent},
-  {path:'project/other/:title/:id', component:ProjectDetailComponent},
+  {path:'', component:TopComponent},
+  {path:'home', component:TopComponent},
+  {path:'projects', component:ProjectsComponent},
+  {path:'about', component:AboutComponent},
+  {path:'projects/development/:title/:id', component:ProjectDetailComponent},
+  {path:'projects/casestudy/:title/:id', component:ProjectCasestudyComponent},
+  {path:'projects/other/:title/:id', component:ProjectDetailComponent},
   {path:'contact', component:ContactComponent},
   {path:'home1', component:Home2Component},
-  {path:'top', component:TopComponent}
 ];
 
 @NgModule({

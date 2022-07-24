@@ -1,5 +1,4 @@
-@import "../../styles.scss";
-@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,400;1,500;1,600;1,700;1,800&display=swap");
 
 $black: #0d0d0d;
 $text: #d9d9d9;
@@ -7,200 +6,241 @@ $white: #ffffff;
 $yellow: #b59b59;
 $blue: #89b8be;
 
+@mixin flex() {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
 
+// Base
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
 
 a,
 h1,
 h2,
-p{
+h3,
+p {
   color: $text;
-  font-family: 'Epilogue', sans-serif;
+  font-family: "Epilogue", sans-serif;
 }
 
-p{
+p {
   font-family: Helvetica, sans-serif;
 }
 
+.top-text {
+  top: 60%;
+  left: 30%;
+  color: $black;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  font-weight: 400;
+  transform: translate(-30%, -60%);
+  z-index: 1;
+}
+
+.slider {
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: $text;
+}
 
 
-  main{
+main {
+  height: 100%;
+  width: 100%;
+  @include flex();
+}
+
+.hero-container {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+#myCanvas,
+.absolute-box {
+  position: absolute;
+}
+
+.absolute-box {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#myCanvas {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.top-nav {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  ul {
+    text-align: center;
+  }
+
+  li:first-child {
+    padding-bottom: 3rem;
+  }
+
+  a {
+    font-size: 3rem;
+    letter-spacing: 0.5rem;
+    font-weight: bold;
+  }
+
+  a:hover,
+  a:active {
+    color: $yellow;
+    transition: all 0.8s ease-in-out;
+  }
+
+  a:after,
+  a:before {
+    content: "";
+    width: 0%;
     position: relative;
+    top: auto;
+    bottom: 0;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid $text;
+    transition: all 0.8s ease-in-out;
   }
 
-  .hero-container {
-    min-height: 100vh;
+  a:hover:after,
+  a:hover::before {
+    width: 100%;
+    border-color: $yellow;
+    transition: width 0.8s ease-in-out;
   }
 
-  #myCanvas,
-  .absolute-box
-  {
-    position:absolute;
-  }
-
-  .absolute-box{
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  #myCanvas {
-    height: 100%;
+  a:hover:before {
     width: 100%;
     top: 0;
-    left: 0;
+    bottom: auto;
   }
+}
 
-  .top-nav{
-    top: 50%;
-    transform: translate(-50%, -50%);
-    ul{
-      text-align: center;
-    }
-
-    li:first-child{
-      padding-bottom: 3rem;
-    }
-
-    a{
-      font-size: 3rem;
-      letter-spacing: .5rem;
-      font-weight: bold;
-    }
-
-    a:hover,
-    a:active{
-      color: $yellow;
-      transition: all .8s ease-in-out;
-    }
-
-    a:after,
-    a:before{
-      content: '';
-      width: 0%;
-      position: relative;
-      top: auto;
-      bottom: 0;
-      display: block;
-      margin: 0 auto;
-      border: 1px solid $text;
-      transition: all .8s ease-in-out;
-    }
-
-    a:hover:after,
-    a:hover::before{
-      width: 100%;
-      border-color: $yellow;
-      transition: width .8s ease-in-out;
-    }
-
-    a:hover:before{
-      width: 100%;
-      top: 0;
-      bottom: auto;
-    }
-  }
-
-  .headline{
-    width: 90%;
-    top: 5%;
-    .title{
-      padding-bottom: 1rem;
-      h1{
-        font-size: 1.3rem;
-        letter-spacing: .3rem;
-        font-weight: bold;
-      }
-      h2{
-        font-size: 1rem;
-        font-weight: 300;
-      }
-    }
-    .description{
-      width: 80%;
-    p{
-      font-size: .8rem;
-      font-weight: 300;
-    }}
-  }
-  
-  .logo{
-    width: 20%;
-    top: 90%;
-    img{
-      height: 100%;
-      width: 100%;
-      object-fit: contain;
-    }
-  }
-
-  .contact{
-    width: fit-content;
-    top: 80%;
-    p{
+.headline {
+  width: 90%;
+  top: 5%;
+  .title {
+    padding-bottom: 1rem;
+    h1 {
       font-size: 1.3rem;
-      letter-spacing: .2rem;
-      font-weight: 300;
-      border-top: 1px solid $text;
-      border-bottom: 1px solid $text;
-      transition: all .5s ease-in-out;
-    }
-    p:hover{
+      letter-spacing: 0.3rem;
       font-weight: bold;
-      border-top: 1px solid $yellow;
-      border-bottom: 1px solid $yellow;
-      color: $yellow;
+    }
+    h2 {
+      font-size: 1rem;
+      font-weight: 300;
     }
   }
+  .description {
+    width: 80%;
+    p {
+      font-size: 0.8rem;
+      font-weight: 300;
+    }
+  }
+}
+
+.logo {
+  width: 20%;
+  top: 90%;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.contact {
+  width: fit-content;
+  top: 80%;
+  p {
+    font-size: 1.3rem;
+    letter-spacing: 0.2rem;
+    font-weight: 300;
+    border-top: 1px solid $text;
+    border-bottom: 1px solid $text;
+    transition: all 0.5s ease-in-out;
+  }
+  p:hover {
+    font-weight: bold;
+    border-top: 1px solid $yellow;
+    border-bottom: 1px solid $yellow;
+    color: $yellow;
+  }
+}
+
+
 
 
 @media screen and (min-width: 768px) {
-  .top-nav{
-    li:first-child{
+  .top-nav {
+    li:first-child {
       padding-bottom: 5rem;
     }
-    a{
+    a {
       font-size: 3.5rem;
-      letter-spacing: .8rem;
+      letter-spacing: 0.8rem;
     }
-
   }
 
-  .logo{
+  .logo {
     width: 12%;
   }
-
 }
 
 @media screen and (min-width: 1024px) {
-  .top-nav{
+  .top-nav {
     top: 43%;
     transform: translate(-50%, -43%);
-    ul{
+    ul {
       display: flex;
     }
 
-    li:first-child{
+    li:first-child {
       padding-bottom: 0rem;
       margin-right: 6.3rem;
     }
-
   }
 
-  .headline{
+  .headline {
     width: initial;
     top: 95%;
     left: 5%;
     transform: translate(-5%, -95%);
-
   }
-  
-  .logo{
+
+  .logo {
     width: 10%;
     top: 95%;
     left: 95%;
     transform: translate(-95%, -95%);
   }
 
-  .contact{
+  .contact {
     top: 85%;
     left: 95%;
     transform: translate(-95%, -85%);

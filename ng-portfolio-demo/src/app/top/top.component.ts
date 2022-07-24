@@ -1,24 +1,95 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import * as THREE from 'three';
 import { FlyControls } from 'three/examples/jsm/controls/FlyControls';
-
+import { gsap, Power2 } from 'gsap';
 
 @Component({
   selector: 'app-top',
   templateUrl: './top.component.html',
-  styleUrls: ['./top.component.scss']
+  styleUrls: ['./top.component.scss'],
 })
 export class TopComponent implements OnInit {
+  // GET DOM ELEMENT
   @ViewChild('container', { static: true }) container: ElementRef<HTMLDivElement>;
   @ViewChild('myCanvas', { static: true }) myCanvas: ElementRef<HTMLDivElement>;
+  @ViewChild('headline', { static: true }) headline: ElementRef<HTMLDivElement>;
+  @ViewChild('logo', { static: true }) logo: ElementRef<HTMLDivElement>;
+  @ViewChild('projects', { static: true }) projects: ElementRef<HTMLDivElement>;
+  @ViewChild('about', { static: true }) about: ElementRef<HTMLDivElement>;
+  @ViewChild('contact', { static: true }) contact: ElementRef<HTMLDivElement>;
+  @ViewChild('topText', { static: true }) topText: ElementRef<HTMLDivElement>;
+  @ViewChild('slider', { static: true }) slider: ElementRef<HTMLDivElement>;
 
+  constructor() {}
 
-  constructor() { }
+  // OPENING ANIMATION
+  timelineAnimation() {
+    const tl = gsap.timeline();
+    tl.fromTo(
+      this.container.nativeElement,
+      1.5,
+      { height: '0' },
+      { height: '100vh', ease: Power2.easeInOut }
+    )
+      .fromTo(
+        this.container.nativeElement,
+        1.7,
+        { width: '0%' },
+        { width: '100%', ease: Power2.easeInOut }
+      )
+      .fromTo(
+        this.topText.nativeElement,
+        1.5,
+        { opacity: 1, left: '30%' },
+        { opacity: 0, left: '0%', display: 'none', ease: Power2.easeOut },
+        '-=1.5'
+      )
+      .fromTo(
+        this.logo.nativeElement,
+        1.8,
+        { opacity: 0 },
+        { opacity: 1, ease: Power2.easeInOut }
+      )
+      .fromTo(
+        this.projects.nativeElement,
+        1.8,
+        { opacity: 0 },
+        { opacity: 1, ease: Power2.easeInOut },
+        '-=1.8'
+      )
+      .fromTo(
+        this.about.nativeElement,
+        1.8,
+        { opacity: 0 },
+        { opacity: 1, ease: Power2.easeInOut },
+        '-=1.8'
+      )
+      .fromTo(
+        this.headline.nativeElement,
+        1.8,
+        { opacity: 0 },
+        { opacity: 1, ease: Power2.easeInOut },
+        '-=1.8'
+      )
+      .fromTo(
+        this.contact.nativeElement,
+        1.8,
+        { opacity: 0 },
+        { opacity: 1, ease: Power2.easeInOut },
+        '-=1.98'
+      );
+  }
 
   ngOnInit(): void {
-    let camera: any, scene: any, renderer: any, stars: any, vertices:any,velocities:any,accelerations:any;
+    // SPACE BG
+    let camera: any,
+      scene: any,
+      renderer: any,
+      stars: any,
+      vertices: any,
+      velocities: any,
+      accelerations: any;
     const vertex = new THREE.Vector3();
-
     const clock = new THREE.Clock();
     let controls: FlyControls;
 
@@ -44,9 +115,8 @@ export class TopComponent implements OnInit {
       this.container.nativeElement.clientHeight
     );
 
-    createStarField();
-
     // CREATE Particle
+    createStarField();
     function createStarField() {
       vertices = [];
       velocities = [];
@@ -56,8 +126,8 @@ export class TopComponent implements OnInit {
           Math.random() * 600 - 300,
           Math.random() * 600 - 300,
           Math.random() * 600 - 300,
-          velocities.push( 0 ),
-          accelerations.push( Math.random() )
+          velocities.push(0),
+          accelerations.push(Math.random())
         );
       }
 
@@ -71,7 +141,7 @@ export class TopComponent implements OnInit {
       // MATERIAL
       const sprite = new THREE.TextureLoader().load('../../assets/star.png');
       const material = new THREE.PointsMaterial({
-        size: .9,
+        size: 0.9,
         color: 0xffffff,
         map: sprite,
       });
@@ -93,18 +163,16 @@ export class TopComponent implements OnInit {
       camera.updateProjectionMatrix();
     }
 
+    // AUTO MOVE
     function move() {
       let positionAttribute = stars.geometry.getAttribute('position');
       for (let i = 0; i < positionAttribute.count; i++) {
-        vertex.fromBufferAttribute( positionAttribute, i );
-		
+        vertex.fromBufferAttribute(positionAttribute, i);
         vertex.y -= 1;
-		
-        if (vertex.y < - 200) {
-            vertex.y = 200;
+        if (vertex.y < -200) {
+          vertex.y = 200;
         }
-		
-        positionAttribute.setXYZ( i, vertex.x, vertex.y, vertex.z );
+        positionAttribute.setXYZ(i, vertex.x, vertex.y, vertex.z);
       }
       positionAttribute.needUpdate = true;
     }
@@ -121,8 +189,7 @@ export class TopComponent implements OnInit {
     //EXECUTE WINDOW RESIZE
     window.addEventListener('resize', onWindowResize);
 
-
-
+    //EXECUTE OPENING ANIMATION
+    this.timelineAnimation();
   }
-
 }
