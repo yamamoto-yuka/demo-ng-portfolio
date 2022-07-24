@@ -1,44 +1,17 @@
 <header #header>
-    <div class="header-inner">
-      <h1 class="header-title">
-        <div #logo id="logo">
-          <a routerLink="/home">
-            <img src="../../assets/logo_white.svg" alt="" />
-          </a>
-        </div>
-      </h1>
-      <nav>
-        <ul #ul class="nav-items">
-          <li class="nav-item">
-            <a
-              [class.white]="textWhite"
-              [class.activePage]="projectsActive"
-              routerLink="/" 
-              >PROJECTS</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              [class.white]="textWhite"
-              [class.activePage]="aboutActive"
-              routerLink="/about-me"
-              >ABOUT</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              [class.white]="textWhite"
-              [class.activePage]="contactActive"
-              routerLink="/contact"
-              >CONTACT</a
-            >
-          </li>
-        </ul>
-      </nav>
-      <button class="hamburger">
-        <span [class.white]="textWhite"></span>
-        <span [class.white]="textWhite"></span>
-        <span [class.white]="textWhite"></span>
-      </button>
-    </div>
+  <div class="header-inner">
+    <nav>
+      <ul #ul class="nav-items">
+        <li class="nav-item"><a routerLink="/">HOME</a></li>
+        <li class="nav-item"><a [class.activePage]="projectsActive" routerLink="/projects">PROJECTS</a></li>
+        <li class="nav-item"><a [class.activePage]="aboutActive" routerLink="/about">ABOUT</a></li>
+        <li class="nav-item"><a [class.activePage]="contactActive" routerLink="/contact">CONTACT</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger">
+      <span ></span>
+      <span >MENU</span>
+      <span ></span>
+    </button>
+  </div>
 </header>

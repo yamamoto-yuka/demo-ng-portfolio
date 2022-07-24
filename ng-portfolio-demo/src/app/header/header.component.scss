@@ -1,75 +1,121 @@
-@import "../../styles.scss";
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,400;1,500;1,600;1,700;1,800&display=swap");
 
-// Header
+$black: #0d0d0d;
+$text: #d9d9d9;
+$white: #ffffff;
+$yellow: #b59b59;
+$blue: #89b8be;
+
+@mixin flex() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin transition() {
+  transition: all 0.5s ease-in-out;
+}
+
+// Base
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a,
+h1,
+h2,
+h3,
+p {
+  color: $text;
+  font-family: "Epilogue", sans-serif;
+}
+
+p {
+  font-family: Helvetica, sans-serif;
+}
+
 header {
-  height: 10vh;
   width: 100%;
+  height: 10vh;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: transparent;
-  z-index: 2;
-}
-.header-inner {
-  height: inherit;
-  position: relative;
-  height: 100%;
-  @include centerCenter();
-  justify-content: space-around;
-}
-.header-title {
-  height: 100%;
+  right: 0;
+  z-index: 4;
 }
 
-#logo {
+.header-inner {
+  position: relative;
   height: 100%;
-  width: 35%;
-  img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-  }
+  @include flex();
+  justify-content: space-around;
+}
+
+nav,
+.nav-items {
+  position: absolute;
 }
 
 nav {
   height: 100vh;
   width: 100%;
-  position: absolute;
   top: 0;
   left: 0;
   transform: translateX(100%);
-  transition: all 0.5s ease-in-out;
+  @include transition();
 }
 
 .nav-items {
-  padding: 0;
-  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 0;
   a {
     width: 100%;
     display: block;
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
     color: $black;
+    text-align: center;
+    font-size: 1.3rem;
+    @include transition();
   }
   a:hover,
   a:active {
-    @include catHoverActive();
+    font-weight: bold;
+    @include transition();
   }
   a:after,
   a:before {
-    @include catAfterBefore($border-color: $black);
-    transition: all 1s ease-in-out;
+    content: "";
+    width: 0%;
+    position: relative;
+    bottom: 0;
+    display: block;
+    margin: 0 auto;
+    border: 0.75px solid $black;
+    @include transition();
   }
   a:hover:after,
   a:hover:before {
-    @include catHoverAfterBefore($border-color: $black, $width: 100%);
+    width: 100%;
+    border-color: $black;
+    @include transition();
   }
   a:hover:before {
-    @include catHoverBefore($width: 100%);
+    width: 100%;
+    top: 0;
+    bottom: auto;
   }
   .nav-item:last-child {
     a {
@@ -80,44 +126,42 @@ nav {
 
 .hamburger {
   height: 100%;
-  width: 48px;
+  width: 55px;
   background-color: transparent;
   border-color: transparent;
-  z-index: 10;
+  z-index: 5;
   span {
     height: 1px;
     width: 100%;
     position: relative;
     display: block;
-    background-color: white;
-    transition: all 0.5s ease-in-out;
+    background-color: $black;
+    @include transition();
   }
   span:nth-child(1) {
     top: 0;
   }
   span:nth-child(2) {
-    margin: 8px 0;
+    margin-bottom: 24px;
+    background-color: transparent;
   }
   span:nth-child(3) {
     top: 0;
   }
-  span.white {
-    background-color: $bg;
-  }
 }
 
+// .active
 nav.active {
   transform: translateX(0);
-  background-color: $bg;
+  background-color: $text;
 }
 
 .hamburger.active {
   span {
-    background-color: $black;
-    transition: all 0.5s ease-in-out;
+    @include transition();
   }
   span:nth-child(1) {
-    top: 5px;
+    top: 13px;
     transform: rotate(45deg);
   }
   span:nth-child(2) {
@@ -129,58 +173,46 @@ nav.active {
   }
 }
 
+// For individual page
+.activePage{
+  font-weight: bold !important;
+}
+
+.activePage::after,
+.activePage::before {
+  width: 100% !important;
+}
+
 @media screen and (min-width: 1024px) {
-  header {
-    position: absolute;
+  nav {
+    height: inherit;
+    width: 50%;
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    transform: initial;
   }
 
-  #logo {
-    width: 50%;
-  }
   .header-title {
     margin-bottom: 0;
   }
-  nav {
-    position: initial;
-    transform: initial;
-    height: inherit;
-    display: flex;
-    justify-content: flex-end;
-    width: 50%;
-  }
+
   .nav-items {
     width: 100%;
+    position: inherit;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
     display: flex;
     align-items: center;
     justify-content: space-around;
     margin-bottom: 0;
-    position: initial;
-    top: initial;
-    left: initial;
-    transform: initial;
     a {
       margin-bottom: 0;
       font-size: 1rem;
-      color: white;
-    }
-    a:after,
-    a:before {
-      @include catAfterBefore($border-color: $bg);
-      transition: all 1s ease-in-out;
-    }
-    a:hover:after,
-    a:hover:before {
-      @include catHoverAfterBefore($border-color: $bg, $width: 100%);
-    }
-    a:hover:before {
-      @include catHoverBefore($width: 100%);
-    }
-    .nav-item:last-child {
-      a {
-        margin-bottom: 0;
-      }
     }
   }
+
   .hamburger {
     display: none;
   }
