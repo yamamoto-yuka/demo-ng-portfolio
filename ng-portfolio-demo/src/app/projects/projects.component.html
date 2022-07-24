@@ -3,96 +3,95 @@
 
   <main>
     <div class="categories">
-      <div [class.active]="isSmCategoryActive" class="categories-inner">
+      <div [class.active]="mobileCategory" class="categories-inner">
         <div class="categories-items">
           <p>categories</p>
           <ul class="category-list">
-            <li (click)="allList()" [class.active]="activeAll">ALL PROJECTS</li>
-            <li (click)="developmentList()" [class.active]="activeDevelopment">
+            <li (click)="allBtn()" [class.active]="activeAll">ALL PROJECTS</li>
+            <li (click)="developmentBtn()" [class.active]="activeDevelopment">
               DEVELOPMENT
             </li>
-            <li (click)="caseStudyList()" [class.active]="activeCaseStudy">
+            <li (click)="caseStudyBtn()" [class.active]="activeCaseStudy">
               CASE STUDY
             </li>
-            <li (click)="othersList()" [class.active]="activeOther">OTHERS</li>
+            <li (click)="othersBtn()" [class.active]="activeOther">OTHERS</li>
           </ul>
         </div>
       </div>
 
-      <div *ngIf="smBtnShow; else smBtnClose">
-        <button (click)="categoryBtn()" class="categories-btn">
+      <!--  Category Btn For Mobile -->
+      <div *ngIf="showCategoryText; else showCloseText">
+        <button (click)="mobileCategoryBtn()" class="categories-btn">
           CATEGORIES
         </button>
       </div>
-      <ng-template #smBtnClose>
-        <button (click)="categoryBtn()" class="categories-btn">CLOSE</button>
+      <ng-template #showCloseText>
+        <button (click)="mobileCategoryBtn()" class="categories-btn">CLOSE</button>
       </ng-template>
     </div>
 
-    <section
-      *ngFor="let project of projects"
+
+    <!-- Project item For Loop -->
+    <div
+      class="project-item wrap"
       [class.active]="project.attributes.Display"
+      *ngFor="let project of projects"
+      [routerLink]="[
+        '/projects/' + project.attributes.Category + '/',
+        project.attributes.Slug,
+        project.id
+      ]"
     >
-      <div
-        class="headline-wrap"
-        inViewport
-        [inViewportOptions]="{ threshold: [0] }"
-        (inViewportAction)="onIntersection($event)"
-      >
+      <div class="desc-box wrap">
+        <div class="date wrap">
+          <p>{{project.attributes.Category | uppercase}}</p>
+          <p>{{project.attributes.StartDate}} - {{project.attributes.EndDate}}</p>
+        </div>
+
         <h2>{{ project.attributes.ClientName }}</h2>
 
-        <div class="description-wrap">
-          <div class="desctiption">
-            <p>ROLES</p>
-            <ul>
-              <li
-                *ngFor="let roles of project.attributes.roles_portfolios.data"
-              >
-                {{ roles.attributes.Role }}
-              </li>
-            </ul>
+        <div class="details-box wrap">
+          <div class="details wrap">
+            <div class="role">
+              <p>Role</p>
+              <ul>
+                <li
+                  *ngFor="let roles of project.attributes.roles_portfolios.data"
+                >
+                  {{ roles.attributes.Role }}
+                </li>
+              </ul>
+            </div>
+
+            <div class="skills">
+              <p>Skills</p>
+              <ul>
+                <li *ngFor="let skills of project.attributes.skills.data">
+                  {{ skills.attributes.SkillName }}
+                </li>
+              </ul>
+            </div>
           </div>
 
-          <div class="desctiption">
-            <p>SKILL</p>
-            <ul>
-              <li *ngFor="let skills of project.attributes.skills.data">
-                {{ skills.attributes.SkillName }}
-              </li>
-            </ul>
-          </div>
+          <p class="hoverText">Click More Detail</p>
         </div>
-        <button
-          [routerLink]="[
-            '/project/' + project.attributes.Category + '/',
-            project.attributes.Slug,
-            project.id
-          ]"
-          class="more-btn"
-          role="button"
-        >
-          <span class="text">More Detail</span><span>Thanks for your interest!</span>
-        </button>
       </div>
 
-      <div
-        class="img-wrap"
-        inViewport
-        [inViewportOptions]="{ threshold: [0] }"
-        (inViewportAction)="onIntersection($event)"
-      >
-        <img
-          [src]="
-          server +
-            project.attributes.Thumbnail.data[0].attributes.formats.medium
-              .url
-          "
-          [alt]="
-            project.attributes.Thumbnail.data[0].attributes.alternativeText
-          "
-        />
+      <div class="project-thumbnail">
+        <img         
+        [src]=" server +
+        project.attributes.Thumbnail.data[0].attributes.formats.medium.url
+      "
+      [alt]="
+        project.attributes.Thumbnail.data[0].attributes.alternativeText
+      " />
       </div>
-    </section>
+
+      <svg>
+        <rect x="0" y="0" fill="none" width="100%" height="100%" />
+      </svg>
+    </div>
+
   </main>
 
   <app-footer></app-footer>

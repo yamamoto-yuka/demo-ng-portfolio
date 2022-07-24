@@ -98,7 +98,7 @@ export interface Project {
           attributes:{
             alternativeText:string;
             formats:{
-              thumbnail:{
+              medium:{
                 url:string;
                 width:number;
                 height:number;

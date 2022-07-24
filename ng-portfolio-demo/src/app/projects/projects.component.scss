@@ -1,13 +1,57 @@
-@import "../../styles.scss";
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+$black: #0d0d0d;
+$text: #d9d9d9;
+$white: #ffffff;
+$yellow: #b59b59;
+$blue: #89b8be;
+
+@mixin flex() {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+
+// Base
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a,
+h1,
+h2,
+h3,
+p {
+  color: $text;
+  font-family: "Epilogue", sans-serif;
+}
+
+p {
+  font-family: Helvetica, sans-serif;
+}
+
 
 .projectsContainer {
-  @include FlexColumn();
+  display: flex;
+  flex-direction: column;
   padding: 1rem 2.5rem;
-  background: $bg;
+  background: $text;
 }
 
 // Header
-app-header {
+app-header,
+app-footer {
   flex-grow: 0;
 }
 
@@ -17,7 +61,6 @@ app-header {
   width: 100%;
   position: relative;
 }
-
 
 .categories-inner {
   display: none;
@@ -36,174 +79,49 @@ app-header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  p{
+  p {
     color: white;
   }
   li {
     cursor: pointer;
     font-size: 2rem;
     font-weight: bold;
-    font-family: "Sora", sans-serif;
-    transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
-  li:hover, li:active{
+  li:hover,
+  li:active {
     color: white;
   }
 }
 
-li.active{
+//  For active category
+li.active {
   color: white;
 }
 
+// For Mobile category
 .categories-inner.active {
   display: block;
   opacity: 1;
   background-color: rgba(0, 0, 0, 0.494);
 }
 
-.categories-wrap.active {
-  display: block;
-}
 
 .categories-btn {
   position: fixed;
   bottom: 5px;
   right: 5px;
   padding: 0.5rem 1rem;
-  font-size: .8rem;
+  font-size: 0.8rem;
   color: white;
   background-color: rgba(0, 0, 0, 0.774);
-  border: 1px solid white;
+  border: none;
   border-radius: 3px;
   z-index: 3;
-  font-family: "Sora", sans-serif;
 }
 
-// Main
-main {
-  min-height: 70vh;
-  flex-grow: 1;
-  margin-top: 10vh;
-}
-
-section.active{
-  opacity: 1;
-  display: flex;
-}
-
-section {
-  height: 80vh;
-  width: 100%;
-  position: relative;
-  flex-direction: column-reverse;
-  justify-content: space-evenly;
-  overflow: hidden;
-  z-index: 1;
-  opacity: 0;
-  transition: all 1s ease-in-out;
-  display: none;
-  cursor: pointer;
-}
-
-.img-wrap {
-  height: 50%;
-  width: 1px;
-  opacity: 0;
-}
-
-.img-wrap.active {
-  opacity: 1;
-  transition: opacity 1s, width 2s;
-}
-
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.headline-wrap {
-  @include centerCenter($a: flex-start);
-  flex-direction: column;
-  padding-top: 2rem;
-  transition: all 0.2s;
-  opacity: 0;
-  h2 {
-    font-size: 1.3rem;
-    font-weight: bold;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-  }
-  .description-wrap {
-    @include centerCenter();
-    align-items: flex-start;
-    padding: 1.5rem 0;
-    p,li {
-      font-size: 0.8rem;
-    }
-    p{
-      font-weight: bold;
-    }
-    .desctiption:first-child {
-      margin-right: 2rem;
-    }
-  }
-}
-
-.headline-wrap.active {
-  opacity: 1;
-  transition: all 3s ease-in-out;
-}
-
-// Footer
-footer {
-  flex-grow: 0;
-}
-
-@media screen and (min-width: 768px) {
-  .projectsContainer {
-    padding: 3.5rem 2rem 1.5rem 2rem;
-  }
-
-  section {
-    height: 70vh;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .img-wrap.active {
-    width: 50%;
-    height: 40vh;
-    overflow: hidden;
-    opacity: 1;
-  }
-
-
-  .headline-wrap {
-    width: 20%;
-    height: 40vh;
-    @include centerCenter($j: flex-end, $a: flex-start);
-    h2,
-    p {
-
-      font-weight: bold;
-      font-family: "Sora", sans-serif;
-    }
-    .description-wrap {
-      li {
-        font-size: 0.8rem;
-      }
-    }
-  }
-
-}
-
+// Categories For Desktop
 @media screen and (min-width: 1024px) {
-  .projectsContainer {
-    padding: 3.5rem 4.5rem 1rem 4.5rem;
-  }
-
-  // Categories
   .categories {
     height: initial;
     width: 100%;
@@ -220,7 +138,7 @@ footer {
   }
 
   .categories-items {
-    p{
+    p {
       color: $black;
     }
     position: initial;
@@ -232,18 +150,175 @@ footer {
   .categories-btn {
     display: none;
   }
+}
 
+// Main
+main {
+  min-height: 70vh;
+  flex-grow: 1;
+  margin-top: 10vh;
+}
 
-  .img-wrap.active {
-    width: 40%;
-    opacity: 1;
+.wrap {
+  @include flex();
+}
+
+.project-item {
+  position: relative;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 55vh;
+  margin: 2rem;
+  // Category Display
+  opacity: 0;
+  display: none;
+}
+
+  // Category Active Display
+.project-item.active{
+  opacity: 1;
+  display: flex;
+}
+
+.desc-box {
+  height: 50%;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+
+  .date {
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    p {
+      font-size: 0.8rem;
+      color: $black;
+    }
   }
 
-  .headline-wrap.active {
-    width: 30%;
-    opacity: 1;
+  h2 {
+    padding: 1rem 0;
+    font-size: 1.5rem;
+    color: $black;
   }
 
+  .details-box {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .details {
+    align-items: flex-start;
+    padding-bottom: 1rem;
+  }
+
+  .role {
+    margin-right: 1.5rem;
+  }
+
+  .role,
+  .skills {
+    p {
+      font-weight: bold;
+      color: $black;
+    }
+  }
+
+  .hoverText {
+    font-size: 1rem;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+.project-thumbnail {
+  height: 50%;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+// Hover Animation
+.project-item {
+  svg {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  rect {
+    fill: none;
+    stroke: $black;
+    stroke-width: 1;
+    stroke-dasharray: 250, 0;
+    transition: all 0.35s linear;
+  }
+}
+
+.project-item:hover {
+  rect {
+    stroke-width: 2;
+    stroke-dasharray: 250, 500;
+    transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .hoverText {
+    opacity: 1;
+    color: $black;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .projectsContainer {
+    padding: 3.5rem 2rem 1.5rem 2rem;
+  }
+  main {
+    .project-item {
+      min-height: 20vh;
+      flex-direction: row;
+      justify-content: center;
+      margin: 2rem 5rem;
+    }
+    .desc-box {
+      height: 100%;
+      width: 50%;
+      justify-content: space-between;
+      .date {
+        align-items: flex-end;
+      }
+
+      .details-box {
+        width: 100%;
+        flex-direction: row;
+        align-items: flex-end;
+      }
+    }
+
+    .project-thumbnail {
+      height: 100%;
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .projectsContainer {
+    padding: 3.5rem 4.5rem 1rem 4.5rem;
+  }
+
+  main {
+    .project-item {
+      min-height: initial;
+      height: 35vh;
+      margin: 5rem 15rem;
+    }
+  }
 }
 
 @media screen and (min-width: 1920px) {
