@@ -88,6 +88,8 @@ nav {
     color: $black;
     text-align: center;
     font-size: 1.3rem;
+    letter-spacing: 1.3px;
+    font-family: Helvetica, sans-serif;
     @include transition();
   }
   a:hover,
@@ -103,7 +105,7 @@ nav {
     bottom: 0;
     display: block;
     margin: 0 auto;
-    border: 0.75px solid $black;
+    border: 1px solid $black;
     @include transition();
   }
   a:hover:after,
@@ -139,6 +141,7 @@ nav {
     @include transition();
   }
   span:nth-child(1) {
+    width: 30%;
     top: 0;
   }
   span:nth-child(2) {
@@ -147,6 +150,12 @@ nav {
   }
   span:nth-child(3) {
     top: 0;
+  }
+}
+
+.hamburger:hover {
+  span:nth-child(1) {
+    width: 100%;
   }
 }
 
@@ -161,6 +170,7 @@ nav.active {
     @include transition();
   }
   span:nth-child(1) {
+    width: 100%;
     top: 13px;
     transform: rotate(45deg);
   }
@@ -174,7 +184,7 @@ nav.active {
 }
 
 // For individual page
-.activePage{
+.activePage {
   font-weight: bold !important;
 }
 

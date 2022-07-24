@@ -1,14 +1,9 @@
 <footer>
-  <ul         
-  class="headline-wrap"
-  inViewport
-  [inViewportOptions]="{ threshold: [0] }"
-  (inViewportAction)="onIntersection($event)"
-  >
-  <li><a routerLink="/contact">GET IN TOUCH</a></li>
-    <!-- <li ><a href="mailto:yukayamamoto0820@gmail.com">Email</a></li>
-    <li ><a href="https://www.linkedin.com/in/yuka-yamamoto-7a422421b/" target="_blank">LinkedIn</a></li>
-    <li ><a href="https://github.com/yamamoto-yuka?tab=repositories" target="_blank">Github</a></li> -->
-  </ul>
+<div class="contact">  <a routerLink="/contact"><p> GET IN TOUCH</p></a></div>
+<div class="logo-wrap">
+  <a routerLink="/">
+  <img src="../../assets/logo.svg" alt="YUKA YAMAMOTO logo image">
+</a>
+</div>
   <small>&copy;Yuka Yamamoto. 2022.</small>
 </footer>

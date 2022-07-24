@@ -1,43 +1,84 @@
 @import "../../styles.scss";
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+$black: #0d0d0d;
+$text: #d9d9d9;
+$white: #ffffff;
+$yellow: #b59b59;
+$blue: #89b8be;
+
+@mixin flex() {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+
+// Base
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a,
+h1,
+h2,
+h3,
+p {
+  color: $text;
+  font-family: "Epilogue", sans-serif;
+}
+
+p {
+  font-family: Helvetica, sans-serif;
+}
 
 footer {
-  height: 20vh;
-  @include centerCenter($j:flex-end);
+  height: 30vh;
+  @include flex();
   flex-direction: column;
+  justify-content: flex-end;
   background-color: $bg;
-  ul {
+  .contact {
     width: fit-content;
-    display: flex;
-    border-top: 1px solid $black;
-    border-bottom: 1px solid $black;
-    opacity: 0;
-    transition: all 3s ease-in-out;
-    li {
-      font-size: 2rem;
-      font-weight: bold;
-      font-family: "Sora", sans-serif;
-      a {
-        color: $black;
-        transition: all .5s ease-in-out;
-      }
-      a:hover,
-      a:active {
-        font-weight: bold;
-        color: white;
-      }
+    top: 80%;
+    p {
+      font-size: 1.3rem;
+      letter-spacing: 0.2rem;
+      font-weight:bold;
+      border-top: 1px solid $black;
+      border-bottom: 1px solid$black;
+      color: $black;
+      transition: all 0.5s ease-in-out;
     }
-    li:nth-child(2) {
-      margin: 0 1rem;
+    p:hover {
+      border-top: 1px solid $yellow;
+      border-bottom: 1px solid $yellow;
+      color: $yellow;
     }
   }
-  ul.active{
-    border-top: 1.5px solid $black;
-    border-bottom: 1.5px solid $black;
-    opacity: 1;
+  .logo-wrap{
+    height: 3.5vh;
+    margin-top: 1.5rem;
+    img{
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
   }
+  
 }
 
 small {
-  margin:2rem 0 1rem 0;
-  @include centerCenter();
+  margin-top: 2rem;
+  font-size: .6rem;
 }

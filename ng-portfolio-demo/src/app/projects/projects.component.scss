@@ -168,8 +168,8 @@ main {
   cursor: pointer;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 55vh;
-  margin: 2rem;
+  min-height: 40vh;
+  margin: 5rem 2rem;
   // Category Display
   opacity: 0;
   display: none;
@@ -280,10 +280,23 @@ main {
   }
   main {
     .project-item {
-      min-height: 20vh;
+      margin: 2rem 5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .projectsContainer {
+    padding: 3.5rem 4.5rem 1rem 4.5rem;
+  }
+
+  main {
+    .project-item {
+      min-height: initial;
       flex-direction: row;
       justify-content: center;
-      margin: 2rem 5rem;
+      height: 40vh;
+      margin: 5rem 10rem;
     }
     .desc-box {
       height: 100%;
@@ -303,20 +316,6 @@ main {
     .project-thumbnail {
       height: 100%;
       width: 50%;
-    }
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .projectsContainer {
-    padding: 3.5rem 4.5rem 1rem 4.5rem;
-  }
-
-  main {
-    .project-item {
-      min-height: initial;
-      height: 35vh;
-      margin: 5rem 15rem;
     }
   }
 }
