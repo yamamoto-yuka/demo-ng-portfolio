@@ -11,14 +11,26 @@
         <div class="about-item wrap">
           <div class="about-items">
             <ul>
-              <li>- loves a challengein enviroments</li>
-              <li>- loves a challengein enviroments</li>
-              <li>- loves a challengein enviroments</li>
-              <li>- loves a challengein enviroments</li>
-              <li>- loves a challengein enviroments</li>
-              <li>- loves a challengein enviroments</li>
-              <li>- loves a challengein enviroments</li>
-              <li>- loves a challengein enviroments</li>
+              <li class="about-tittle">
+                - loves to figure things out and solve problems.
+              </li>
+              <li class="about-desc">
+                When faced with a problem, I feel that there is a lot to
+                discover and enjoy!
+              </li>
+              <li class="about-tittle">
+                - loves to make people have wonderful experiences.
+              </li>
+              <li class="about-desc">
+                Making people happy and wonderful experiences makes me wonderful
+                as well!
+              </li>
+              <li class="about-tittle">
+                - loves to challenge new things with curiosity.
+              </li>
+              <li class="about-desc">
+                I would like to grow fast and always keep absorbing many things!
+              </li>
             </ul>
           </div>
           <div class="resumeLink">
@@ -40,7 +52,7 @@
         <div class="skill" *ngFor="let skill of skills">
           <div class="skill-info">
             <div class="icon-wrap">
-              <img [src]="skill.icon" alt="">
+              <img [src]="skill.icon" alt="" />
             </div>
             <p class="skill-name">{{ skill.skillname }}</p>
           </div>

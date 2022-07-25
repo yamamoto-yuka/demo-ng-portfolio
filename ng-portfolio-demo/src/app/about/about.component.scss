@@ -57,11 +57,11 @@ main{
 }
 
 section {
-  min-height: 100vh;
+  min-height: 80vh;
   width: 100%;
   flex-direction: column;
   align-items: flex-start;
-  padding: 5rem 3rem;
+  padding: 5rem 2rem;
 }
 
 h3{
@@ -79,26 +79,33 @@ h3{
 
 .about-item {
   flex-direction: column;
+  margin-bottom: 2rem;
   .about-items {
     margin-bottom: 3rem;
-    li {
-      font-size: 1rem;
+    .about-tittle{
       margin-bottom: .5rem;
+      font-size: 1rem;
+      letter-spacing: 2.3px;
+      font-family: 'Anton', sans-serif;
+    }
+    .about-desc{
+      margin-bottom: 1rem;
+      font-size: .8rem;
+      letter-spacing: 1.1px;
     }
   }
+}
 
-  .resumeLink{
-    p{
-      font-size: 2rem;
-      -webkit-text-stroke: 1.5px $black;
-      font-family: 'Anton', sans-serif;
-      letter-spacing: 1.6px;
-      color: transparent;
-      transition: all .5s ease-in-out;
-    }
-    p:hover{
-      -webkit-text-stroke: 1.5px $yellow;
-    }
+.resumeLink{
+  p{
+    font-size: 2rem;
+    font-family: 'Anton', sans-serif;
+    color: $black;
+    transition:color .3s ease-in-out;
+  }
+  p:hover{
+    -webkit-text-stroke: 1.5px $black;
+    color: transparent;
   }
 }
 
@@ -183,23 +190,44 @@ h3{
   .about-box{
     flex-direction: row;
   }
-  .about-item{
+
+  .about-item {
     width: 50%;
+    flex-direction: column;
+    margin-bottom: 0;
+    .about-items {
+      margin-bottom: 3rem;
+      padding:0 1.5rem;
+    }
   }
 
   .brand-gif{
     height: initial;
-    min-height: 80vh;
+    min-height: 50vh;
     width: 50%;
   }
+
+
+
 }
 
 @media screen and (min-width: 1024px) {
   section {
-    padding: 5rem 10rem;
+    padding: 2rem 10rem;
   }
   
-  
+  .about-item {
+    .about-items {
+      padding:0 3.5rem;
+    }
+  }
+
+
+  .brand-gif{
+    min-height: 70vh;
+  }
+
+
 }
 
 @media screen and (min-width: 1920px) {

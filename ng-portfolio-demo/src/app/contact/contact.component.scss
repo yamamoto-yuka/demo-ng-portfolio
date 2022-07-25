@@ -19,14 +19,13 @@ footer {
 }
 
 main {
-  min-height: 80vh;
-  margin-top: 10vh;
-  padding: 3rem 2rem;
+  min-height: 82vh;
+  margin-top: 8vh;
+  padding: 2rem 2rem;
   flex-grow: 1;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   .desc-wrap {
-    margin-top: 2rem;
     @include centerCenter();
     flex-direction: column;
     text-align: center;
@@ -66,7 +65,7 @@ main {
     }
   }
   .form-wrap {
-    padding-top: 1rem;
+    padding-top: 3rem;
     input {
       padding: 10px;
     }
