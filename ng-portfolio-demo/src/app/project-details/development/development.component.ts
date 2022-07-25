@@ -6,10 +6,10 @@ import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'project-detail',
-  templateUrl: './project-detail.component.html',
-  styleUrls: ['./project-detail.component.scss'],
+  templateUrl: './development.component.html',
+  styleUrls: ['./development.component.scss'],
 })
-export class ProjectDetailComponent implements OnInit {
+export class DevelopmentComponent implements OnInit {
   project: Project;
   // For Image URL
   server = environment.server;

@@ -1,0 +1,119 @@
+@import '../../app.component.scss';
+
+a,
+h1,
+h2,
+h3,
+p {
+  color: $black;
+}
+
+.details-container {
+  height: 100vh;
+  flex-direction: column;
+  background-color: $offWhite;
+}
+
+app-header,
+app-footer {
+  flex-grow: 0;
+}
+
+main {
+  flex-grow: 1;
+  margin-top: 8vh;
+  background-color: $offWhite;
+}
+
+.wrap {
+  @include flex();
+}
+
+.detail-box {
+  flex-direction: column;
+  margin-bottom: 3rem;
+
+  .date {
+    margin: 2rem 0;
+    li {
+      margin-right: 1rem;
+      font-size: 0.8rem;
+      letter-spacing: 1.2px;
+    }
+    li:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .title {
+    margin-bottom: 1rem;
+  }
+
+  .clientName {
+    margin-bottom: 1rem;
+    border-top: 1px solid $black;
+    border-bottom: 1px solid $black;
+    font-family: "Anton", sans-serif;
+  }
+
+  .clientDescription {
+    width: 80%;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 1.1px;
+  }
+
+
+
+  .roles-box {
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    p {
+      font-weight: bold;
+    }
+    .description {
+      margin-right: 3rem;
+    }
+    .description:nth-child(2) {
+      margin-right: 0;
+    }
+  }
+}
+
+// Image Section
+section {
+  height: 90vh;
+  width: 100%;
+  margin-bottom: 3rem;
+  .img-wrap {
+    height: 100%;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.btn-box {
+  padding: 2rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  .detail-box {
+    .clientDescription {
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .detail-box {
+    .clientDescription {
+      width: 20%;
+    }
+  }
+  
+}

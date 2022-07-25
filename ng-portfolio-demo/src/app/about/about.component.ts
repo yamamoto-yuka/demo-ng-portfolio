@@ -9,12 +9,12 @@ export class AboutComponent implements OnInit {
   proficiency = '';
   skills: any[] = [
     {
-      skillname: 'HTML',
+      skillname: 'HTML5',
       level: 90,
       icon:'../../assets/html-5.png'
     },
     {
-      skillname: 'CSS',
+      skillname: 'CSS3',
       level: 60,
       icon:'../../assets/html-5.png'
     },
@@ -32,12 +32,7 @@ export class AboutComponent implements OnInit {
       skillname: 'Angular',
       level: 30,
       icon:'../../assets/html-5.png'
-    },
-    {
-      skillname: 'Wordpress',
-      level: 50,
-      icon:'../../assets/html-5.png'
-    },
+    }
   ];
 
   progress: any;

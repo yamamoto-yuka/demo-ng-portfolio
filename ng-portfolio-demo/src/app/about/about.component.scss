@@ -88,14 +88,16 @@ h3 {
 
 .skill-frontEnd,
 .skill-backEnd,
-.skill-design {
+.skill-design,
+.skill-else {
   width: 100%;
   flex-direction: column;
   align-items: flex-start;
 }
 
 .skill-frontEnd,
-.skill-backEnd {
+.skill-backEnd,
+.skill-design {
   margin-bottom: 3rem;
 }
 

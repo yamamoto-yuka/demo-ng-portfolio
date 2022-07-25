@@ -1,0 +1,63 @@
+<div class="details-container">
+  <app-header></app-header>
+  <main>
+    <div class="detail-box wrap">
+      <div class="date">
+        <ul class="wrap">
+          <li>
+            {{ project.attributes.StartDate }}
+          </li>
+          <li><span>-</span></li>
+          <li>
+            {{ project.attributes.EndDate }}
+          </li>
+        </ul>
+      </div>
+
+      <p class="title">{{ project.attributes.Title }}</p>
+      <h1 class="clientName"> {{project.attributes.ClientName}}</h1>
+      <p class="clientDescription">
+        {{ project.attributes.Description }}
+      </p>
+
+      <div class="roles-box wrap">
+        <div class="description">
+          <p>ROLES</p>
+          <ul>
+            <li *ngFor="let role of project.attributes.roles_portfolios.data">
+              {{ role.attributes.Role }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="description">
+          <p>SKILL</p>
+          <ul>
+            <li *ngFor="let skill of project.attributes.skills.data">
+              {{ skill.attributes.SkillName }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <section class="wrap" *ngFor="let img of project.attributes.project_images.data">
+      <div
+        class="img-wrap"
+      >
+        <img
+          [src]="img.attributes.Image.data[0].attributes.formats.thumbnail.url"
+          alt=""
+        />
+      </div>
+    </section>
+
+    <div class="btn-box wrap">
+      <button routerLink="/projects" class="more-btn" role="button">
+        <span class="text">See More Projects</span
+        ><span>Thanks for your interest!</span>
+      </button>
+    </div>
+  </main>
+  <app-footer></app-footer>
+</div>
