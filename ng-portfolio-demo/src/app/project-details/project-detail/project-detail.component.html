@@ -1,11 +1,9 @@
 <div class="details-container">
   <app-header></app-header>
   <main>
-    <div class="bg"></div>
-
-    <div class="headline-wrap">
+    <div class="detail-box wrap">
       <div class="date">
-        <ul>
+        <ul class="wrap">
           <li>
             {{ project.attributes.StartDate }}
           </li>
@@ -16,18 +14,22 @@
         </ul>
       </div>
 
-      <h1>{{ project.attributes.ClientName }}</h1>
+      <p class="title">{{ project.attributes.Title }}</p>
+      <h1 class="clientName"> {{project.attributes.ClientName}}</h1>
+      <p class="clientDescription">
+        {{ project.attributes.Description }}
+      </p>
 
-      <ul class="link">
+      <ul class="link wrap">
         <li>
-          <a href="">VISIT SITE</a>
+          <a class="siteLink" href="" target="_blank">VISIT SITE</a>
         </li>
         <li>
-          <a href="">GITHUB</a>
+          <a class="githubLink" href="" target="_blank">GITHUB</a>
         </li>
       </ul>
 
-      <div class="description-wrap">
+      <div class="roles-box wrap">
         <div class="description">
           <p>ROLES</p>
           <ul>
@@ -46,18 +48,11 @@
           </ul>
         </div>
       </div>
-
-      <p class="clientDescription">
-        {{ project.attributes.Description }}
-      </p>
     </div>
 
-    <section *ngFor="let img of project.attributes.project_images.data">
+    <section class="wrap" *ngFor="let img of project.attributes.project_images.data">
       <div
         class="img-wrap"
-        inViewport
-        [inViewportOptions]="{ threshold: [0] }"
-        (inViewportAction)="onIntersection($event)"
       >
         <img
           [src]="img.attributes.Image.data[0].attributes.formats.thumbnail.url"
@@ -66,7 +61,7 @@
       </div>
     </section>
 
-    <div class="page-nav">
+    <div class="btn-box wrap">
       <button routerLink="/project" class="more-btn" role="button">
         <span class="text">See More Projects</span
         ><span>Thanks for your interest!</span>

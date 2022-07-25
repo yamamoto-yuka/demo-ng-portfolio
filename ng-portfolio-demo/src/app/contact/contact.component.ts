@@ -24,7 +24,7 @@ formMessageHidden = true;
     }
   }
 
-  submit(){
+  submit(name:any, email:any, message:any){
     this.formInValid = true;
     let postData ={
       "data":{

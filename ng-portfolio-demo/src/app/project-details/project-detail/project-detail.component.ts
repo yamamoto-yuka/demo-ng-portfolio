@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Project } from 'src/app/interfaces/interface';
 import { CommonService } from 'src/app/services/common.service';
@@ -16,19 +16,9 @@ export class ProjectDetailComponent implements OnInit {
 
   constructor(
     private cs: CommonService,
-    private param: ActivatedRoute,
-    private renderer: Renderer2
+    private param: ActivatedRoute
   ) {}
 
-  public onIntersection({
-    target,
-    visible,
-  }: {
-    target: Element;
-    visible: boolean;
-  }): void {
-    this.renderer.addClass(target, visible ? 'active' : 'img-wrap');
-  }
 
   ngOnInit(): void {
     let id: any = this.param.snapshot.paramMap.get('id');

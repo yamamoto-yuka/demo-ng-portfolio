@@ -34,10 +34,6 @@ h2,
 h3,
 p {
   color: $text;
-  font-family: "Epilogue", sans-serif;
-}
-
-p {
   font-family: Helvetica, sans-serif;
 }
 
@@ -85,7 +81,8 @@ app-footer {
   li {
     cursor: pointer;
     font-size: 2rem;
-    font-weight: bold;
+    letter-spacing: 1.8px;
+    font-family: 'Anton', sans-serif;
     transition: all 0.5s ease-in-out;
   }
   li:hover,
@@ -113,10 +110,12 @@ li.active {
   right: 5px;
   padding: 0.5rem 1rem;
   font-size: 0.8rem;
+  letter-spacing: 1.5px;
   color: white;
   background-color: rgba(0, 0, 0, 0.774);
   border: none;
   border-radius: 3px;
+  font-family: 'Anton', sans-serif;
   z-index: 3;
 }
 
@@ -201,6 +200,8 @@ main {
   h2 {
     padding: 1rem 0;
     font-size: 1.5rem;
+    letter-spacing: 1.6px;
+    font-family: 'Anton', sans-serif;
     color: $black;
   }
 
@@ -222,13 +223,18 @@ main {
   .role,
   .skills {
     p {
+      font-size: .8rem;
       font-weight: bold;
       color: $black;
+    }
+    li{
+      font-size: .8rem;
     }
   }
 
   .hoverText {
     font-size: 1rem;
+    font-family: 'Anton', sans-serif;
     opacity: 0;
     transition: all 0.5s ease-in-out;
   }

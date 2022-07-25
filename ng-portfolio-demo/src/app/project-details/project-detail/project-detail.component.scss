@@ -1,9 +1,114 @@
 @import "../../../styles.scss";
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+$black: #0d0d0d;
+$white: #d9d9d9;
+$yellow: #b59b59;
+$blue: #89b8be;
+
+@mixin flex() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Base
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a,
+h1,
+h2,
+h3,
+p {
+  color:$white;
+  font-family: Helvetica, sans-serif;
+}
+
+// More Btn
+.more-btn {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid $black;
+  color: #18181a;
+  display: inline-block;
+  font-size: .8rem;
+  padding: .5rem 3rem;
+  cursor: pointer;
+  background: transparent;
+}
+
+.more-btn span:first-child {
+  position: relative;
+  transition: color .6s ease-in-out;
+  z-index: 10;
+}
+
+.more-btn span:last-child {
+  color: white;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  transition: all .5s ease-in-out;
+  z-index: 100;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translateY(200%) translateX(-50%);
+}
+
+.more-btn:after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $black;
+  transform-origin: bottom center;
+  transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  transform: skewY(9.3deg) scaleY(0);
+  z-index: 50;
+}
+
+.more-btn:hover:after {
+  transform-origin: bottom center;
+  transform: skewY(9.3deg) scaleY(2);
+}
+
+.more-btn:hover span:last-child {
+  transform: translateX(-50%) translateY(-100%);
+  opacity: 1;
+  transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+}
+
+
+// Projects detail Page
+
+a,
+h1,
+h2,
+h3,
+p {
+  color: $black;
+}
 
 .details-container {
   @include FlexColumn();
   height: 100vh;
-  background-color: $bg;
+  background-color: $white;
 }
 
 app-header,
@@ -13,144 +118,122 @@ app-footer {
 
 main {
   flex-grow: 1;
-  margin-top: 20vh;
-  background-color: $bg;
+  margin-top: 10vh;
+  background-color: $white;
 }
 
-.date ul,
-.link,
-.headline-wrap,
-.description-wrap,
-section,
-.page-nav ul {
-  @include centerCenter();
+.wrap {
+  @include flex();
 }
 
 // Client Description
-.headline-wrap {
+.detail-box {
   flex-direction: column;
   margin-bottom: 3rem;
 
+  .date {
+    margin-bottom: 2rem;
+    li {
+      margin-right: 1rem;
+      font-size: 0.8rem;
+      letter-spacing: 1.2px;
+    }
+    li:last-child {
+      margin-right: 0;
+    }
+  }
 
-  h1,
-  .link,
-  .description-wrap {
+  .title {
     margin-bottom: 1rem;
   }
 
-  h1,
-  .link,
-  .description p {
-    font-weight: bold;
-    font-family: "Sora", sans-serif;
-  }
-
-  .date li,
-  .link a,
-  .description-wrap p,
-  .description-wrap li,
-  .clientDescription {
-    font-size: 0.8rem;
-    letter-spacing: 1.2px;
-  }
-
-  .date{
-    margin-bottom: 3rem;
-      li{
-        margin-right: 1rem;
-      }
-      li:last-child{
-        margin-right:0;
-    }
-  }
-
-  h1 {
+  .clientName {
+    margin-bottom: 1rem;
     border-top: 1px solid $black;
     border-bottom: 1px solid $black;
+    font-family: "Anton", sans-serif;
+  }
+
+  .clientDescription {
+    width: 80%;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 1.1px;
   }
 
   .link {
-    li:first-child{
-      margin-right:1rem;
-    }
+    flex-direction: column;
+    margin-bottom: 2rem;
     a {
       color: $black;
       transition: all 0.5s ease-in-out;
     }
     a:hover {
-      color: white;
+      color: $yellow;
+    }
+    .siteLink {
+      font-size: 1.3rem;
+      font-family: "Anton", sans-serif;
+    }
+    .githubLink {
+      font-size: 0.8rem;
+      font-family: Helvetica, sans-serif;
     }
   }
 
-  .description-wrap {
+  .roles-box {
     align-items: flex-start;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    p {
+      font-weight: bold;
+    }
     .description {
-      margin-right: 1rem;
+      margin-right: 3rem;
     }
     .description:nth-child(2) {
       margin-right: 0;
     }
   }
-
-  .clientDescription {
-    width: 80%;
-  }
 }
 
 // Image Section
 section {
-  height: 80vh;
+  min-height: 30vh;
   width: 100%;
-  align-items: flex-start;
-  position: relative;
-  overflow: hidden;
+  margin-bottom: 3rem;
   .img-wrap {
-    height: 80%;
-    width: 1px;
-    opacity: 0;
+    height: 100%;
     img {
       height: 100%;
       width: 100%;
       object-fit: cover;
-      box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.27);
     }
   }
-  .img-wrap.active {
-    width: 80%;
-    opacity: 1;
-    transition: opacity 1s, width 2s;
-  }
-
 }
 
-// Page Navigation
-.page-nav {
-   @include centerCenter();
-      a {
-        color: $black;
-        font-family: "Sora", sans-serif;
-        transition: all 0.5s ease-in-out;
-      }
-      a:hover,
-      a:active {
-        font-weight: bold;
-        color: white;
-      }
-    }
 
-    @media screen and (min-width: 768px) {
-      .headline-wrap {
-        .clientDescription {
-          width: 50%;
-        }
-      }
+.btn-box{
+  margin-top: 2rem;
+}
+
+
+
+@media screen and (min-width: 768px) {
+  .detail-box {
+    .clientDescription {
+      width: 50%;
     }
-    
+  }
+
+  
+}
 
 @media screen and (min-width: 1024px) {
-  .headline-wrap {
+  .detail-box {
     .clientDescription {
-      width: 30%;
+      width: 20%;
     }
   }
 }
