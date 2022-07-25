@@ -1,14 +1,14 @@
 <div class="flexContainer">
   <app-header [aboutActive]="true"></app-header>
   <main>
-
-      <section class="wrap">
-        <div class="about-wrap wrap">
-          <p>
-            I am a <br />
-            Front-end Developer <br />
-            who:
-          </p>
+    <section class="wrap">
+      <h3>
+        I am a <br />
+        Front-end Developer <br />
+        who:
+      </h3>
+      <div class="about-box wrap">
+        <div class="about-item wrap">
           <div class="about-items">
             <ul>
               <li>- loves a challengein enviroments</li>
@@ -23,18 +23,28 @@
           </div>
           <div class="resumeLink">
             <a href="">
-            <p>VIEW RESUME</p>
-          </a>
+              <p>VIEW RESUME</p>
+            </a>
           </div>
         </div>
+        <div class="brand-gif wrap"></div>
+      </div>
+    </section>
 
-        <div class="brand-gif wrap">
-
-        </div>
- 
-      </section>
-
-
+    <section class="wrap">
+      <h3>Skills</h3>
+      <div class="skill-frontEnd wrap">
+        <p class="skill-title">Front-end</p>
+      </div>
+      <div class="skill-backEnd wrap">
+        <p class="skill-title">Back-end</p>
+        <p class="skill-name">Node.js | MySQL</p>
+      </div>
+      <div class="skill-design wrap">
+        <p class="skill-title">Design</p>
+        <p class="skill-name">Figma | Photoshop | Illustrator | After Effect</p>
+      </div>
+    </section>
   </main>
   <app-footer></app-footer>
 </div>
