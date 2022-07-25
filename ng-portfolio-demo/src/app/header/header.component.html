@@ -1,14 +1,14 @@
-<header #header>
+<header>
   <div class="header-inner">
-    <nav>
-      <ul #ul class="nav-items">
+    <nav [class.active]="nav">
+      <ul class="nav-items">
         <li class="nav-item"><a routerLink="/">HOME</a></li>
         <li class="nav-item"><a [class.activePage]="projectsActive" routerLink="/projects">PROJECTS</a></li>
         <li class="nav-item"><a [class.activePage]="aboutActive" routerLink="/about">ABOUT</a></li>
         <li class="nav-item"><a [class.activePage]="contactActive" routerLink="/contact">CONTACT</a></li>
       </ul>
     </nav>
-    <button class="hamburger">
+    <button [class.active]="ham" (click)="hamburgerBtn()" class="hamburger">
       <span ></span>
       <span >MENU</span>
       <span ></span>

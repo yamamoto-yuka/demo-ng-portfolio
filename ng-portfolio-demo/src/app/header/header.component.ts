@@ -7,29 +7,21 @@ import { gsap ,Power2} from 'gsap';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
   @Input() projectsActive: boolean = false;
   @Input() aboutActive: boolean = false;
   @Input() contactActive: boolean = false;
   @Input() textWhite: boolean = false;
 
-  @ViewChild('header', {static:true}) header:ElementRef<HTMLDivElement>;
-  @ViewChild('logo', {static:true}) logo:ElementRef<HTMLDivElement>;
-  @ViewChild('ul', {static:true}) ul:ElementRef<HTMLDivElement>;
+  ham:boolean = false;
+  nav:boolean = false;
 
+  constructor() {}
 
+  hamburgerBtn(){
+    this.ham = !this.ham;
+    this.nav = !this.nav;
+  }
 
   ngOnInit(): void {
-
-
-
-
-    const ham = document.querySelector('.hamburger') as HTMLCanvasElement;
-    const nav = document.querySelector('nav') as HTMLCanvasElement;
-
-    ham.addEventListener('click', () => {
-      ham.classList.toggle('active');
-      nav.classList.toggle('active');
-    });
   }
 }

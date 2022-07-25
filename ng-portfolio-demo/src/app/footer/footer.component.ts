@@ -1,4 +1,4 @@
-import { Component, OnInit,  Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -7,12 +7,7 @@ import { Component, OnInit,  Renderer2 } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor(private renderer: Renderer2) { }
-  
-  onIntersection({ target, visible }: { target: Element; visible: boolean }) {
-    this.renderer.addClass(target, visible ? 'active' : 'inactive');
-    this.renderer.removeClass(target, visible ? 'inactive' : 'active');
-  }
+  constructor() { }
 
 
   ngOnInit(): void {

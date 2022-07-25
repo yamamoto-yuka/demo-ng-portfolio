@@ -1,51 +1,11 @@
-@import "../../styles.scss";
-@import url("https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,400;1,500;1,600;1,700;1,800&display=swap");
-
-$black: #0d0d0d;
-$text: #d9d9d9;
-$white: #ffffff;
-$yellow: #b59b59;
-$blue: #89b8be;
-
-@mixin flex() {
-  display: flex;
-  justify-content:center;
-  align-items: center;
-}
-
-// Base
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-}
-
-ul,
-li {
-  list-style: none;
-}
-
-a,
-h1,
-h2,
-h3,
-p {
-  color: $text;
-  font-family: Helvetica, sans-serif;
-}
-
-
+@import '../app.component.scss';
 
 footer {
   height: 20vh;
   @include flex();
   flex-direction: column;
   justify-content: flex-end;
-  background-color: $bg;
+  background-color: $offWhite;
   .contact {
     width: fit-content;
     top: 80%;
@@ -54,7 +14,7 @@ footer {
       letter-spacing: 0.2rem;
       font-weight:bold;
       border-top: 1px solid $black;
-      border-bottom: 1px solid$black;
+      border-bottom: 1px solid $black;
       font-family: 'Anton', sans-serif;
       color: $black;
       transition: all 0.5s ease-in-out;
@@ -78,6 +38,6 @@ footer {
 }
 
 small {
-  margin: 1rem;
+  margin: 1rem 0;
   font-size: .6rem;
 }

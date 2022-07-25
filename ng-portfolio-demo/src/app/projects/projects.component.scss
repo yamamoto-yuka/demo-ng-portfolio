@@ -1,45 +1,10 @@
-$black: #0d0d0d;
-$text: #d9d9d9;
-$white: #ffffff;
-$yellow: #b59b59;
-
-@mixin flex() {
-  display: flex;
-  justify-content:center;
-  align-items: center;
-}
-
-// Base
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-}
-
-ul,
-li {
-  list-style: none;
-}
-
-a,
-h1,
-h2,
-h3,
-p {
-  color: $text;
-  font-family: Helvetica, sans-serif;
-}
-
+@import '../app.component.scss';
 
 .projectsContainer {
   display: flex;
   flex-direction: column;
   padding: 1rem 2.5rem;
-  background: $text;
+  background: $offWhite;
 }
 
 // Header
@@ -73,7 +38,7 @@ app-footer {
   left: 50%;
   transform: translate(-50%, -50%);
   p {
-    color: white;
+    color: $white;
   }
   li {
     cursor: pointer;
@@ -84,13 +49,13 @@ app-footer {
   }
   li:hover,
   li:active {
-    color: white;
+    color: $white;
   }
 }
 
 //  For active category
 li.active {
-  color: white;
+  color: $white;
 }
 
 // For Mobile category
@@ -108,11 +73,11 @@ li.active {
   padding: 0.5rem 1rem;
   font-size: 0.8rem;
   letter-spacing: 1.5px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.774);
-  border: none;
-  border-radius: 3px;
   font-family: 'Anton', sans-serif;
+  border-radius: 3px;
+  border: none;
+  color: $white;
+  background-color: rgba(0, 0, 0, 0.774);
   z-index: 3;
 }
 
@@ -125,11 +90,11 @@ li.active {
   }
 
   .categories-inner {
-    display: flex;
-    justify-content: center;
-    position: initial;
     height: initial;
     width: 100%;
+    position: initial;
+    display: flex;
+    justify-content: center;
     opacity: 1;
   }
 
@@ -160,11 +125,11 @@ main {
 }
 
 .project-item {
-  position: relative;
+  min-height: 40vh;
   cursor: pointer;
+  position: relative;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 40vh;
   margin: 5rem 2rem;
   // Category Display
   opacity: 0;
@@ -173,17 +138,16 @@ main {
 
   // Category Active Display
 .project-item.active{
+  display: flex;  
   opacity: 1;
-  display: flex;
 }
 
 .desc-box {
   height: 50%;
   width: 100%;
+  padding: 1rem;
   flex-direction: column;
   align-items: flex-start;
-  padding: 1rem;
-
   .date {
     width: 100%;
     justify-content: space-between;
@@ -209,8 +173,8 @@ main {
   }
 
   .details {
-    align-items: flex-start;
     padding-bottom: 1rem;
+    align-items: flex-start;
   }
 
   .role {
@@ -296,10 +260,10 @@ main {
   main {
     .project-item {
       min-height: initial;
-      flex-direction: row;
-      justify-content: center;
       height: 40vh;
       margin: 5rem 10rem;
+      flex-direction: row;
+      justify-content: center;
     }
     .desc-box {
       height: 100%;

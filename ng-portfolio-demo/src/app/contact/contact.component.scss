@@ -1,15 +1,8 @@
-@import "../../styles.scss";
-
-$black: #0d0d0d;
-$text: #d9d9d9;
-$white: #ffffff;
-$yellow: #b59b59;
-$blue: #89b8be;
-
+@import '../app.component.scss';
 
 .contactContainer {
-  @include FlexColumn();
-  background-color: $bg;
+  flex-direction: column;
+  background-color: $offWhite;
   overflow: hidden;
 }
 
@@ -18,30 +11,32 @@ footer {
   flex-grow: 0;
 }
 
+.wrap {
+  @include flex();
+}
+
 main {
-  min-height: 82vh;
+  height: 82vh;
   margin-top: 8vh;
   padding: 2rem 2rem;
+  @include flex();
   flex-grow: 1;
-  display: flex;
   flex-direction: column;
   .desc-wrap {
-    @include centerCenter();
     flex-direction: column;
     text-align: center;
     h2 {
       font-size: 3rem;
       letter-spacing: 5px;
-      font-family: 'Anton', sans-serif;
+      font-family: "Anton", sans-serif;
+      color: $black;
     }
-    p{
-      font-size: .8rem;
+    p {
+      font-size: 0.8rem;
       margin-bottom: 1rem;
     }
     ul {
       width: fit-content;
-      display: flex;
-      justify-content: center;
       border-top: 1px solid $black;
       border-bottom: 1px solid $black;
       li {
@@ -49,7 +44,7 @@ main {
         font-weight: bold;
         a {
           letter-spacing: 5px;
-          font-family: 'Anton', sans-serif;
+          font-family: "Anton", sans-serif;
           color: $black;
           transition: all 0.5s ease-in-out;
         }
@@ -71,16 +66,15 @@ main {
     }
     button {
       margin-top: 1rem;
-      --bs-btn-border-radius:none;
+      --bs-btn-border-radius: none;
     }
   }
 }
 
 footer {
-  @include centerCenter();
   height: 10vh;
-   small {
-font-size: .6rem;
+  small {
+    font-size: 0.6rem;
   }
 }
 
@@ -97,8 +91,9 @@ font-size: .6rem;
 @media screen and (min-width: 1024px) {
   main {
     padding: 3rem 10rem;
-    @include centerCenter($j: space-between, $a: center);
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     .desc-wrap {
       width: 30%;
       h2 {

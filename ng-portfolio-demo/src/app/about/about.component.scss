@@ -1,38 +1,10 @@
-$black: #0d0d0d;
-$offWhite: #d9d9d9;
-$white: #ffffff;
-$yellow: #b59b59;
+@import "../app.component.scss";
 
-@mixin flex() {
-  display: flex;
-  justify-content:center;
-  align-items: center;
-}
-
-// Base
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-}
-
-ul,
-li {
-  list-style: none;
-}
-
-a,
-h1,
-h2,
 h3,
-p {
-  font-family: Helvetica, sans-serif;
+p,
+li {
+  color: $black;
 }
-
 
 .flexContainer {
   display: flex;
@@ -46,13 +18,13 @@ app-footer {
   flex-grow: 0;
 }
 
-main{
+main {
   min-height: 100vh;
   flex-grow: 1;
   margin-top: 8vh;
 }
 
-.wrap{
+.wrap {
   @include flex();
 }
 
@@ -64,15 +36,15 @@ section {
   padding: 5rem 2rem;
 }
 
-h3{
+h3 {
   width: 100%;
   padding-bottom: 2rem;
   font-size: 2.5rem;
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   letter-spacing: 1.6px;
 }
 
-.about-box{
+.about-box {
   width: 100%;
   flex-direction: column;
 }
@@ -82,77 +54,75 @@ h3{
   margin-bottom: 2rem;
   .about-items {
     margin-bottom: 3rem;
-    .about-tittle{
-      margin-bottom: .5rem;
+    .about-tittle {
+      margin-bottom: 0.5rem;
       font-size: 1rem;
       letter-spacing: 2.3px;
-      font-family: 'Anton', sans-serif;
+      font-family: "Anton", sans-serif;
     }
-    .about-desc{
+    .about-desc {
       margin-bottom: 1rem;
-      font-size: .8rem;
+      font-size: 0.8rem;
       letter-spacing: 1.1px;
     }
   }
 }
 
-.resumeLink{
-  p{
+.resumeLink {
+  p {
     font-size: 2rem;
-    font-family: 'Anton', sans-serif;
-    color: $black;
-    transition:color .3s ease-in-out;
+    font-family: "Anton", sans-serif;
+    transition: color 0.3s ease-in-out;
   }
-  p:hover{
+  p:hover {
     -webkit-text-stroke: 1.5px $black;
     color: transparent;
   }
 }
 
-.brand-gif{
+.brand-gif {
   height: 80vh;
   width: 100%;
   background-color: aquamarine;
 }
 
-
 .skill-frontEnd,
 .skill-backEnd,
-.skill-design{
+.skill-design {
   width: 100%;
   flex-direction: column;
   align-items: flex-start;
 }
 
 .skill-frontEnd,
-.skill-backEnd{
+.skill-backEnd {
   margin-bottom: 3rem;
 }
 
-.skill-title{
+.skill-title {
   margin-bottom: 1rem;
   font-size: 2rem;
-  font-family: 'Anton', sans-serif;
-  letter-spacing: 1.6px
+  font-family: "Anton", sans-serif;
+  letter-spacing: 1.6px;
 }
 
-.skill-name{
+.skill-name {
   font-size: 1rem;
 }
 
-.skill{
+.skill {
   width: 100%;
   margin: 1rem 0;
 }
 
-.skill-info{
+.skill-info {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  .icon-wrap{
+  .icon-wrap {
     width: 20px;
     margin-right: 1rem;
-    img{
+    img {
       height: 100%;
       width: 100%;
       object-fit: contain;
@@ -160,20 +130,19 @@ h3{
   }
 }
 
-
-.skill-percentage{
+.skill-percentage {
   opacity: 0;
-  transition: opacity .6s;
+  transition: opacity 0.6s;
 }
 
-.skill-bar-container{
+.skill-bar-container {
   height: 15px;
   position: relative;
   background-color: $white;
   overflow: hidden;
 }
 
-.skill-bar{
+.skill-bar {
   height: 80%;
   width: 0;
   position: relative;
@@ -184,10 +153,8 @@ h3{
   transition: width 3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-
 @media screen and (min-width: 768px) {
-
-  .about-box{
+  .about-box {
     flex-direction: row;
   }
 
@@ -197,37 +164,31 @@ h3{
     margin-bottom: 0;
     .about-items {
       margin-bottom: 3rem;
-      padding:0 1.5rem;
+      padding: 0 1.5rem;
     }
   }
 
-  .brand-gif{
+  .brand-gif {
     height: initial;
     min-height: 50vh;
     width: 50%;
   }
-
-
-
 }
 
 @media screen and (min-width: 1024px) {
   section {
     padding: 2rem 10rem;
   }
-  
+
   .about-item {
     .about-items {
-      padding:0 3.5rem;
+      padding: 0 3.5rem;
     }
   }
 
-
-  .brand-gif{
+  .brand-gif {
     min-height: 70vh;
   }
-
-
 }
 
 @media screen and (min-width: 1920px) {
