@@ -220,7 +220,7 @@ main {
 
     li:first-child {
       padding-bottom: 0rem;
-      margin-right: 6.3rem;
+      margin-right: 10rem;
     }
   }
 
@@ -229,6 +229,9 @@ main {
     top: 95%;
     left: 5%;
     transform: translate(-5%, -95%);
+    .description {
+      width: 100%;
+    }
   }
 
   .logo {

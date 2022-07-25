@@ -35,7 +35,27 @@
       <h3>Skills</h3>
       <div class="skill-frontEnd wrap">
         <p class="skill-title">Front-end</p>
+
+        <!-- Front-end Skills For Loop -->
+        <div class="skill" *ngFor="let skill of skills">
+          <div class="skill-info">
+            <div class="icon-wrap">
+              <img [src]="skill.icon" alt="">
+            </div>
+            <p class="skill-name">{{ skill.skillname }}</p>
+          </div>
+
+          <div class="skill-bar-container">
+            <div
+              class="skill-bar"
+              inViewport
+              [inViewportOptions]="{ threshold: [0] }"
+              (inViewportAction)="onIntersection($event, skill.level)"
+            ></div>
+          </div>
+        </div>
       </div>
+
       <div class="skill-backEnd wrap">
         <p class="skill-title">Back-end</p>
         <p class="skill-name">Node.js | MySQL</p>
