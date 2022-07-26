@@ -79,8 +79,7 @@
 
       <div class="project-thumbnail">
         <img         
-        [src]=" server +
-        project.attributes.Thumbnail.data[0].attributes.formats.medium.url
+        [src]="project.attributes.Thumbnail.data[0].attributes.url
       "
       [alt]="
         project.attributes.Thumbnail.data[0].attributes.alternativeText

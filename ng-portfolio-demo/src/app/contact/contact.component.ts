@@ -28,8 +28,8 @@ formMessageHidden = true;
     this.formInValid = true;
     let postData ={
       "data":{
-        "Name":this.name,
-        "Email":this.email,
+        "ClientName":this.name,
+        "ClientEmail":this.email,
         "Message":this.message
        }
     }

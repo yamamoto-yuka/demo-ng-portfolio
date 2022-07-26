@@ -1,42 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,400;1,500;1,600;1,700;1,800&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-$black: #0d0d0d;
-$text: #d9d9d9;
-$white: #ffffff;
-$yellow: #b59b59;
-$blue: #89b8be;
-
-@mixin flex() {
-  display: flex;
-  justify-content:center;
-  align-items: center;
-}
-
-// Base
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-}
-
-ul,
-li {
-  list-style: none;
-}
-
-a,
-h1,
-h2,
-h3,
-p {
-  color: $text;
-  font-family: Helvetica, sans-serif;
-}
-
+@import '../app.component.scss';
 
 .top-text {
   top: 60%;
@@ -54,7 +16,7 @@ p {
   top: 0;
   height: 100%;
   width: 100%;
-  background-color: $text;
+  background-color: $offWhite;
 }
 
 
@@ -120,7 +82,7 @@ main {
     bottom: 0;
     display: block;
     margin: 0 auto;
-    border: 1px solid $text;
+    border: 1px solid $offWhite;
     transition: all 0.8s ease-in-out;
   }
 
@@ -146,7 +108,7 @@ main {
     h1 {
       font-size: 1.3rem;
       letter-spacing: 0.3rem;
-      font-weight: bold;
+      font-family: 'Anton', sans-serif;
     }
     h2 {
       font-size: 1rem;
@@ -179,8 +141,8 @@ main {
     font-size: 1.3rem;
     letter-spacing: 0.2rem;
     font-weight: bold;
-    border-top: 1px solid $text;
-    border-bottom: 1px solid $text;
+    border-top: 1px solid $offWhite;
+    border-bottom: 1px solid $offWhite;
     transition: all 0.5s ease-in-out;
     font-family: 'Anton', sans-serif;
   }
@@ -212,15 +174,24 @@ main {
 
 @media screen and (min-width: 1024px) {
   .top-nav {
+    width: 100%;
     top: 43%;
     transform: translate(-50%, -43%);
     ul {
       display: flex;
+      justify-content: space-around;
+    }
+    li{
+      text-align: center;
     }
 
     li:first-child {
-      padding-bottom: 0rem;
-      margin-right: 10rem;
+      padding-bottom: 0;
+      margin-right:0;
+    }
+
+    a{
+      width: fit-content;
     }
   }
 

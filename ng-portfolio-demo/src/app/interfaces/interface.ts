@@ -22,25 +22,7 @@ export interface HomePage {
   };
 }
 
-export interface Skill {
-  id: number;
-  attributes: {
-    SkillName: string;
-    SkillLogo: {
-      data: [
-        {
-          attributes: {
-            url: string;
-          };
-        }
-      ];
-    };
-  };
-}
 
-export interface Skills {
-  data: Skill[];
-}
 
 export interface Project {
   id: number;
@@ -97,13 +79,14 @@ export interface Project {
           id:number;
           attributes:{
             alternativeText:string;
-            formats:{
-              medium:{
-                url:string;
-                width:number;
-                height:number;
-              }
-            }
+            url:string;
+            // formats:{
+            //   // medium:{
+            //   //   url:string;
+            //   //   width:number;
+            //   //   height:number;
+            //   // }
+            // }
           }
       }
       ]
@@ -140,4 +123,25 @@ export interface Project {
 
 export interface Projects {
   data: Project[];
+}
+
+export interface Skill{
+  id: number;
+  attributes:{
+    SkillName:string;
+    SkillLevel:number;
+    SkillIcon: {
+      data:{
+        id:number;
+        attributes:{
+          alternativeText: string;
+          url:string;
+        }
+      }
+    }
+  }
+}
+
+export interface Skills{
+  data: Skill[];
 }

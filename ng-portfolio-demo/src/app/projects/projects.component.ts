@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Project } from '../interfaces/interface';
 import { CommonService } from '../services/common.service';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+
 
 @Component({
   selector: 'app-projects',
@@ -25,7 +28,9 @@ export class ProjectsComponent implements OnInit {
   // For Image URL
   server = environment.server;
 
-  constructor(private cs: CommonService) {}
+  constructor(private cs: CommonService) {
+    // gsap.registerPlugin(ScrollToPlugin); 
+  }
 
   // Btn to show all data
   allBtn() {

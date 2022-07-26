@@ -16,7 +16,7 @@ footer {
 }
 
 main {
-  height: 82vh;
+  min-height: 82vh;
   margin-top: 8vh;
   padding: 2rem 2rem;
   @include flex();
@@ -34,6 +34,7 @@ main {
     p {
       font-size: 0.8rem;
       margin-bottom: 1rem;
+      color: $black;
     }
     ul {
       width: fit-content;
@@ -67,6 +68,12 @@ main {
     button {
       margin-top: 1rem;
       --bs-btn-border-radius: none;
+    }
+  }
+
+  .success-message{
+    span{
+      font-family: "Anton", sans-serif;
     }
   }
 }

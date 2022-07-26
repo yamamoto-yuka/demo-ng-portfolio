@@ -98,7 +98,7 @@ export class TopComponent implements OnInit {
 
     // CAMERA
     camera = new THREE.PerspectiveCamera(
-      60,
+      90,
       this.container.nativeElement.clientWidth /
         this.container.nativeElement.clientHeight,
       1,
@@ -141,7 +141,7 @@ export class TopComponent implements OnInit {
       // MATERIAL
       const sprite = new THREE.TextureLoader().load('../../assets/star.png');
       const material = new THREE.PointsMaterial({
-        size: 0.9,
+        size: 0.6,
         color: 0xffffff,
         map: sprite,
       });
@@ -169,8 +169,8 @@ export class TopComponent implements OnInit {
       for (let i = 0; i < positionAttribute.count; i++) {
         vertex.fromBufferAttribute(positionAttribute, i);
         vertex.y -= 1;
-        if (vertex.y < -200) {
-          vertex.y = 200;
+        if (vertex.y < -300) {
+          vertex.y = 300;
         }
         positionAttribute.setXYZ(i, vertex.x, vertex.y, vertex.z);
       }

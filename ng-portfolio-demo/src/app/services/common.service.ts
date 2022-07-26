@@ -16,11 +16,11 @@ private url = environment.server;
   }
 
   postMessage(data:any){
-    return this.http.post(this.url + '/api/leads', data);
+    return this.http.post(this.url + '/api/contact-portfolios', data);
   }
 
   getSkills(){
-    return this.http.get<Skills>(this.url + '/api/skills?populate=*');
+    return this.http.get<Skills>(this.url + '/api/front-end-skills?populate=deep');
   }
 
   getProjects(){
