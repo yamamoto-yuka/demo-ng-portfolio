@@ -17,6 +17,7 @@ import { ContactComponent } from './contact/contact.component';
 import { Home2Component } from './home2/home2.component';
 import { TopComponent } from './top/top.component';
 import { OtherComponent } from './project-details/other/other.component';
+import { ConferenceposterComponent } from './demosite/conferenceposter/conferenceposter.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { OtherComponent } from './project-details/other/other.component';
     Home2Component,
     TopComponent,
     OtherComponent,
+    ConferenceposterComponent,
   ],
   imports: [
     BrowserModule,

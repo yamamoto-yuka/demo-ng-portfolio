@@ -7,6 +7,7 @@ import { Home2Component } from './home2/home2.component';
 import { TopComponent } from './top/top.component';
 import { DevelopmentComponent } from './project-details/development/development.component';
 import { OtherComponent } from './project-details/other/other.component';
+import { ConferenceposterComponent } from './demosite/conferenceposter/conferenceposter.component';
 
 const routes: Routes = [
   {path:'', component:TopComponent},
@@ -16,8 +17,8 @@ const routes: Routes = [
   {path:'projects/development/:title/:id', component:DevelopmentComponent},
   {path:'projects/casestudy/:title/:id', component:DevelopmentComponent},
   {path:'projects/other/:title/:id', component:OtherComponent},
-  {path:'other', component:OtherComponent},
   {path:'contact', component:ContactComponent},
+  {path:'conferenceposter', component:ConferenceposterComponent},
   {path:'home1', component:Home2Component},
 ];
 
