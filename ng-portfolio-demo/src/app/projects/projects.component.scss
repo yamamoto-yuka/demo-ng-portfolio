@@ -158,8 +158,14 @@ main {
     }
   }
 
+  .title{
+    padding-top: 1rem;
+    font-size: .8rem;
+    color: $black;
+  }
+
   h2 {
-    padding: 1rem 0;
+    padding-bottom: 1rem;
     font-size: 1.5rem;
     letter-spacing: 1.6px;
     font-family: 'Anton', sans-serif;
@@ -247,8 +253,19 @@ main {
   }
   main {
     .project-item {
-      margin: 2rem 5rem;
+      margin: 4rem 10rem;
     }
+
+    .desc-box {
+      .details-box {
+        width: 100%;
+        flex-direction: row;
+        align-items: flex-end;
+      }
+    
+    }
+
+
   }
 }
 
@@ -289,6 +306,6 @@ main {
 
 @media screen and (min-width: 1920px) {
   .projectsContainer {
-    padding: 3.5rem 8.5rem 1rem 8.5rem;
+    padding: 3.5rem 17rem 1rem 17rem;
   }
 }

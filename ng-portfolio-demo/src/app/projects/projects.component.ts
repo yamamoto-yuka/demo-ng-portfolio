@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Project } from '../interfaces/interface';
 import { CommonService } from '../services/common.service';
@@ -11,7 +11,8 @@ import { ScrollTrigger } from 'gsap/all';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent implements OnInit, AfterViewInit {
+
   projects: Project[] = [];
   // Change text css for active category
   activeAll: boolean = true;
@@ -76,7 +77,7 @@ export class ProjectsComponent implements OnInit {
 
   // Others
   othersBtn() {
-    this.Filter('others');
+    this.Filter('other');
     this.activeOther = true;
     this.activeAll = this.activeDevelopment = this.activeCaseStudy = false;
   }
@@ -88,11 +89,26 @@ export class ProjectsComponent implements OnInit {
     this.showCloseText = !this.showCloseText;
   }
 
+  scrollAnimation(){
+    // gsap.to('')
+  }
+
   ngOnInit(): void {
+    // console.log(this.items)
+    gsap.registerPlugin(ScrollTrigger);
     this.cs.getProjects().subscribe((res) => {
+      console.log(res);
       this.projects = res.data;
       console.log(this.projects);
     });
+  }
+
+  ngAfterViewInit():void{
+    // console.log(this.items);
+
+    // this.items.forEach((item, index) => {
+    //   console.log(item);
+    // });
   }
 
   // Dummy json Data

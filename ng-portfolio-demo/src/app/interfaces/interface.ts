@@ -22,8 +22,6 @@ export interface HomePage {
   };
 }
 
-
-
 export interface Project {
   id: number;
   attributes: {
@@ -37,49 +35,49 @@ export interface Project {
     EndDate: string;
     Display: boolean;
     skills: {
-      data:[
+      data: [
         {
-          id:number;
-          attributes:{
+          id: number;
+          attributes: {
             SkillName: string;
             SkillLogo: {
               data: [
                 {
-                  id:number;
-                  attributes:{
-                    alternativeText:string;
-                    formats:{
-                      medium:{
-                        url:string;
-                        width:number;
-                        height:number;
-                      }
-                    }
-                  }
-              }
-            ]
-            }
-          }
+                  id: number;
+                  attributes: {
+                    alternativeText: string;
+                    formats: {
+                      medium: {
+                        url: string;
+                        width: number;
+                        height: number;
+                      };
+                    };
+                  };
+                }
+              ];
+            };
+          };
         }
-      ]
+      ];
     };
     roles_portfolios: {
-      data:[
+      data: [
         {
-          id:number;
-          attributes:{
-            Role:string;
-          }
+          id: number;
+          attributes: {
+            Role: string;
+          };
         }
-      ]
+      ];
     };
     Thumbnail: {
       data: [
         {
-          id:number;
-          attributes:{
-            alternativeText:string;
-            url:string;
+          id: number;
+          attributes: {
+            alternativeText: string;
+            url: string;
             // formats:{
             //   // medium:{
             //   //   url:string;
@@ -87,61 +85,57 @@ export interface Project {
             //   //   height:number;
             //   // }
             // }
-          }
-      }
-      ]
-    },
-    project_images: {
-      data:[
-        {
-          id:number;
-          attributes:{
-            Title:string;
-            Image:{
-              data:[
-                {
-                  id:number;
-                  attributes:{
-                    alternativeText:string;
-                    formats:{
-                      thumbnail:{
-                        url:string;
-                        width:number;
-                        height:number;
-                      }
-                    }
-                  }
-                }
-              ]
-            }
-          }
+          };
         }
-      ]
-    }
-  }
-};
+      ];
+    };
+    project_images: {
+      data: [
+        {
+          id: number;
+          attributes: {
+            Title: string;
+            Image: {
+              data: [
+                {
+                  id: number;
+                  attributes: {
+                    alternativeText: string;
+                    url: string;
+                    width: number;
+                    height: number;
+                  };
+                }
+              ];
+            };
+          };
+        }
+      ];
+    };
+  };
+}
 
 export interface Projects {
   data: Project[];
 }
 
-export interface Skill{
+export interface Skill {
   id: number;
-  attributes:{
-    SkillName:string;
-    SkillLevel:number;
+  attributes: {
+    SkillName: string;
+    SkillLevel: number;
     SkillIcon: {
-      data:{
-        id:number;
-        attributes:{
+      data: {
+        id: number;
+        attributes: {
           alternativeText: string;
-          url:string;
-        }
-      }
-    }
-  }
+          url: string;
+        };
+      };
+    };
+  };
 }
 
-export interface Skills{
+export interface Skills {
   data: Skill[];
 }

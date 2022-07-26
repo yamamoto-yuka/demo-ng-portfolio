@@ -14,7 +14,7 @@
             <li (click)="caseStudyBtn()" [class.active]="activeCaseStudy">
               CASE STUDY
             </li>
-            <li (click)="othersBtn()" [class.active]="activeOther">OTHERS</li>
+            <li (click)="othersBtn()" [class.active]="activeOther">OTHER</li>
           </ul>
         </div>
       </div>
@@ -48,7 +48,8 @@
           <p>{{project.attributes.StartDate}} - {{project.attributes.EndDate}}</p>
         </div>
 
-        <h2>{{ project.attributes.Title }}</h2>
+        <p class="title">{{project.attributes.Title}}</p>
+        <h2>{{ project.attributes.ClientName }}</h2>
 
         <div class="details-box wrap">
           <div class="details wrap">
