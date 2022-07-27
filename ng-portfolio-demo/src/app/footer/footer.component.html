@@ -1,9 +1,19 @@
 <footer>
-<div class="contact">  <a routerLink="/contact"><p> GET IN TOUCH</p></a></div>
-<div class="logo-wrap">
-  <a routerLink="/">
-  <img src="../../assets/logo.svg" alt="YUKA YAMAMOTO logo image">
-</a>
-</div>
+  <div class="contact">
+    <a routerLink="/contact"
+      ><p
+        inViewport
+        [inViewportOptions]="{ threshold: [0] }"
+        (inViewportAction)="onIntersection($event)"
+      >
+        GET IN TOUCH
+      </p></a
+    >
+  </div>
+  <div class="logo-wrap">
+    <a routerLink="/">
+      <img src="../../assets/logo.svg" alt="YUKA YAMAMOTO logo image" />
+    </a>
+  </div>
   <small>&copy;Yuka Yamamoto. 2022.</small>
 </footer>

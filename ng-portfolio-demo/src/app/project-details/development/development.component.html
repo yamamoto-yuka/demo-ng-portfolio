@@ -25,7 +25,7 @@
           <a class="siteLink" [href]="project.attributes.SiteURL" [routerLink]="project.attributes.SiteURL" target="_blank">VISIT SITE</a>
         </li>
         <li>
-          <a class="githubLink" [href]="" target="_blank">GITHUB</a>
+          <a class="githubLink" [href]="project.attributes.GithubURL" target="_blank">GITHUB</a>
         </li>
       </ul>
 
@@ -53,6 +53,9 @@
     <section class="wrap" *ngFor="let img of project.attributes.project_images.data">
       <div
         class="img-wrap"
+        inViewport
+        [inViewportOptions]="{ threshold: [0] }"
+        (inViewportAction)="onIntersection($event)"
       >
         <img
           [src]="img.attributes.Image.data[0].attributes.url"

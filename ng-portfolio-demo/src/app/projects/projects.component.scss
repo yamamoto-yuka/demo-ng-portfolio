@@ -131,14 +131,21 @@ main {
   flex-direction: column;
   justify-content: space-between;
   margin: 5rem 2rem;
+  transform: scale(.9);
   // Category Display
   opacity: 0;
   display: none;
+  transition: all 1s ease-in-out;
 }
 
-  // Category Active Display
+// Category Active Display
 .project-item.active{
   display: flex;  
+}
+
+// Scroll animation 
+.project-item.scrollanime{
+  transform: scale(1);
   opacity: 1;
 }
 

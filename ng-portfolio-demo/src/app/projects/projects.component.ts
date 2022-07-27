@@ -1,18 +1,15 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Project } from '../interfaces/interface';
 import { CommonService } from '../services/common.service';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
-
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
 })
-export class ProjectsComponent implements OnInit, AfterViewInit {
-
+export class ProjectsComponent implements OnInit {
   projects: Project[] = [];
   // Change text css for active category
   activeAll: boolean = true;
@@ -29,9 +26,11 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   // For Image URL
   server = environment.server;
 
-  constructor(private cs: CommonService) {
-    // gsap.registerPlugin(ScrollToPlugin); 
-  }
+  constructor(
+    private cs: CommonService,
+    private renderer: Renderer2,
+    private router: Router
+  ) {}
 
   // Btn to show all data
   allBtn() {
@@ -89,26 +88,29 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     this.showCloseText = !this.showCloseText;
   }
 
-  scrollAnimation(){
-    // gsap.to('')
+  // Intersection Observer API
+  onIntersection(event: any): void {
+    console.log(event);
+    if (event.visible) {
+      this.renderer.addClass(event.target, 'scrollanime');
+    } else {
+      this.renderer.removeClass(event.target, 'scrollanime');
+    }
   }
 
   ngOnInit(): void {
-    // console.log(this.items)
-    gsap.registerPlugin(ScrollTrigger);
+    // Scroll to Top
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        window.scrollTo(0, 0);
+      }
+    });
+
     this.cs.getProjects().subscribe((res) => {
       console.log(res);
       this.projects = res.data;
       console.log(this.projects);
     });
-  }
-
-  ngAfterViewInit():void{
-    // console.log(this.items);
-
-    // this.items.forEach((item, index) => {
-    //   console.log(item);
-    // });
   }
 
   // Dummy json Data

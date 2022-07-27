@@ -41,6 +41,9 @@
         project.attributes.Slug,
         project.id
       ]"
+      inViewport
+      [inViewportOptions]="{ threshold: [0] }"
+      (inViewportAction)="onIntersection($event)"
     >
       <div class="desc-box wrap">
         <div class="date wrap">

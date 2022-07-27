@@ -1,4 +1,5 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
+import {  NavigationEnd, Router } from '@angular/router';
 import { CommonService } from '../services/common.service';
 
 @Component({
@@ -38,9 +39,15 @@ export class AboutComponent implements OnInit {
 
   progress: any;
 
-  constructor(private renderer: Renderer2, private cs:CommonService) {}
+  constructor(private renderer: Renderer2, private cs: CommonService, private router:Router) {}
 
-  public onIntersection(event: any, percent: any): void {
+  scrollAnimation(event: any) {
+    if (event.visible) {
+      this.renderer.setStyle(event.target, 'transform', 'translateX(0px)');
+    }
+  }
+
+  onIntersection(event: any, percent: any) {
     console.log(event);
     if (event.visible) {
       console.log(percent);
@@ -49,9 +56,15 @@ export class AboutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this,this.cs.getSkills().subscribe(res =>{
-      this.skills = res.data;
-      console.log(this.skills);
+    // Scroll to Top 
+    this.router.events.subscribe(event=>{
+      if(event instanceof NavigationEnd){
+        window.scrollTo(0, 0);
+      }
     })
+      this.cs.getSkills().subscribe(res => {
+        this.skills = res.data;
+        console.log(this.skills);
+      });
   }
 }

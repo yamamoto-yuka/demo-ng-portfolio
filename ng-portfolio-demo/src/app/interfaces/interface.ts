@@ -34,6 +34,7 @@ export interface Project {
     StartDate: string;
     EndDate: string;
     Display: boolean;
+    GithubURL:string;
     skills: {
       data: [
         {

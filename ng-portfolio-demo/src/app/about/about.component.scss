@@ -69,6 +69,8 @@ h3 {
 }
 
 .resumeLink {
+  transform: translateX(-130px);
+  transition: all 1.5s ease-in-out;
   p {
     font-size: 2rem;
     font-family: "Anton", sans-serif;
@@ -83,7 +85,10 @@ h3 {
 .brand-gif {
   height: 80vh;
   width: 100%;
-  background-color: aquamarine;
+  background-color: $white;
+  p{
+    font-family: "Anton", sans-serif;
+  }
 }
 
 .skill-frontEnd,

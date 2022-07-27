@@ -30,6 +30,7 @@ main {
 }
 
 .detail-box {
+  min-height: 80vh;
   flex-direction: column;
   margin-bottom: 3rem;
 
@@ -108,12 +109,20 @@ section {
   margin-bottom: 3rem;
   .img-wrap {
     height: 100%;
+    transform: scale(.9);
+    opacity: 0;
+    transition: all 1s ease-in-out;
     img {
       height: 100%;
       width: 100%;
       object-fit: cover;
     }
   }
+  // Scroll animation 
+.img-wrap.scrollanime{
+  transform: scale(1);
+  opacity: 1;
+}
 }
 
 .btn-box {

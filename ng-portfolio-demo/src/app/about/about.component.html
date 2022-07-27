@@ -33,13 +33,18 @@
               </li>
             </ul>
           </div>
-          <div class="resumeLink">
+          <div class="resumeLink"
+          inViewport
+          [inViewportOptions]="{ threshold: [1] }"
+          (inViewportAction)="scrollAnimation($event)">
             <a href="">
               <p>VIEW RESUME</p>
             </a>
           </div>
         </div>
-        <div class="brand-gif wrap"></div>
+        <div class="brand-gif wrap">
+          <p>Coming soon! After effect graphic!</p>
+        </div>
       </div>
     </section>
 
