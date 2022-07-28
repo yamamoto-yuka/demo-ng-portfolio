@@ -1,1 +1,5 @@
-<p>tr-availability works!</p>
+<div id="stock" class="inStock" [class.soldOut]="!inStock">
+  <p *ngIf="inStock; then instock; else outofstock"></p>
+  <ng-template #instock>In Stock</ng-template>
+  <ng-template #outofstock>Out Of Stock</ng-template>
+</div>

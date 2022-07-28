@@ -1,15 +1,21 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { TrCommonService } from '../services/tr-common.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginGuard implements CanActivate {
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+  constructor(private cs:TrCommonService, private router:Router){}
+
+  canActivate(){
+    if(this.cs.isLoggedIn()){
+      return true;
+    }else{
+      this.router.navigate(['/trunkrecords/admin/login']);
+      return false;
+    }
   }
   
 }

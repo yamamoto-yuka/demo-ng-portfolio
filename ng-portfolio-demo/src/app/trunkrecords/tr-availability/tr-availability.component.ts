@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tr-availability',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tr-availability.component.scss']
 })
 export class TrAvailabilityComponent implements OnInit {
-
+  @Input() inStock: boolean = true;
   constructor() { }
 
   ngOnInit(): void {
