@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tr-header.component.scss']
 })
 export class TrHeaderComponent implements OnInit {
-
+  activeBtn:boolean = false;
+  
   constructor() { }
+
+  menuBtn(){
+    this.activeBtn = !this.activeBtn;
+  }
 
   ngOnInit(): void {
   }

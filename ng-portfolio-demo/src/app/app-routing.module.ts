@@ -27,7 +27,7 @@ const routes: Routes = [
   {path:'contact', component:ContactComponent},
   {path:'conferenceposter', component:ConferenceposterComponent},
   // For trunk Records demo site
-  {path:'trunkrecords/', component:TrHomeComponent},
+  {path:'trunkrecords', component:TrHomeComponent},
   {path:'trunkrecords/home', component:TrHomeComponent},
   {path:'trunkrecords/apparel', component:TrApparelComponent},
   {path:'trunkrecords/apparel/:id', component:TrAppareldetailsComponent},
