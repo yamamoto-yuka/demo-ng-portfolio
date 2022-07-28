@@ -1,53 +1,113 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { gsap ,Power2} from 'gsap';
 import * as THREE from 'three';
 import { FlyControls } from 'three/examples/jsm/controls/FlyControls';
-import { Router } from '@angular/router';
-import { CommonService } from '../services/common.service';
+import { gsap, Power2 } from 'gsap';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-top',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  // For Timeline Animation
+  // GET DOM ELEMENT
+  @ViewChild('container', { static: true })
+  container: ElementRef<HTMLDivElement>;
+  @ViewChild('myCanvas', { static: true }) myCanvas: ElementRef<HTMLDivElement>;
   @ViewChild('headline', { static: true }) headline: ElementRef<HTMLDivElement>;
   @ViewChild('logo', { static: true }) logo: ElementRef<HTMLDivElement>;
-  @ViewChild('container', { static: true }) container: ElementRef<HTMLDivElement>;
   @ViewChild('projects', { static: true }) projects: ElementRef<HTMLDivElement>;
   @ViewChild('about', { static: true }) about: ElementRef<HTMLDivElement>;
   @ViewChild('contact', { static: true }) contact: ElementRef<HTMLDivElement>;
-  @ViewChild('footer', { static: true }) footer: ElementRef<HTMLDivElement>;
-  @ViewChild('desc', { static: true }) desc: ElementRef<HTMLDivElement>;
+  @ViewChild('topText', { static: true }) topText: ElementRef<HTMLDivElement>;
   @ViewChild('slider', { static: true }) slider: ElementRef<HTMLDivElement>;
 
-  // For 3D Bg
-  @ViewChild('myCanvas', { static: true }) myCanvas: ElementRef<HTMLDivElement>;
+  constructor() {}
 
-  constructor(private router: Router, private cs:CommonService) {}
-
-  logo2 = '';
-  thubnail = '';
+  // OPENING ANIMATION
+  timelineAnimation() {
+    const tl = gsap.timeline();
+    tl.fromTo(
+      this.container.nativeElement,
+      1.5,
+      { height: '0' },
+      { height: '100vh', ease: Power2.easeInOut }
+    )
+      .fromTo(
+        this.container.nativeElement,
+        1.7,
+        { width: '0%' },
+        { width: '100%', ease: Power2.easeInOut }
+      )
+      .fromTo(
+        this.topText.nativeElement,
+        1.5,
+        { opacity: 1, left: '30%' },
+        { opacity: 0, left: '0%', display: 'none', ease: Power2.easeOut },
+        '-=1.5'
+      )
+      .fromTo(
+        this.logo.nativeElement,
+        1.8,
+        { opacity: 0 },
+        { opacity: 1, ease: Power2.easeInOut }
+      )
+      .fromTo(
+        this.projects.nativeElement,
+        1.8,
+        { opacity: 0 },
+        { opacity: 1, ease: Power2.easeInOut },
+        '-=1.8'
+      )
+      .fromTo(
+        this.about.nativeElement,
+        1.8,
+        { opacity: 0 },
+        { opacity: 1, ease: Power2.easeInOut },
+        '-=1.8'
+      )
+      .fromTo(
+        this.headline.nativeElement,
+        1.8,
+        { opacity: 0 },
+        { opacity: 1, ease: Power2.easeInOut },
+        '-=1.8'
+      )
+      .fromTo(
+        this.contact.nativeElement,
+        1.8,
+        { opacity: 0 },
+        { opacity: 1, ease: Power2.easeInOut },
+        '-=1.98'
+      );
+  }
 
   ngOnInit(): void {
+    // SPACE BG
+    let camera: any,
+      scene: any,
+      renderer: any,
+      stars: any,
+      vertices: any,
+      velocities: any,
+      accelerations: any;
+    const vertex = new THREE.Vector3();
     const clock = new THREE.Clock();
     let controls: FlyControls;
 
     // SCENE
-    const scene = new THREE.Scene();
+    scene = new THREE.Scene();
 
     // CAMERA
-    const camera = new THREE.PerspectiveCamera(
-      50,
+    camera = new THREE.PerspectiveCamera(
+      90,
       this.container.nativeElement.clientWidth /
         this.container.nativeElement.clientHeight,
       1,
       15000
     );
-    
+
     // RENDERER
-    const renderer = new THREE.WebGL1Renderer({
+    renderer = new THREE.WebGL1Renderer({
       canvas: this.myCanvas.nativeElement,
       antialias: true,
     });
@@ -56,37 +116,43 @@ export class HomeComponent implements OnInit {
       this.container.nativeElement.clientHeight
     );
 
-    createStarField();
-    
     // CREATE Particle
+    createStarField();
     function createStarField() {
-      const vertices = [];
-      for (let i = 0; i < 5000; i++) {
-        const x = 5000 * (Math.random() - 0.5);
-        const y = 5000 * (Math.random() - 0.5);
-        const z = 5000 * (Math.random() - 0.5);
-        vertices.push(x, y, z);
+      vertices = [];
+      velocities = [];
+      accelerations = [];
+      for (let i = 0; i < 6000; i++) {
+        vertices.push(
+          Math.random() * 600 - 300,
+          Math.random() * 600 - 300,
+          Math.random() * 600 - 300,
+          velocities.push(0),
+          accelerations.push(Math.random())
+        );
       }
 
-    // GEOMETORY
+      // GEOMETORY
       const geometry = new THREE.BufferGeometry();
       geometry.setAttribute(
         'position',
         new THREE.Float32BufferAttribute(vertices, 3)
       );
 
-    // MATERIAL
+      // MATERIAL
+      const sprite = new THREE.TextureLoader().load('../../assets/star.png');
       const material = new THREE.PointsMaterial({
-        size: 6,
+        size: 0.6,
         color: 0xffffff,
+        map: sprite,
       });
-      const stars = new THREE.Points(geometry, material);
+      stars = new THREE.Points(geometry, material);
       scene.add(stars);
     }
 
     // FlyControls
     controls = new FlyControls(camera, renderer.domElement);
-    controls.movementSpeed = 1800;
+    // controls.movementSpeed = 1800;
     controls.rollSpeed = Math.PI / 30;
 
     animate();
@@ -98,184 +164,33 @@ export class HomeComponent implements OnInit {
       camera.updateProjectionMatrix();
     }
 
+    // AUTO MOVE
+    function move() {
+      let positionAttribute = stars.geometry.getAttribute('position');
+      for (let i = 0; i < positionAttribute.count; i++) {
+        vertex.fromBufferAttribute(positionAttribute, i);
+        vertex.y -= 1;
+        if (vertex.y < -300) {
+          vertex.y = 300;
+        }
+        positionAttribute.setXYZ(i, vertex.x, vertex.y, vertex.z);
+      }
+      positionAttribute.needUpdate = true;
+    }
+
     // ANIMATION (RENDERING) CALLBACK FUNCTION
     function animate() {
       requestAnimationFrame(animate);
+      move();
       const delta = clock.getDelta();
       controls.update(delta);
       renderer.render(scene, camera);
     }
 
-     //EXECUTE WINDOW RESIZE
+    //EXECUTE WINDOW RESIZE
     window.addEventListener('resize', onWindowResize);
 
-
-    // GSAP ANIMATION
+    //EXECUTE OPENING ANIMATION
     this.timelineAnimation();
-
-
-    // NAVIGATION
-    let navigateToAbout = () => {
-      this.router.navigate(['about-me']);
-    };
-
-    let navigateToProjects = () => {
-      this.router.navigate(['project']);
-    };
-
-    // WIPE TRANSITIONS
-    this.about.nativeElement.addEventListener('click', () => {
-      this.wideScreen();
-      onWindowResize();
-      this.wipeTransitionLeft();
-      setTimeout(navigateToAbout, 2500);
-    });
-
-    this.projects.nativeElement.addEventListener('click', () => {
-      this.wideScreen();
-      onWindowResize();
-      this.wipeTransitionRight();
-      setTimeout(navigateToProjects, 2500);
-    });
-
- 
-  }
-
-  // TIME LINE ANIMATION
-  timelineAnimation() {
-    const tl = gsap.timeline();
-    tl.fromTo(
-      this.container.nativeElement,
-      1.5,
-      { height: '0%' },
-      { height: '70%', ease: Power2.easeInOut }
-    )
-      .fromTo(
-        this.container.nativeElement,
-        1.7,
-        { width: '0%' },
-        { width: '100%', ease: Power2.easeInOut }
-      )
-      .fromTo(
-        this.logo.nativeElement,
-        0.5,
-        { opacity: 0, x: 30 },
-        { opacity: 1, x: 0 },
-        '-=0.5'
-      )
-      .fromTo(
-        this.projects.nativeElement,
-        0.5,
-        { opacity: 0, x: 30 },
-        { opacity: 1, x: 0 },
-        '-=0.5'
-      )
-      .fromTo(
-        this.about.nativeElement,
-        0.5,
-        { opacity: 0, x: -30 },
-        { opacity: 1, x: 0 },
-        '-=0.5'
-      )
-      .fromTo(
-        this.projects.nativeElement,
-        0.5,
-        { opacity: 0, x: -30 },
-        { opacity: 1, x: 0 },
-        '-=0.5'
-      )
-      .fromTo(
-        this.headline.nativeElement,
-        0.5,
-        { opacity: 0, x: -30 },
-        { opacity: 1, x: 0 },
-        '-=0.5'
-      )
-      .fromTo(
-        this.contact.nativeElement,
-        0.5,
-        { opacity: 0, x: -30 },
-        { opacity: 1, x: 0 },
-        '-=0.5'
-      )
-      .fromTo(
-        this.footer.nativeElement,
-        0.5,
-        { opacity: 0, x: -30 },
-        { opacity: 1, x: 0 },
-        '-=0.5'
-      )
-      .fromTo(
-        this.desc.nativeElement,
-        1.6,
-        { opacity: 1, left: '30%' },
-        { opacity: 0, left: '0%', display: 'none', ease: Power2.easeInOut },
-        '-=1.8'
-      );
-  }
-
-  wideScreen() {
-    const tl = gsap.timeline();
-    tl.fromTo(this.contact.nativeElement, 1, { opacity: 1 }, { opacity: 0 })
-      .fromTo(
-        this.container.nativeElement,
-        1,
-        { position: 'relative', height: '90%' },
-        { position: 'absolute', top: 0, height: '100%', ease: Power2.easeInOut }
-      )
-      .fromTo(
-        this.container.nativeElement,
-        1,
-        { position: 'relative', widows: '100%' },
-        { position: 'absolute', width: '100%', ease: Power2.easeInOut }
-      );
-  }
-
-  wipeTransitionLeft() {
-    const tl = gsap.timeline();
-    tl.fromTo(
-      this.slider.nativeElement,
-      2.5,
-      { opacity: 1, left: 0, width: '0%' },
-      { width: '100%', ease: Power2.easeInOut }
-    )
-      .fromTo(
-        this.projects.nativeElement,
-        2.5,
-        { opacity: 1 },
-        { opacity: 0, ease: Power2.easeInOut },
-        '-=2.5'
-      )
-      .fromTo(
-        this.about.nativeElement,
-        2,
-        { opacity: 1 },
-        { opacity: 0, ease: Power2.easeOut },
-        '-=1'
-      );
-  }
-
-  wipeTransitionRight() {
-    const tl = gsap.timeline();
-    tl.fromTo(
-      this.slider.nativeElement,
-      2.5,
-      { opacity: 1, right: 0, width: '0%' },
-      { width: '100%', ease: Power2.easeInOut }
-    )
-      .fromTo(
-        this.about.nativeElement,
-        2,
-        { opacity: 1 },
-        { opacity: 0, ease: Power2.easeInOut },
-        '-=2'
-      )
-      .fromTo(
-        this.projects.nativeElement,
-        2,
-        { opacity: 1 },
-        { opacity: 0, ease: Power2.easeOut },
-        '-=1'
-      );
   }
 }

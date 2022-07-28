@@ -3,15 +3,22 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ContactComponent } from './contact/contact.component';
-import { Home2Component } from './home2/home2.component';
-import { TopComponent } from './top/top.component';
+import { HomeComponent} from './home/home.component';
 import { DevelopmentComponent } from './project-details/development/development.component';
 import { OtherComponent } from './project-details/other/other.component';
 import { ConferenceposterComponent } from './demosite/conferenceposter/conferenceposter.component';
+import { TrHomeComponent } from './trunkrecords/tr-home/tr-home.component';
+import { TrApparelComponent } from './trunkrecords/tr-apparel/tr-apparel.component';
+import { TrAppareldetailsComponent } from './trunkrecords/tr-appareldetails/tr-appareldetails.component';
+import { TrSignupComponent } from './trunkrecords/admin/tr-signup/tr-signup.component';
+import { TrLoginComponent } from './trunkrecords/admin/tr-login/tr-login.component';
+import { TrManageProductsComponent } from './trunkrecords/admin/tr-manage-products/tr-manage-products.component';
+import { TrUpdateComponent } from './trunkrecords/admin/tr-update/tr-update.component';
+import { LoginGuard } from './trunkrecords/auth/login.guard';
 
 const routes: Routes = [
-  {path:'', component:TopComponent},
-  {path:'home', component:TopComponent},
+  {path:'', component:HomeComponent},
+  {path:'home', component:HomeComponent},
   {path:'projects', component:ProjectsComponent},
   {path:'about', component:AboutComponent},
   {path:'projects/development/:title/:id', component:DevelopmentComponent},
@@ -19,7 +26,15 @@ const routes: Routes = [
   {path:'projects/other/:title/:id', component:OtherComponent},
   {path:'contact', component:ContactComponent},
   {path:'conferenceposter', component:ConferenceposterComponent},
-  {path:'home1', component:Home2Component},
+  // For trunk Records demo site
+  {path:'trunkrecords/', component:TrHomeComponent},
+  {path:'trunkrecords/home', component:TrHomeComponent},
+  {path:'trunkrecords/apparel', component:TrApparelComponent},
+  {path:'trunkrecords/apparel/:id', component:TrAppareldetailsComponent},
+  {path:'trunkrecords/admin/register', component:TrSignupComponent},
+  {path:'trunkrecords/admin/login', component:TrLoginComponent},
+  {path:'trunkrecords/admin/home', component:TrManageProductsComponent, canActivate:[LoginGuard]},
+  {path:'trunkrecords/admin/update/:id', component:TrUpdateComponent, canActivate:[LoginGuard]},
 ];
 
 @NgModule({

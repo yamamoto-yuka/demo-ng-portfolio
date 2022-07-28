@@ -1,273 +1,220 @@
-@import "../../styles.scss";
+@import '../app.component.scss';
 
-.homeContainer {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  padding: 1.5rem;
-  background: $bg;
+.top-text {
+  top: 60%;
+  left: 30%;
+  color: $black;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  font-weight: 400;
+  font-family: 'Anton', sans-serif;
+  transform: translate(-30%, -60%);
+  z-index: 1;
 }
 
-header {
-  flex-grow: 0;
-  position: relative;
-}
-
-.language {
-  position: absolute;
+.slider {
   top: 0;
-  right: 0;
-  button {
-    border: none;
-    background-color: transparent;
+  height: 100%;
+  width: 100%;
+  background-color: $offWhite;
+}
+
+
+main {
+  height: 100%;
+  width: 100%;
+  @include flex();
+}
+
+.hero-container {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+#myCanvas,
+.absolute-box {
+  position: absolute;
+}
+
+.absolute-box {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#myCanvas {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.top-nav {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  ul {
+    text-align: center;
   }
-  button:last-child {
-    padding-left: 1rem;
+
+  li:first-child {
+    padding-bottom: 3rem;
   }
-  button:hover,
-  button:active {
-    @include catHoverActive();
+
+  a {
+    font-size: 3rem;
+    letter-spacing: 0.8rem;
+    font-family: 'Anton', sans-serif;
   }
-  button:before,
-  button:after {
-    @include catAfterBefore($border-color: $black);
+
+  a:hover,
+  a:active {
+    color: $yellow;
+    transition: all 0.8s ease-in-out;
   }
-  button:hover:before,
-  button:hover:after {
-    @include catHoverAfterBefore($border-color: $black, $width: 100%);
+
+  a:after,
+  a:before {
+    content: "";
+    width: 0%;
+    position: relative;
+    top: auto;
+    bottom: 0;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid $offWhite;
+    transition: all 0.8s ease-in-out;
   }
-  button:hover:before {
-    @include catHoverBefore($width: 100%);
+
+  a:hover:after,
+  a:hover::before {
+    width: 100%;
+    border-color: $yellow;
+    transition: width 0.8s ease-in-out;
+  }
+
+  a:hover:before {
+    width: 100%;
+    top: 0;
+    bottom: auto;
   }
 }
 
 .headline {
-  @include centerCenter($j: space-between);
-  flex-direction: column;
-  color: $black;
-  #logo {
-    width: 100px;
-    img {
-      height: 100%;
-      width: 100%;
-    }
-  }
-  .bio {
-    padding-top: 2.5rem;
+  width: 90%;
+  top: 5%;
+  .title {
+    padding-bottom: 1rem;
     h1 {
+      font-size: 1.3rem;
+      letter-spacing: 0.3rem;
+      font-family: 'Anton', sans-serif;
+    }
+    h2 {
       font-size: 1rem;
-      font-weight: bold;
-      font-family: "Sora", sans-serif;
+      font-weight: 300;
     }
-    .bio-summary {
-      padding-top: 0.5rem;
-      p {
-        font-size: 0.8rem;
-        font-weight: 200;
-      }
+  }
+  .description {
+    width: 80%;
+    p {
+      font-size: 0.8rem;
+      font-weight: 300;
     }
   }
 }
 
-main {
-  flex-grow: 1;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .Canvascontainer {
-    height: 70%;
+.logo {
+  width: 20%;
+  top: 90%;
+  img {
+    height: 100%;
     width: 100%;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0px 7px 21px 0px rgba(0, 0, 0, 0.55);
-    #myCanvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      box-shadow: 0px 6px 14px 0px rgb(0 0 0 / 42%);
-    }
-    ul {
-      cursor: pointer;
-      width: 100%;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      font-size: 1.5rem;
-      li:first-child {
-        padding-bottom: 3rem;
-      }
-      a {
-        font-family: "Sora", sans-serif;
-        color: #fff;
-        transition: all 1s ease-in-out;
-      }
-      a:hover,
-      a:active {
-        @include catHoverActive();
-      }
-      a:after,
-      a:before {
-        @include catAfterBefore();
-        transition: all 1s ease-in-out;
-      }
-      a:hover:after,
-      a:hover:before {
-        @include catHoverAfterBefore();
-      }
-      a:hover:before {
-        @include catHoverBefore();
-      }
-    }
+    object-fit: contain;
   }
 }
 
-.desc {
-  position: absolute;
-  top: 60%;
-  left: 30%;
-  color: $black;
-  font-size: 40px;
-  transform: translate(-30%, -60%);
-  z-index: 10;
-}
-
-.slider {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  background: $black;
-  opacity: 0;
-  z-index: 5;
-}
-
-footer {
-  flex-grow: 0;
-  .contact {
-    @include centerCenter($j: flex-end);
-    ul {
-      @include centerCenter();
-      width: fit-content;
-      border-top: 1px solid $black;
-      border-bottom: 1px solid $black;
-      li {
-        font-size: 1.5rem;
-        font-weight: bold;
-        a {
-          color: $black;
-          transition: all 0.5s ease-in-out;
-        }
-        a:hover,
-        a:active {
-          color: white;
-        }
-      }
-      li:nth-child(2) {
-        margin: 0 1rem;
-      }
-    }
+.contact {
+  width: fit-content;
+  top: 80%;
+  p {
+    font-size: 1.3rem;
+    letter-spacing: 0.2rem;
+    font-weight: bold;
+    border-top: 1px solid $offWhite;
+    border-bottom: 1px solid $offWhite;
+    transition: all 0.5s ease-in-out;
+    font-family: 'Anton', sans-serif;
+  }
+  p:hover {
+    border-top: 1px solid $yellow;
+    border-bottom: 1px solid $yellow;
+    color: $yellow;
   }
 }
 
-small {
-  margin-top: 2rem;
-  @include centerCenter();
-}
+
+
 
 @media screen and (min-width: 768px) {
-  .homeContainer {
-    padding: 3.5rem 1.5rem;
-  }
-
-  .desc {
-    font-size: 50px;
-  }
-
-  .headline {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    #logo {
-      width: 15%;
-      margin-right: 3rem;
-      padding-top: 0.2rem;
+  .top-nav {
+    li:first-child {
+      padding-bottom: 5rem;
     }
-    .bio {
-      width: 85%;
-      padding-top: initial;
-      .bio-summary {
-        padding-top: 1rem;
-      }
+    a {
+      font-size: 3.5rem;
+      letter-spacing: 0.8rem;
     }
   }
 
-  main {
-    .Canvascontainer {
-      ul {
-        flex-direction: row;
-        font-size: 3.5rem;
-        li:first-child {
-          padding-bottom: initial;
-        }
-      }
-    }
+  .logo {
+    width: 12%;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .homeContainer {
-    padding: 3.5rem 4.5rem 1rem 4.5rem;
-  }
+  .top-nav {
+    width: 100%;
+    top: 43%;
+    transform: translate(-50%, -43%);
+    ul {
+      display: flex;
+      justify-content: space-around;
+    }
+    li{
+      text-align: center;
+    }
 
-  .desc {
-    font-size: 60px;
-  }
+    li:first-child {
+      padding-bottom: 0;
+      margin-right:0;
+    }
 
-  footer {
-    .contact {
-      justify-content: flex-end;
+    a{
+      width: fit-content;
     }
   }
-}
 
-@media screen and (min-width: 1920px) {
-  .homeContainer {
-    padding: 3.5rem 8.5rem 1rem 8.5rem;
-  }
-
-  .desc {
-    font-size: 65px;
-  }
   .headline {
-    padding: 5rem 0 5rem 0;
-    #logo {
-      width: 10%;
-    }
-    .bio {
-      width: 90%;
-    }
-  }
-
-  main {
-    .Canvascontainer {
-      ul {
-        font-size: 4.5rem;
-      }
+    width: initial;
+    top: 95%;
+    left: 5%;
+    transform: translate(-5%, -95%);
+    .description {
+      width: 100%;
     }
   }
 
-  footer {
-    .contact {
-      li {
-        margin: 0 1.5rem 0 0;
-        font-size: 1.2rem;
-      }
-    }
+  .logo {
+    width: 7%;
+    top: 95%;
+    left: 95%;
+    transform: translate(-95%, -95%);
+  }
+
+  .contact {
+    top: 85%;
+    left: 95%;
+    transform: translate(-95%, -85%);
   }
 }
