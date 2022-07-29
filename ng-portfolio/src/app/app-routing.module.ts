@@ -25,6 +25,7 @@ const routes: Routes = [
   {path:'projects/casestudy/:title/:id', component:DevelopmentComponent},
   {path:'projects/other/:title/:id', component:OtherComponent},
   {path:'contact', component:ContactComponent},
+  // For conference poster site
   {path:'conferenceposter', component:ConferenceposterComponent},
   // For trunk Records demo site
   {path:'trunkrecords', component:TrHomeComponent},
