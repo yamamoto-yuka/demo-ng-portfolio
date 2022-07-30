@@ -1,4 +1,4 @@
-@import '../app.component.scss';
+@import "../app.component.scss";
 
 .contactContainer {
   flex-direction: column;
@@ -16,8 +16,9 @@ footer {
 }
 
 main {
-  min-height: 82vh;
+  min-height: 87vh;
   margin-top: 8vh;
+  position: relative;
   padding: 2rem 2rem;
   @include flex();
   flex-grow: 1;
@@ -38,12 +39,13 @@ main {
     }
     ul {
       width: fit-content;
-      border-top: 1px solid $black;
-      border-bottom: 1px solid $black;
       li {
+        text-align: center;
         font-size: 1rem;
         font-weight: bold;
         a {
+          width: 100%;
+          display: block;
           letter-spacing: 5px;
           font-family: "Anton", sans-serif;
           color: $black;
@@ -51,8 +53,34 @@ main {
         }
         a:hover,
         a:active {
-          font-weight: bold;
-          color: $yellow;
+          color: $Dyellow;
+          transition: all 0.8s ease-in-out;
+        }
+
+        a:after,
+        a:before {
+          content: "";
+          width: 100%;
+          position: relative;
+          top: auto;
+          bottom: 0;
+          display: block;
+          margin: 0 auto;
+          border: 1px solid $black;
+          transition: all 0.8s ease-in-out;
+        }
+
+        a:hover:after,
+        a:hover::before {
+          width: 0%;
+          border-color: $Dyellow;
+          transition: width 0.8s ease-in-out;
+        }
+
+        a:hover:before {
+          width: 0%;
+          top: 0;
+          bottom: auto;
         }
       }
       li:nth-child(2) {
@@ -61,7 +89,8 @@ main {
     }
   }
   .form-wrap {
-    padding-top: 3rem;
+    width: 100%;
+    padding: 3rem 0;
     input {
       padding: 10px;
     }
@@ -71,20 +100,33 @@ main {
     }
   }
 
-  .success-message{
-    span{
+  .success-message {
+    span {
       font-family: "Anton", sans-serif;
     }
   }
 
-  .alert{
+  .alert {
     background-color: transparent;
     border: none;
+  }
+  .img-wrap {
+    height: 3.5vh;
+    margin-top: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
   }
 }
 
 footer {
-  height: 10vh;
+  height: 5vh;
   small {
     font-size: 0.6rem;
   }
@@ -114,6 +156,14 @@ footer {
     }
     .form-wrap {
       width: 60%;
+    }
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  main {
+    .form-wrap {
+      width: 50%;
     }
   }
 }

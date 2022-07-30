@@ -6,7 +6,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HomeComponent} from './home/home.component';
 import { DevelopmentComponent } from './project-details/development/development.component';
 import { OtherComponent } from './project-details/other/other.component';
-import { ConferenceposterComponent } from './demosite/conferenceposter/conferenceposter.component';
+import { ConferenceposterComponent } from './conferenceposter/conferenceposter.component';
 import { TrHomeComponent } from './trunkrecords/tr-home/tr-home.component';
 import { TrApparelComponent } from './trunkrecords/tr-apparel/tr-apparel.component';
 import { TrAppareldetailsComponent } from './trunkrecords/tr-appareldetails/tr-appareldetails.component';

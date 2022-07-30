@@ -93,10 +93,15 @@
           <span class="text">Send Message</span><span>Thank you!</span>
         </button>
         <div class="mt-3 success-message" [hidden]="formMessageHidden">
-          Thank you for contacting me, <span>{{ name }}</span>. I will get in touch with you
-          soon!
+          Thank you for contacting me, <span>{{ name }}</span
+          >. I will get in touch with you soon!
         </div>
       </form>
+    </div>
+    <div class="img-wrap">
+      <a routerLink="/">
+        <img src="../../assets/logo.svg" alt="YukaYamamoto" />
+      </a>
     </div>
   </main>
   <footer class="wrap"><small>&copy;Yuka Yamamoto. 2022.</small></footer>

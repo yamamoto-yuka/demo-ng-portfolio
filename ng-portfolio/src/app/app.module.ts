@@ -15,7 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { DevelopmentComponent } from './project-details/development/development.component';
 import { ContactComponent } from './contact/contact.component';
 import { OtherComponent } from './project-details/other/other.component';
-import { ConferenceposterComponent } from './demosite/conferenceposter/conferenceposter.component';
+import { ConferenceposterComponent } from './conferenceposter/conferenceposter.component';
 import { TrApparelComponent } from './trunkrecords/tr-apparel/tr-apparel.component';
 import { TrAppareldetailsComponent } from './trunkrecords/tr-appareldetails/tr-appareldetails.component';
 import { TrAvailabilityComponent } from './trunkrecords/tr-availability/tr-availability.component';
