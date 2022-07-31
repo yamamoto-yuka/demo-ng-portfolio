@@ -1,0 +1,256 @@
+@import "../../app.component.scss";
+a,
+h1,
+h2,
+h3,
+p {
+  color: $black;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Anton", sans-serif;
+  letter-spacing: 1.6px;
+}
+
+.details-container {
+  height: 100vh;
+  flex-direction: column;
+  background-color: $offWhite;
+}
+
+app-header,
+app-footer {
+  flex-grow: 0;
+}
+
+main {
+  flex-grow: 1;
+  margin-top: 8vh;
+  background-color: $offWhite;
+}
+
+.wrap {
+  width: 100%;
+  @include flex();
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title-box {
+  min-height: 50vh;
+  align-items: center;
+  .date {
+    ul {
+      flex-direction: row;
+      li {
+        margin-right: 1rem;
+        font-size: 0.8rem;
+        letter-spacing: 1.2px;
+        list-style: none;
+      }
+      li:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  p {
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+  }
+  h1 {
+    border-top: 1px solid $black;
+    border-bottom: 1px solid $black;
+  }
+}
+
+.hero-img {
+  min-height: 50vh;
+  background-image: url("../../../assets/casestudy/biogeek_heroimg.png");
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+section {
+  padding: 3rem;
+  opacity: 0;
+  transition: all 2s ease-in-out;
+}
+// Scroll animation
+section.scrollanime {
+  opacity: 1;
+}
+
+article {
+  width: 100%;
+  padding: 3rem 0;
+}
+
+h2 {
+  font-size: 1rem;
+}
+h3 {
+  padding-bottom: 2rem;
+}
+p {
+  padding: 1rem 0;
+}
+
+ul {
+  padding-bottom: 2rem;
+}
+li {
+  padding: 0.5rem 1rem;
+  line-height: 35px;
+  font-weight: bold;
+  list-style: inside;
+}
+
+.white-box {
+  background-color: $white;
+  padding: 2rem;
+  p {
+    font-style: italic;
+  }
+  .reference {
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-style: normal;
+  }
+}
+
+.example-box {
+  p {
+    padding: 1rem;
+  }
+}
+
+.supplementary {
+  padding: 0 1rem;
+  font-size: 0.6rem;
+}
+
+.img-box {
+  min-height: 20vh;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.painpoint-desc,
+.painpoint-desc li,
+.learning-desc,
+.learning-desc li {
+  font-weight: 200;
+  list-style: none;
+}
+
+.background-box {
+  p {
+    font-size: 1.2rem;
+    letter-spacing: 1.6px;
+    padding-bottom: 5rem;
+  }
+  ul {
+    padding-bottom: 5rem;
+  }
+}
+
+.article2 {
+  margin-bottom: 3rem;
+}
+
+.interview {
+  .supplementary {
+    padding-bottom: 3rem;
+  }
+  .interview-summarys {
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .white-box {
+      margin: 2rem;
+      padding: 1rem;
+      height: 250px;
+      width: 250px;
+      p {
+        font-style: initial;
+      }
+    }
+  }
+}
+
+.persona {
+  .persona-box {
+    padding: 1rem 0;
+  }
+}
+
+.mockup {
+  padding-bottom: 2rem;
+}
+.outcome-box {
+  h2 {
+    padding-bottom: 2rem;
+  }
+}
+
+.prototype {
+  a {
+    font-size: 1rem;
+    letter-spacing: 1.6px;
+    font-family: "Anton", sans-serif;
+    transition: all 0.3s ease-in-out;
+  }
+  a:hover {
+    color: $yellow;
+  }
+}
+
+.scrollup-box {
+  flex-direction: row;
+  width: 100%;
+  padding: 0 4.5rem;
+  justify-content: flex-end;
+  a {
+    cursor: pointer;
+
+    svg {
+      height: 25px;
+      width: 25px;
+    }
+  }
+  a:hover {
+    svg {
+      fill: $yellow;
+    }
+  }
+}
+
+.btn-box {
+  flex-direction: row;
+  padding: 5.5rem 0;
+}
+
+@media screen and (min-width: 1024px) {
+  section {
+    padding: 3rem 13rem;
+  }
+  .background-box {
+    p {
+      font-size: 1.5rem;
+      padding-bottom: 5rem;
+    }
+  }
+  
+
+  .hero-img {
+    background-position: 100% 15%;
+    background-size: cover;
+  }
+}

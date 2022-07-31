@@ -79,13 +79,6 @@ export interface Project {
           attributes: {
             alternativeText: string;
             url: string;
-            // formats:{
-            //   // medium:{
-            //   //   url:string;
-            //   //   width:number;
-            //   //   height:number;
-            //   // }
-            // }
           };
         }
       ];

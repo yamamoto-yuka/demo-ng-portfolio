@@ -15,6 +15,7 @@ import { TrLoginComponent } from './trunkrecords/admin/tr-login/tr-login.compone
 import { TrManageProductsComponent } from './trunkrecords/admin/tr-manage-products/tr-manage-products.component';
 import { TrUpdateComponent } from './trunkrecords/admin/tr-update/tr-update.component';
 import { LoginGuard } from './trunkrecords/auth/login.guard';
+import { CasestudyComponent } from './project-details/casestudy/casestudy.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -22,7 +23,7 @@ const routes: Routes = [
   {path:'projects', component:ProjectsComponent},
   {path:'about', component:AboutComponent},
   {path:'projects/development/:title/:id', component:DevelopmentComponent},
-  {path:'projects/casestudy/:title/:id', component:DevelopmentComponent},
+  {path:'projects/casestudy/:title/:id', component:CasestudyComponent},
   {path:'projects/other/:title/:id', component:OtherComponent},
   {path:'contact', component:ContactComponent},
   // For conference poster site

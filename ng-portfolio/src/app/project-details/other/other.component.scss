@@ -1,4 +1,4 @@
-@import '../../app.component.scss';
+@import "../../app.component.scss";
 
 a,
 h1,
@@ -64,8 +64,6 @@ main {
     letter-spacing: 1.1px;
   }
 
-
-
   .roles-box {
     align-items: flex-start;
     margin-bottom: 1rem;
@@ -115,5 +113,4 @@ section {
       width: 20%;
     }
   }
-  
 }

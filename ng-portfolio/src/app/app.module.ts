@@ -27,6 +27,7 @@ import { TrSignupComponent } from './trunkrecords/admin/tr-signup/tr-signup.comp
 import { TrManageProductsComponent } from './trunkrecords/admin/tr-manage-products/tr-manage-products.component';
 import { TrUpdateComponent } from './trunkrecords/admin/tr-update/tr-update.component';
 import { CommonStyleComponent } from './trunkrecords/common-style/common-style.component';
+import { CasestudyComponent } from './project-details/casestudy/casestudy.component';
 
 
 
@@ -55,6 +56,7 @@ import { CommonStyleComponent } from './trunkrecords/common-style/common-style.c
     TrManageProductsComponent,
     TrUpdateComponent,
     CommonStyleComponent,
+    CasestudyComponent,
   ],
   imports: [
     BrowserModule,

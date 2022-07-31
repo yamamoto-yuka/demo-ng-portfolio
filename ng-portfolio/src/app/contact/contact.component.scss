@@ -38,8 +38,9 @@ main {
       color: $black;
     }
     ul {
-      width: fit-content;
+      width: 100%;
       li {
+        margin-right: 1rem;
         text-align: center;
         font-size: 1rem;
         font-weight: bold;
@@ -83,8 +84,8 @@ main {
           bottom: auto;
         }
       }
-      li:nth-child(2) {
-        margin: 0 1rem;
+      li:last-child {
+        margin-right: 0;
       }
     }
   }

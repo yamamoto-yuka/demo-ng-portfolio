@@ -9,33 +9,7 @@ import { CommonService } from '../services/common.service';
 })
 export class AboutComponent implements OnInit {
   proficiency = '';
-  skills: any[] = [
-    // {
-    //   skillname: 'HTML5',
-    //   level: 90,
-    //   icon:'../../assets/html-5.png'
-    // },
-    // {
-    //   skillname: 'CSS3',
-    //   level: 60,
-    //   icon:'../../assets/html-5.png'
-    // },
-    // {
-    //   skillname: 'JavaScript',
-    //   level: 50,
-    //   icon:'../../assets/html-5.png'
-    // },
-    // {
-    //   skillname: 'Typescript',
-    //   level: 30,
-    //   icon:'../../assets/html-5.png'
-    // },
-    // {
-    //   skillname: 'Angular',
-    //   level: 30,
-    //   icon:'../../assets/html-5.png'
-    // }
-  ];
+  skills: any[] = [];
 
   progress: any;
 

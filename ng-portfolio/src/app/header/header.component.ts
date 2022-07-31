@@ -1,5 +1,4 @@
-import { Component, ElementRef, Input, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { gsap ,Power2} from 'gsap';
+import { Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-header',

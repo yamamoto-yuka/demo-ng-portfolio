@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { damp } from 'three/src/math/MathUtils';
 import { CommonService } from '../services/common.service';
 
 @Component({

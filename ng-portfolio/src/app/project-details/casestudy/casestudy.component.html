@@ -1,0 +1,502 @@
+<div class="details-container">
+  <app-header></app-header>
+  <main>
+    <div class="hero">
+      <div class="title-box wrap">
+        <div class="date">
+          <ul class="wrap">
+            <li>Mar/2022</li>
+            <li><span>-</span></li>
+            <li>Mar/2022</li>
+          </ul>
+        </div>
+        <h1>BioGeek</h1>
+        <p>
+          Interface Planning and Design<br />
+          Case Study<br />(school project)
+        </p>
+      </div>
+
+      <div class="hero-img"></div>
+    </div>
+
+    <section
+      class="background-box wrap"
+      inViewport
+      [inViewportOptions]="{ threshold: [0] }"
+      (inViewportAction)="onIntersection($event)"
+    >
+      <h2>0, Background</h2>
+      <p class="background-title">
+        BioGeek is an edtech startup that makes educational video content for
+        learning biology. This is a story I created to provide UI design
+        suggestions on how users can reduce barriers to e-learning and
+        purchasing online content.
+      </p>
+      <h3>Features of this company</h3>
+      <ul>
+        <li>They stand out because of the quality of their instructors.</li>
+        <li>They target a mature demographic.</li>
+        <li>
+          They want to convey a sense of wonder and professionalism at the same
+          time.
+        </li>
+      </ul>
+      <h3>Requirement Design parts</h3>
+      <ul>
+        <li>A home page</li>
+        <li>A shop page</li>
+        <li>A product page</li>
+      </ul>
+      <h3>What I Did</h3>
+      <ul>
+        <li>Competitive research</li>
+        <li>User research</li>
+        <li>Interactive design</li>
+      </ul>
+    </section>
+
+    <section
+      class="discovery-box wrap"
+      inViewport
+      [inViewportOptions]="{ threshold: [0] }"
+      (inViewportAction)="onIntersection($event)"
+    >
+      <h2>1, THE DISCOVERY</h2>
+      <article>
+        <p>
+          The assignment was to create a website that incorporated a UI
+          perspective, but I also learned about UX perspectives in order to look
+          at the user experience from a broader angle, such as what are the
+          problems in this industry and what problems users are having.
+        </p>
+        <p>
+          Initially, among the educational video content, I wanted to check the
+          large market information, so I decided to refer to research and survey
+          information about the MOOC.
+        </p>
+        <p class="supplementary">
+          ( MOOC stands for Massive Open Online Course and represents an
+          instructional approach that permits hundreds of thousands of students
+          to access online courses anywhere around the world and typically free
+          of charge. )
+        </p>
+      </article>
+      <article>
+        <h3>Understanding the problem on this market</h3>
+        <p>
+          I used as resources some articles that consider the problems facing
+          the MOOC market and their solutions.
+        </p>
+        <div class="articl1 white-box">
+          <p>
+            The majority of learners will either drop out of the course entirely
+            or complete the course without any transferable credits.
+          </p>
+          <p>
+            Think creatively and innovatively and to explore new pedagogical
+            practices for learners motivation, participatory learning and also
+            to satisfy individual learners need.
+          </p>
+          <p class="reference">
+            Refer to Dr. P. Malliga’s “A SURVEY ON MOOC PROVIDERS FOR HIGHER
+            EDUCATION”
+          </p>
+        </div>
+        <p>
+          One of the major disadvantages of online learning was maintaining
+          motivation.
+        </p>
+        <p>
+          I also looked up articles with detailed surveys to find out what
+          causes users to lose motivation.
+        </p>
+        <div class="article2 white-box">
+          <p>
+            While those who completed their MOOC successfully did not mention
+            the role of human (instructor or peer) interaction, this was a major
+            theme that emerged from the comments of those that did not complete.
+            Participants mentioned feeling isolated and alone with poor
+            communication with instructor and peers; they described being
+            unmotivated to continue due to low interaction and poor feedback and
+            communication with both instructors and peers, with no teamwork or
+            group interaction; they complained that the instructor did not
+            praise or motivate them after quizzes; and they stated that
+            instructors did not engage learners in discussion or facilitate
+            brainstorming.
+          </p>
+          <div class="example-box">
+            <p>For example:</p>
+            <p>
+              “I did not continue with the Coursera course as I was demotivated
+              due to poor instructor's feedback”
+            </p>
+            <p>“The instructor did not praise learners”</p>
+            <p>“The instructor didn't … engage us in discussions”</p>
+          </div>
+          <p>
+            Another clear theme from those who completed concerned the packaging
+            of material, especially video, into small chunks which could be
+            flexibly accessed. For example participants praised the use of short
+            videos and course organisation that allowed them to skip some
+            sessions. Conversely, participants who did not complete emphasised
+            the presence of very long videos (of an hour or more) which were
+            both boring and difficult to load due to connectivity issues
+            especially from mobile devices, and which made it difficult to scan
+            for relevant content.
+          </p>
+          <div class="example-box">
+            <p>For example:</p>
+            <p>“Contents are overwhelming and not given in small chunks”</p>
+            <p>“Course was not easy to scan in terms of content”</p>
+          </div>
+          <p class="reference">
+            Refer to Kate S. Hone, Ghada R. El's “Exploring the factors
+            affecting MOOC retention: A survey study”
+          </p>
+        </div>
+        <p>
+          Based on the results of the user survey, I examined what users wanted.
+        </p>
+        <ul>
+          <li>Accurate feedback from the instructor</li>
+          <li>
+            The importance of motivational communication from the instructor to
+            maintain motivation
+          </li>
+          <li>Time for discussion and brain-streaming with the instructor</li>
+          <li>Communication with peers</li>
+          <li>
+            The importance of packaging educational materials, especially
+            videos, into small chunks that can be accessed flexibly
+          </li>
+        </ul>
+      </article>
+
+      <article class="interview">
+        <h3>Interviews</h3>
+        <p>
+          Next step, I conducted interviews with students and working
+          professionals who work for engineering firms.
+        </p>
+        <p class="supplementary">
+          Interview target: <br />
+          As for students, I targeted graduate students in engineering
+          (mechanical engineering, science and engineering (chemistry and life
+          sciences departments), and environmental engineering). 5 students
+          <br />As for working professionals, I targeted those working in
+          science-related technical fields (chemical research and development,
+          plant design, etc.).　 5 persons
+        </p>
+        <p>
+          Following were some of the questions asked to them on a phone
+          call/google meet interview:
+        </p>
+        <ul>
+          <li>Purpose of using video learning</li>
+          <li>What is the advantage of video content?</li>
+          <li>
+            If you have experienced interruptions in the middle of content, what
+            were the reasons for the interruptions?
+          </li>
+          <li>What devices do you use to search for and view video content?</li>
+          <li>
+            When you are studying, what do you wish there was such a function or
+            site?
+          </li>
+        </ul>
+        <p>
+          Then I grouped the most common responses from interviews and observed
+          different aspects of the problem.
+        </p>
+        <div class="interview-summarys wrap">
+          <div class="white-box wrap">
+            <h4>Category and filter functions</h4>
+            <p>
+              Many people found it painful to find the right product for them. I
+              also found that many people check the contents of multiple
+              reviews.
+            </p>
+          </div>
+          <div class="white-box wrap">
+            <h4>Content Details</h4>
+            <p>
+              Many targets said they would like the ability to view a sample
+              video or view a few of the real products before purchasing.
+            </p>
+          </div>
+          <div class="white-box wrap">
+            <h4>Mobile support, offline support</h4>
+            <p>
+              Many targets said they would like the ability to view a sample
+              video or view a few of the real products before purchasing.
+            </p>
+          </div>
+        </div>
+        <p>
+          Through these researchs, I was able to understand what kind of content
+          and services users are looking for.
+        </p>
+      </article>
+
+      <article>
+        <h3>Competitors</h3>
+        <p>
+          The next step was to understand the competitor's site and examine more
+          specifically what the problems were from a UI perspective.
+        </p>
+        <p>
+          I did my research in detail on Udemy, where I can see a lot of
+          customer reviews.
+        </p>
+        <p>There were many critical reviews, including the following</p>
+        <ul>
+          <li>Difficulty in viewing categories</li>
+          <li>System is slow, no offline operation</li>
+          <li>Unable to obtain an approved certificate</li>
+        </ul>
+      </article>
+    </section>
+
+    <section
+      class="explore-box wrap"
+      inViewport
+      [inViewportOptions]="{ threshold: [0] }"
+      (inViewportAction)="onIntersection($event)"
+    >
+      <h2>2, THE EXPLORE</h2>
+      <article class="persona">
+        <h3>Persona & User Journey</h3>
+        <p>Based on interviews and research of Udemy, I created my persona.</p>
+        <p>
+          I also created a user journey map based on that persona and summarized
+          the pain points.
+        </p>
+        <div class="persona-box">
+          <p>MIA is persona as a student user.</p>
+          <div class="persona img-box">
+            <img
+              src="../../../assets/casestudy/PERSONA1.png"
+              alt="biogeek persona1"
+            />
+          </div>
+          <div class="userjourney img-box">
+            <img
+              src="../../../assets/casestudy/JourneyMapSample1.png"
+              alt="biogeek persona1 user journey"
+            />
+          </div>
+        </div>
+
+        <div class="persona-box">
+          <p>ISSAC is persona as a working user.</p>
+          <div class="persona img-box">
+            <img
+              src="../../../assets/casestudy/PERSONA2.png"
+              alt="biogeek persona2"
+            />
+          </div>
+          <div class="userjourney img-box">
+            <img
+              src="../../../assets/casestudy/JourneyMapSample2.png"
+              alt="biogeek persona2 user journey"
+            />
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <h3>Finding Further Pain Points</h3>
+        <p>
+          In order to make sure that the personas and user journeys I came up
+          with were appropriate, I asked friends and actually used sites such as
+          Udemy myself to see if I really felt the pain points I considered.
+        </p>
+        <p>
+          Based on these verifications, I have summarized the key points that
+          should be applied in the information architecture and wireframes.
+        </p>
+        <ul>
+          <li class="painpoint-title">Category</li>
+          <li class="painpoint-desc">
+            <ul>
+              <li>
+                Create detailed, easy-to-read categories that are useful to
+                mature users.
+              </li>
+            </ul>
+          </li>
+          <li class="painpoint-title">Filter function</li>
+          <li class="painpoint-desc">
+            <ul>
+              <li>
+                Create a filter function that allows users to find content that
+                suits them.
+              </li>
+            </ul>
+          </li>
+          <li class="painpoint-title">Hierarchy</li>
+          <li class="painpoint-desc">
+            <ul>
+              <li>
+                Reduce the number of pages as much as possible so that users can
+                reach the desired page.
+              </li>
+            </ul>
+          </li>
+          <li class="painpoint-title">Breadcrumbs</li>
+          <li class="painpoint-desc">
+            <ul>
+              <li>
+                Display a breadcrumb list on every page so that users can
+                quickly see where they are.
+              </li>
+            </ul>
+          </li>
+          <li class="painpoint-title">Details of Contents</li>
+          <li class="painpoint-desc">
+            <ul>
+              <li>
+                Provide appropriate information that users want to confirm
+                before making a purchase.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+    </section>
+    <section
+      class="design-box wrap"
+      inViewport
+      [inViewportOptions]="{ threshold: [0] }"
+      (inViewportAction)="onIntersection($event)"
+    >
+      <h2>3, DESIGN</h2>
+      <article>
+        <h3>Wireframe</h3>
+        <p>
+          I checked with the instructor at the wireframe stage to make sure
+          there were no confusions in the context or icon display, and then
+          proceeded to the mockups.
+        </p>
+        <div class="wireframe img-box">
+          <img
+            src="../../../assets/casestudy/wireframe.png"
+            alt="biogeek wireframe"
+          />
+        </div>
+      </article>
+      <article>
+        <h3>Mock-up</h3>
+        <p>
+          As a design idea, I decided to incorporate 3D images and gradient
+          colors, which are design trends, to convey a sense of wonder.
+        </p>
+        <div class="mockup img-box">
+          <img
+            src="../../../assets/casestudy/mock-up1.png"
+            alt="biogeek mockup category nav, homepage, list of products page"
+          />
+        </div>
+        <p>
+          On the product detail pages, I considered the required hierarchy of
+          information based on the interviews and incorporated ratings, mobile
+          device descriptions, sample videos, and other information.
+        </p>
+        <div class="mockup img-box">
+          <img
+            src="../../../assets/casestudy/mock-up2.png"
+            alt="biogeek mockup product detail page"
+          />
+        </div>
+      </article>
+      <article class="prototype">
+        <h3>Final Prototype</h3>
+        <p>Here is the simple prototype.</p>
+        <a
+          href="https://www.figma.com/proto/fVwIQPoQ2S4vaufj8D6jix/Interface-Planning-and-Design?page-id=128%3A689&node-id=225%3A122&viewport=124%2C343%2C0.08&scaling=min-zoom&starting-point-node-id=225%3A122"
+          target="_blank"
+        >
+          VIEW PROTOTYPE
+        </a>
+      </article>
+    </section>
+    <section
+      class="outcome-box wrap"
+      inViewport
+      [inViewportOptions]="{ threshold: [0] }"
+      (inViewportAction)="onIntersection($event)"
+    >
+      <h2>4, Outcome</h2>
+      <h3>Learnings</h3>
+      <div class="outcome-learnings">
+        <ul>
+          <li class="learning-title">Understanding of research methods</li>
+          <li class="learning-desc">
+            <ul>
+              <li>
+                I was able to learn about the research process for UI design.
+                Also, I could understand the similarities and relativities of UX
+                and UI design and their respective contents through practice.
+              </li>
+            </ul>
+          </li>
+          <li class="learning-title">Time Management</li>
+          <li class="learning-desc">
+            <ul>
+              <li>
+                It was difficult to think about what to prioritize and how to
+                take the initiative to complete tasks within the three-month
+                deadline. There are many more things I would like to add, but I
+                was reminded of the importance of balancing time and what I can
+                do...
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <h3>Future challenge</h3>
+      <div class="outcome-learnings">
+        <ul>
+          <li class="learning-title">Test iterations</li>
+          <li class="learning-desc">
+            <ul>
+              <li>
+                Since usability testing of prototypes has not been done, this
+                should be done and tested iteratively.
+              </li>
+            </ul>
+          </li>
+          <li class="learning-title">Interactive Design Enhancements</li>
+          <li class="learning-desc">
+            <ul>
+              <li>
+                Since it took time to determine and design the content content
+                for this project, I would like to further improve the
+                interactive design of the animation and movement portion of the
+                project.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <p>Thank you very much!</p>
+    </section>
+
+    <div class="scrollup-box wrap">
+      <a (click)="backToTop($event)"
+        ><svg viewBox="0 0 448 512">
+          <path
+            d="M416 352c-8.188 0-16.38-3.125-22.62-9.375L224 173.3l-169.4 169.4c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25l192-192c12.5-12.5 32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25C432.4 348.9 424.2 352 416 352z"
+          /></svg></a>
+    </div>
+    <div class="btn-box wrap">
+      <button routerLink="/projects" class="more-btn" role="button">
+        <span class="text">See More Projects</span
+        ><span>Thanks for your interest!</span>
+      </button>
+    </div>
+  </main>
+  <app-footer></app-footer>
+</div>
